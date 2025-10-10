@@ -101,7 +101,7 @@ export default function BillCard({ bill }: BillCardProps) {
 
   return (
     <Link
-      href={`/bills/${encodeURIComponent(bill.bill_number)}`}
+      href={`/bills/${encodeURIComponent(bill.bill_number)}/`}
       className="card p-6 block group transition-all duration-200 hover:scale-[1.02]"
     >
       {/* Header: Bill number and status */}
