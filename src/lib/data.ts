@@ -50,6 +50,15 @@ const METADATA_PATH = join(DATA_DIR, 'bills', 'metadata.json')
 // ============================================================================
 
 /**
+ * Check if a bill is a post office naming bill
+ */
+function isPostOfficeBill(bill: Bill): boolean {
+  const title = bill.title.toLowerCase()
+  return title.includes('united states postal service') ||
+         (title.includes('post office') && title.includes('designate'))
+}
+
+/**
  * Get all bills metadata (index)
  *
  * @returns Promise resolving to bills metadata
@@ -78,7 +87,9 @@ export async function getAllBills(): Promise<BillMetadata> {
       })
     )
 
-    const validBills = bills.filter((b): b is Bill => b !== null)
+    const validBills = bills
+      .filter((b): b is Bill => b !== null)
+      .filter(b => !isPostOfficeBill(b)) // Filter out post office bills
 
     // Adapt to frontend format
     const metadata = adaptPipelineMetadata(pipelineData, validBills)
@@ -117,7 +128,9 @@ export async function getAllBillsFull(): Promise<Bill[]> {
       })
     )
 
-    return bills.filter((b): b is Bill => b !== null)
+    return bills
+      .filter((b): b is Bill => b !== null)
+      .filter(b => !isPostOfficeBill(b)) // Filter out post office bills
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(`Failed to load bills: ${error.message}`)

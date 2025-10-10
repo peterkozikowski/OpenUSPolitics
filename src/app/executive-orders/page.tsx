@@ -1,21 +1,39 @@
-import { Suspense } from 'react'
-import Link from 'next/link'
-import { getAllBillsFull } from '@/lib/data'
+import { Metadata } from 'next'
 import { getAllExecutiveOrdersFull } from '@/lib/executive-orders'
-import BillFilters from '@/components/BillFilters'
-import SearchBar from '@/components/SearchBar'
-import BillList from '@/components/BillList'
 import ExecutiveOrderCard from '@/components/ExecutiveOrderCard'
 
-export default async function HomePage() {
-  // Fetch all bills at build time for static export
-  const bills = await getAllBillsFull()
+export const metadata: Metadata = {
+  title: 'Executive Orders | OpenUSPolitics.org',
+  description: 'Presidential executive orders explained in plain English. Non-partisan AI analysis of executive actions from the White House.',
+  keywords: [
+    'executive orders',
+    'presidential orders',
+    'White House',
+    'presidential actions',
+    'federal government',
+    'Biden executive orders',
+    'Trump executive orders',
+  ],
+}
 
-  // Fetch recent executive orders
-  const allOrders = await getAllExecutiveOrdersFull()
-  const recentOrders = allOrders
-    .sort((a, b) => new Date(b.signing_date).getTime() - new Date(a.signing_date).getTime())
-    .slice(0, 6) // Show 6 most recent orders
+export default async function ExecutiveOrdersPage() {
+  // Fetch all executive orders at build time for static export
+  const orders = await getAllExecutiveOrdersFull()
+
+  // Sort by signing date (most recent first)
+  const sortedOrders = orders.sort((a, b) => {
+    return new Date(b.signing_date).getTime() - new Date(a.signing_date).getTime()
+  })
+
+  // Create summaries for cards
+  const orderSummaries = sortedOrders.map((order) => ({
+    executive_order_number: order.executive_order_number,
+    title: order.title,
+    president: order.president,
+    signing_date: order.signing_date,
+    status: order.status,
+    topic: order.topic,
+  }))
 
   return (
     <div className="min-h-screen bg-neutral-50">
@@ -24,28 +42,21 @@ export default async function HomePage() {
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-              Congress in Plain English
+              Executive Orders in Plain English
             </h1>
             <p className="text-xl md:text-2xl text-primary-100 mb-8 text-balance">
-              Every major bill explained without partisan spin or legalese.
-              Updated daily with AI-powered analysis.
+              Presidential executive orders explained without partisan spin or legal jargon.
+              AI-powered analysis of White House directives.
             </p>
-
-            {/* Search Bar */}
-            <div className="max-w-2xl mx-auto">
-              <Suspense fallback={<div className="h-16 bg-white/10 rounded-xl animate-pulse" />}>
-                <SearchBar />
-              </Suspense>
-            </div>
 
             {/* Stats */}
             <div className="mt-12 flex flex-wrap justify-center gap-8 text-center">
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-white">
-                  {bills.length}
+                  {orders.length}
                 </div>
                 <div className="text-sm text-primary-200 mt-1">
-                  Bills Analyzed
+                  Orders Analyzed
                 </div>
               </div>
               <div>
@@ -69,59 +80,58 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Recent Executive Orders Section */}
-      {recentOrders.length > 0 && (
-        <section className="bg-white border-b border-neutral-200 py-12">
-          <div className="container">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h2 className="text-3xl font-bold text-neutral-900">
-                  Recent Executive Orders
-                </h2>
-                <p className="text-neutral-600 mt-2">
-                  Presidential directives explained in plain English
-                </p>
-              </div>
-              <Link
-                href="/executive-orders/"
-                className="btn-primary text-sm"
-              >
-                View All Orders →
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {recentOrders.map((order) => (
-                <ExecutiveOrderCard
-                  key={order.executive_order_number}
-                  order={{
-                    executive_order_number: order.executive_order_number,
-                    title: order.title,
-                    president: order.president,
-                    signing_date: order.signing_date,
-                    status: order.status,
-                    topic: order.topic,
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Main Content */}
       <section className="container py-8 md:py-12">
-        {/* Filters */}
-        <div className="mb-8">
-          <Suspense fallback={<div className="h-20 bg-white rounded-xl border border-neutral-200 animate-pulse" />}>
-            <BillFilters />
-          </Suspense>
+        {/* Results Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+          <div>
+            <h2 className="text-2xl font-bold text-neutral-900">
+              Recent Executive Orders
+            </h2>
+            <p className="text-neutral-600 mt-1">
+              {orders.length === 0 ? (
+                'No executive orders found'
+              ) : (
+                <>
+                  Showing {orders.length} executive {orders.length === 1 ? 'order' : 'orders'}
+                </>
+              )}
+            </p>
+          </div>
         </div>
 
-        {/* Bill List with client-side filtering */}
-        <Suspense fallback={<div className="h-96 bg-white rounded-xl border border-neutral-200 animate-pulse" />}>
-          <BillList bills={bills} />
-        </Suspense>
+        {/* Executive Order Grid */}
+        {orderSummaries.length === 0 ? (
+          <div className="text-center py-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-neutral-100 rounded-full mb-4">
+              <svg
+                className="w-8 h-8 text-neutral-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+              No executive orders found
+            </h3>
+            <p className="text-neutral-600 mb-6">
+              Executive orders will appear here once they are analyzed
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {orderSummaries.map((order) => (
+              <ExecutiveOrderCard key={order.executive_order_number} order={order} />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Value Proposition */}
@@ -129,7 +139,7 @@ export default async function HomePage() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-neutral-900 mb-12">
-              Why OpenUSPolitics.org?
+              Understanding Executive Power
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -150,10 +160,10 @@ export default async function HomePage() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                  100% Non-Partisan
+                  Plain English
                 </h3>
                 <p className="text-neutral-600">
-                  Strictly objective analysis with no political bias or editorial spin
+                  Executive orders translated from legal jargon into clear, accessible language
                 </p>
               </div>
 
@@ -174,10 +184,10 @@ export default async function HomePage() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                  AI-Powered Analysis
+                  Impact Analysis
                 </h3>
                 <p className="text-neutral-600">
-                  Advanced AI translates complex legislation into plain English
+                  Understand the real-world effects of presidential directives on citizens and agencies
                 </p>
               </div>
 
@@ -198,10 +208,10 @@ export default async function HomePage() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                  Fully Transparent
+                  Non-Partisan
                 </h3>
                 <p className="text-neutral-600">
-                  Open source code and full traceability to original bill text
+                  Objective analysis without political bias or editorial spin
                 </p>
               </div>
             </div>

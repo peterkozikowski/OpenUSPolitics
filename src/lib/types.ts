@@ -62,6 +62,21 @@ export enum BillTopic {
   OTHER = 'other',
 }
 
+/**
+ * Executive order status
+ */
+export enum ExecutiveOrderStatus {
+  ACTIVE = 'active',
+  REVOKED = 'revoked',
+  AMENDED = 'amended',
+  EXPIRED = 'expired',
+}
+
+/**
+ * Executive order topic categories (uses same categories as bills)
+ */
+export type ExecutiveOrderTopic = BillTopic
+
 // ============================================================================
 // CORE DATA TYPES
 // ============================================================================
@@ -200,6 +215,76 @@ export interface BillMetadata {
   last_updated: string
   /** Array of bill summaries */
   bills: BillSummary[]
+}
+
+// ============================================================================
+// EXECUTIVE ORDER TYPES
+// ============================================================================
+
+/**
+ * Complete executive order data structure
+ */
+export interface ExecutiveOrder {
+  /** Executive order number (e.g., "14110") */
+  executive_order_number: string
+  /** Official title */
+  title: string
+  /** President who signed the order */
+  president: string
+  /** ISO 8601 date when order was signed */
+  signing_date: string
+  /** ISO 8601 date of publication in Federal Register */
+  publication_date: string
+  /** Federal Register document number */
+  document_number: string
+  /** Current status */
+  status: ExecutiveOrderStatus
+  /** Topic categories */
+  topic: ExecutiveOrderTopic[]
+  /** AI-generated plain English summary */
+  plain_english_summary: string
+  /** Key provisions extracted from order */
+  key_provisions: string[]
+  /** Practical impact on citizens and agencies */
+  practical_impact: string
+  /** URL to Federal Register page */
+  html_url: string
+  /** URL to full text XML */
+  full_text_xml_url: string
+  /** URL to full text HTML */
+  body_html_url: string
+  /** Abstract from Federal Register */
+  abstract: string | null
+  /** ISO 8601 date of last update */
+  last_updated: string
+  /** Provenance links for traceability */
+  provenance: ProvenanceLink[]
+  /** Source text chunks */
+  source_chunks: DocumentChunk[]
+}
+
+/**
+ * Simplified executive order info for lists and indexes
+ */
+export interface ExecutiveOrderSummary {
+  executive_order_number: string
+  title: string
+  president: string
+  signing_date: string
+  status: ExecutiveOrderStatus
+  topic: ExecutiveOrderTopic[]
+}
+
+/**
+ * Metadata index for all executive orders in the database
+ */
+export interface ExecutiveOrderMetadata {
+  /** Total number of executive orders in database */
+  total_orders: number
+  /** ISO 8601 timestamp of last update */
+  last_updated: string
+  /** Array of executive order summaries */
+  executive_orders: ExecutiveOrderSummary[]
 }
 
 // ============================================================================
@@ -344,6 +429,51 @@ export const BillMetadataSchema = z.object({
   total_bills: z.number().int().nonnegative(),
   last_updated: z.string().datetime(),
   bills: z.array(BillSummarySchema),
+})
+
+/**
+ * Zod schema for ExecutiveOrder validation
+ */
+export const ExecutiveOrderSchema = z.object({
+  executive_order_number: z.string().min(1),
+  title: z.string().min(1),
+  president: z.string().min(1),
+  signing_date: z.string(),
+  publication_date: z.string(),
+  document_number: z.string().min(1),
+  status: z.nativeEnum(ExecutiveOrderStatus),
+  topic: z.array(z.nativeEnum(BillTopic)),
+  plain_english_summary: z.string().min(1),
+  key_provisions: z.array(z.string().min(1)),
+  practical_impact: z.string().min(1),
+  html_url: z.string().url(),
+  full_text_xml_url: z.string().url(),
+  body_html_url: z.string().url(),
+  abstract: z.string().nullable(),
+  last_updated: z.string(),
+  provenance: z.array(ProvenanceLinkSchema),
+  source_chunks: z.array(DocumentChunkSchema),
+})
+
+/**
+ * Zod schema for ExecutiveOrderSummary validation
+ */
+export const ExecutiveOrderSummarySchema = z.object({
+  executive_order_number: z.string().min(1),
+  title: z.string().min(1),
+  president: z.string().min(1),
+  signing_date: z.string(),
+  status: z.nativeEnum(ExecutiveOrderStatus),
+  topic: z.array(z.nativeEnum(BillTopic)),
+})
+
+/**
+ * Zod schema for ExecutiveOrderMetadata validation
+ */
+export const ExecutiveOrderMetadataSchema = z.object({
+  total_orders: z.number().int().nonnegative(),
+  last_updated: z.string(),
+  executive_orders: z.array(ExecutiveOrderSummarySchema),
 })
 
 // ============================================================================

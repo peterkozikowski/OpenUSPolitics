@@ -1,0 +1,209 @@
+{
+  "executive_orders": {
+    "EO 14345": {
+      "file": "EO_14345.json",
+      "title": "Implementing the United States-Japan Agreement",
+      "president": "Unknown",
+      "signing_date": "2025-09-04",
+      "last_updated": "2025-10-10T16:21:42.464978"
+    },
+    "EO 14355": {
+      "file": "EO_14355.json",
+      "title": "Unlocking Cures for Pediatric Cancer With Artificial Intelligence",
+      "president": "Unknown",
+      "signing_date": "2025-09-30",
+      "last_updated": "2025-10-10T16:13:43.041020"
+    },
+    "EO 14350": {
+      "file": "EO_14350.json",
+      "title": "Further Extending the TikTok Enforcement Delay",
+      "president": "Unknown",
+      "signing_date": "2025-09-16",
+      "last_updated": "2025-10-10T16:13:43.041279"
+    },
+    "EO 14336": {
+      "file": "EO_14336.json",
+      "title": "Ensuring American Pharmaceutical Supply Chain Resilience by Filling the Strategic Active Pharmaceutical Ingredients Reserve",
+      "president": "Unknown",
+      "signing_date": "2025-08-13",
+      "last_updated": "2025-10-10T16:21:42.465936"
+    },
+    "EO 14332": {
+      "file": "EO_14332.json",
+      "title": "Improving Oversight of Federal Grantmaking",
+      "president": "Unknown",
+      "signing_date": "2025-08-07",
+      "last_updated": "2025-10-10T16:21:42.466303"
+    },
+    "EO 14351": {
+      "file": "EO_14351.json",
+      "title": "The Gold Card",
+      "president": "Unknown",
+      "signing_date": "2025-09-19",
+      "last_updated": "2025-10-10T16:13:43.041242"
+    },
+    "EO 14340": {
+      "file": "EO_14340.json",
+      "title": "Measures To End Cashless Bail and Enforce the Law in the District of Columbia",
+      "president": "Unknown",
+      "signing_date": "2025-08-25",
+      "last_updated": "2025-10-10T16:21:42.465579"
+    },
+    "EO 14346": {
+      "file": "EO_14346.json",
+      "title": "Modifying the Scope of Reciprocal Tariffs and Establishing Procedures for Implementing Trade and Security Agreements",
+      "president": "Unknown",
+      "signing_date": "2025-09-05",
+      "last_updated": "2025-10-10T16:21:42.464789"
+    },
+    "EO 14353": {
+      "file": "EO_14353.json",
+      "title": "Assuring the Security of the State of Qatar",
+      "president": "Unknown",
+      "signing_date": "2025-09-29",
+      "last_updated": "2025-10-10T16:13:43.041157"
+    },
+    "EO 14330": {
+      "file": "EO_14330.json",
+      "title": "Democratizing Access to Alternative Assets for 401(k) Investors",
+      "president": "Unknown",
+      "signing_date": "2025-08-07",
+      "last_updated": "2025-10-10T16:21:42.466502"
+    },
+    "EO 14327": {
+      "file": "EO_14327.json",
+      "title": "President's Council on Sports, Fitness, and Nutrition, and the Reestablishment of the Presidential Fitness Test",
+      "president": "Unknown",
+      "signing_date": "2025-07-31",
+      "last_updated": "2025-10-10T16:21:42.466776"
+    },
+    "EO 14331": {
+      "file": "EO_14331.json",
+      "title": "Guaranteeing Fair Banking for All Americans",
+      "president": "Unknown",
+      "signing_date": "2025-08-07",
+      "last_updated": "2025-10-10T16:21:42.466403"
+    },
+    "EO 14344": {
+      "file": "EO_14344.json",
+      "title": "Making Federal Architecture Beautiful Again",
+      "president": "Unknown",
+      "signing_date": "2025-08-28",
+      "last_updated": "2025-10-10T16:21:42.465098"
+    },
+    "EO 14338": {
+      "file": "EO_14338.json",
+      "title": "Improving Our Nation Through Better Design",
+      "president": "Unknown",
+      "signing_date": "2025-08-21",
+      "last_updated": "2025-10-10T16:21:42.465755"
+    },
+    "EO 14341": {
+      "file": "EO_14341.json",
+      "title": "Prosecuting Burning of the American Flag",
+      "president": "Unknown",
+      "signing_date": "2025-08-25",
+      "last_updated": "2025-10-10T16:21:42.465495"
+    },
+    "EO 14352": {
+      "file": "EO_14352.json",
+      "title": "Saving TikTok While Protecting National Security",
+      "president": "Unknown",
+      "signing_date": "2025-09-25",
+      "last_updated": "2025-10-10T16:13:43.041202"
+    },
+    "EO 14328": {
+      "file": "EO_14328.json",
+      "title": "Establishing the White House Task Force on the 2028 Summer Olympics",
+      "president": "Unknown",
+      "signing_date": "2025-08-05",
+      "last_updated": "2025-10-10T16:21:42.466687"
+    },
+    "EO 14333": {
+      "file": "EO_14333.json",
+      "title": "Declaring a Crime Emergency in the District of Columbia",
+      "president": "Unknown",
+      "signing_date": "2025-08-11",
+      "last_updated": "2025-10-10T16:21:42.466215"
+    },
+    "EO 14347": {
+      "file": "EO_14347.json",
+      "title": "Restoring the United States Department of War",
+      "president": "Unknown",
+      "signing_date": "2025-09-05",
+      "last_updated": "2025-10-10T16:13:43.041452"
+    },
+    "EO 14334": {
+      "file": "EO_14334.json",
+      "title": "Further Modifying Reciprocal Tariff Rates To Reflect Ongoing Discussions With the People's Republic of China",
+      "president": "Unknown",
+      "signing_date": "2025-08-11",
+      "last_updated": "2025-10-10T16:21:42.466122"
+    },
+    "EO 14337": {
+      "file": "EO_14337.json",
+      "title": "Revocation of Executive Order on Competition",
+      "president": "Unknown",
+      "signing_date": "2025-08-13",
+      "last_updated": "2025-10-10T16:21:42.465845"
+    },
+    "EO 14339": {
+      "file": "EO_14339.json",
+      "title": "Additional Measures To Address the Crime Emergency in the District of Columbia",
+      "president": "Unknown",
+      "signing_date": "2025-08-25",
+      "last_updated": "2025-10-10T16:21:42.465670"
+    },
+    "EO 14349": {
+      "file": "EO_14349.json",
+      "title": "Establishing an Emergency Board To Investigate Disputes Between the Long Island Rail Road Company and Certain of Its Employees Represented by Certain Labor Organizations",
+      "president": "Unknown",
+      "signing_date": "2025-09-16",
+      "last_updated": "2025-10-10T16:13:43.041372"
+    },
+    "EO 14342": {
+      "file": "EO_14342.json",
+      "title": "Taking Steps To End Cashless Bail To Protect Americans",
+      "president": "Unknown",
+      "signing_date": "2025-08-25",
+      "last_updated": "2025-10-10T16:21:42.465398"
+    },
+    "EO 14335": {
+      "file": "EO_14335.json",
+      "title": "Enabling Competition in the Commercial Space Industry",
+      "president": "Unknown",
+      "signing_date": "2025-08-13",
+      "last_updated": "2025-10-10T16:21:42.466033"
+    },
+    "EO 14354": {
+      "file": "EO_14354.json",
+      "title": "Continuance of Certain Federal Advisory Committees",
+      "president": "Unknown",
+      "signing_date": "2025-09-29",
+      "last_updated": "2025-10-10T16:13:43.041109"
+    },
+    "EO 14329": {
+      "file": "EO_14329.json",
+      "title": "Addressing Threats to the United States by the Government of the Russian Federation",
+      "president": "Unknown",
+      "signing_date": "2025-08-06",
+      "last_updated": "2025-10-10T16:21:42.466590"
+    },
+    "EO 14343": {
+      "file": "EO_14343.json",
+      "title": "Further Exclusions From the Federal Labor- Management Relations Program",
+      "president": "Unknown",
+      "signing_date": "2025-08-28",
+      "last_updated": "2025-10-10T16:21:42.465191"
+    },
+    "EO 14348": {
+      "file": "EO_14348.json",
+      "title": "Strengthening Efforts To Protect U.S. Nationals From Wrongful Detention Abroad",
+      "president": "Unknown",
+      "signing_date": "2025-09-05",
+      "last_updated": "2025-10-10T16:13:43.041414"
+    }
+  },
+  "total_orders": 29,
+  "last_updated": "2025-10-10T16:21:42.467616"
+}
