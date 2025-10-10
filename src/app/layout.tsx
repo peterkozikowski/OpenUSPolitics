@@ -14,11 +14,16 @@ export const metadata: Metadata = {
   description: 'Every major bill in Congress, explained without partisan spin or legalese. Non-partisan analysis powered by AI.',
   keywords: ['congress', 'legislation', 'bills', 'plain english', 'non-partisan', 'bill analysis', 'US politics'],
   authors: [{ name: 'OpenUSPolitics Contributors' }],
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'OpenUSPolitics.org - Congress in Plain English',
     description: 'Every major bill in Congress, explained without partisan spin or legalese.',
     type: 'website',
     siteName: 'OpenUSPolitics.org',
+    url: 'https://openuspolitics.org',
   },
   twitter: {
     card: 'summary_large_image',
@@ -29,6 +34,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  metadataBase: new URL('https://openuspolitics.org'),
 }
 
 export default function RootLayout({

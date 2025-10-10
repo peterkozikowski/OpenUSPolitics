@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Red and white stripes background -->
+  <rect width="100" height="100" fill="#B22234"/>
+  <rect y="14.3" width="100" height="14.3" fill="#FFFFFF"/>
+  <rect y="42.9" width="100" height="14.3" fill="#FFFFFF"/>
+  <rect y="71.4" width="100" height="14.3" fill="#FFFFFF"/>
+
+  <!-- Blue canton -->
+  <rect width="40" height="50" fill="#3C3B6E"/>
+
+  <!-- Single star in center (simplified for icon) -->
+  <path d="M 20 10 L 23 20 L 33 20 L 25 26 L 28 36 L 20 30 L 12 36 L 15 26 L 7 20 L 17 20 Z" fill="#FFFFFF"/>
+</svg>
