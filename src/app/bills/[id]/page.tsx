@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getBillData } from '@/lib/data'
+import { getBillData, getAllBills } from '@/lib/data'
 import BillHeader from '@/components/BillHeader'
 import BillTabs from '@/components/BillTabs'
 
@@ -8,6 +8,17 @@ interface BillPageProps {
   params: Promise<{
     id: string
   }>
+}
+
+/**
+ * Generate static params for all bills at build time
+ */
+export async function generateStaticParams() {
+  const metadata = await getAllBills()
+
+  return metadata.bills.map((bill) => ({
+    id: encodeURIComponent(bill.bill_number),
+  }))
 }
 
 /**

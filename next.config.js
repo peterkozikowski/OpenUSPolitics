@@ -2,10 +2,9 @@
 const nextConfig = {
   /**
    * STATIC EXPORT CONFIGURATION
-   * Disabled temporarily to allow dynamic routes to build
-   * Re-enable after implementing generateStaticParams() for all dynamic routes
+   * Enabled for Cloudflare Pages deployment
    */
-  // output: 'export',
+  output: 'export',
 
   /**
    * IMAGE OPTIMIZATION

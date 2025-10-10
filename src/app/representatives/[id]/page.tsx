@@ -13,6 +13,22 @@ interface RepresentativePageProps {
 }
 
 /**
+ * Generate static params for all representatives at build time
+ */
+export async function generateStaticParams() {
+  const metadata = await getAllBills()
+
+  // Get unique sponsor names
+  const uniqueSponsors = new Set(
+    metadata.bills.map((bill) => bill.sponsor_name.toLowerCase())
+  )
+
+  return Array.from(uniqueSponsors).map((name) => ({
+    id: encodeURIComponent(name),
+  }))
+}
+
+/**
  * Generate metadata for SEO
  */
 export async function generateMetadata({
