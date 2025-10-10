@@ -1,46 +1,12 @@
-import { filterBills } from '@/lib/data'
-import { BillStatus, BillTopic } from '@/lib/types'
-import BillCard from '@/components/BillCard'
+import { Suspense } from 'react'
+import { getAllBillsFull } from '@/lib/data'
 import BillFilters from '@/components/BillFilters'
 import SearchBar from '@/components/SearchBar'
+import BillList from '@/components/BillList'
 
-interface HomePageProps {
-  searchParams: Promise<{
-    status?: string
-    topic?: string
-    search?: string
-    sortBy?: string
-    sortOrder?: string
-    offset?: string
-  }>
-}
-
-export default async function HomePage({ searchParams }: HomePageProps) {
-  const params = await searchParams
-  // Parse filters from URL params
-  const filters = {
-    status: params.status as BillStatus | undefined,
-    topic: params.topic as BillTopic | undefined,
-    search: params.search,
-    sortBy: (params.sortBy as 'date' | 'title' | 'status') || 'date',
-    sortOrder: (params.sortOrder as 'asc' | 'desc') || 'desc',
-    limit: 20,
-    offset: parseInt(params.offset || '0', 10),
-  }
-
-  // Fetch filtered bills
-  const { bills, total, hasMore, offset } = await filterBills(filters)
-
-  // Extract summaries for display
-  const billSummaries = bills.map((bill) => ({
-    bill_number: bill.bill_number,
-    title: bill.title,
-    status: bill.status,
-    topic: bill.topic,
-    introduced_date: bill.introduced_date,
-    sponsor_name: bill.sponsor.name,
-    sponsor_party: bill.sponsor.party,
-  }))
+export default async function HomePage() {
+  // Fetch all bills at build time for static export
+  const bills = await getAllBillsFull()
 
   return (
     <div className="min-h-screen bg-neutral-50">
@@ -58,14 +24,16 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
             {/* Search Bar */}
             <div className="max-w-2xl mx-auto">
-              <SearchBar />
+              <Suspense fallback={<div className="h-16 bg-white/10 rounded-xl animate-pulse" />}>
+                <SearchBar />
+              </Suspense>
             </div>
 
             {/* Stats */}
             <div className="mt-12 flex flex-wrap justify-center gap-8 text-center">
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-white">
-                  {total}
+                  {bills.length}
                 </div>
                 <div className="text-sm text-primary-200 mt-1">
                   Bills Analyzed
@@ -96,97 +64,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       <section className="container py-8 md:py-12">
         {/* Filters */}
         <div className="mb-8">
-          <BillFilters />
+          <Suspense fallback={<div className="h-20 bg-white rounded-xl border border-neutral-200 animate-pulse" />}>
+            <BillFilters />
+          </Suspense>
         </div>
 
-        {/* Results Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-          <div>
-            <h2 className="text-2xl font-bold text-neutral-900">
-              {params.search ? 'Search Results' : 'Recent Bills'}
-            </h2>
-            <p className="text-neutral-600 mt-1">
-              {total === 0 ? (
-                'No bills found'
-              ) : (
-                <>
-                  Showing {offset + 1}-{Math.min(offset + 20, total)} of {total}{' '}
-                  {total === 1 ? 'bill' : 'bills'}
-                </>
-              )}
-            </p>
-          </div>
-
-          {params.search && (
-            <div className="text-sm text-neutral-600">
-              Searching for: <strong>{params.search}</strong>
-            </div>
-          )}
-        </div>
-
-        {/* Bill Grid */}
-        {billSummaries.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-neutral-100 rounded-full mb-4">
-              <svg
-                className="w-8 h-8 text-neutral-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-              No bills found
-            </h3>
-            <p className="text-neutral-600 mb-6">
-              Try adjusting your filters or search terms
-            </p>
-          </div>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {billSummaries.map((bill) => (
-                <BillCard key={bill.bill_number} bill={bill} />
-              ))}
-            </div>
-
-            {/* Pagination */}
-            {(offset > 0 || hasMore) && (
-              <div className="mt-12 flex justify-center gap-4">
-                {offset > 0 && (
-                  <a
-                    href={`?${new URLSearchParams({
-                      ...params,
-                      offset: String(Math.max(0, offset - 20)),
-                    }).toString()}`}
-                    className="btn-secondary"
-                  >
-                    ← Previous
-                  </a>
-                )}
-
-                {hasMore && (
-                  <a
-                    href={`?${new URLSearchParams({
-                      ...params,
-                      offset: String(offset + 20),
-                    }).toString()}`}
-                    className="btn-primary"
-                  >
-                    Next →
-                  </a>
-                )}
-              </div>
-            )}
-          </>
-        )}
+        {/* Bill List with client-side filtering */}
+        <Suspense fallback={<div className="h-96 bg-white rounded-xl border border-neutral-200 animate-pulse" />}>
+          <BillList bills={bills} />
+        </Suspense>
       </section>
 
       {/* Value Proposition */}

@@ -93,6 +93,40 @@ export async function getAllBills(): Promise<BillMetadata> {
 }
 
 /**
+ * Get all full bill objects (for static export with client-side filtering)
+ *
+ * @returns Promise resolving to array of all bills
+ * @throws Error if bills cannot be loaded
+ */
+export async function getAllBillsFull(): Promise<Bill[]> {
+  try {
+    const content = await readFile(METADATA_PATH, 'utf-8')
+    const pipelineData = JSON.parse(content)
+
+    // Load all bill files
+    const billNumbers = Object.keys(pipelineData.bills || {})
+      .filter(num => !num.startsWith('TEST')) // Skip test bills
+
+    const bills = await Promise.all(
+      billNumbers.map(async (billNumber) => {
+        try {
+          return await getBillData(billNumber)
+        } catch {
+          return null
+        }
+      })
+    )
+
+    return bills.filter((b): b is Bill => b !== null)
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to load bills: ${error.message}`)
+    }
+    throw error
+  }
+}
+
+/**
  * Get detailed data for a specific bill
  *
  * @param billNumber - Bill identifier (e.g., "H.R. 1234")
