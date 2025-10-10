@@ -1,0 +1,10 @@
+# Cloudflare Pages ignore file
+# Excludes files from being uploaded to Cloudflare Pages
+
+# Next.js cache (too large for Pages)
+.next/cache/
+
+# Other build artifacts we don't need
+.next/standalone/
+.next/server/app/
+node_modules/
