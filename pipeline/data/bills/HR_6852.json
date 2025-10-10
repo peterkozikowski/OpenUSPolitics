@@ -1,0 +1,33 @@
+{
+  "bill_number": "H.R. 6852",
+  "title": "Holcombe Rucker Park National Commemorative Site Act",
+  "sponsor": "Rep. Espaillat, Adriano [D-NY-13]",
+  "introduced_date": "2023-12-19",
+  "text_url": "https://www.congress.gov/118/bills/hr6852/BILLS-118hr6852enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-235.",
+  "chunks_count": 2,
+  "analysis": {
+    "plain_english_summary": "This bill designates Holcombe Rucker Park in Harlem, New York, as the \"Holcombe Rucker Park National Commemorative Site.\" The purpose is to honor Holcombe Rucker and recognize the park's historic importance in the development of basketball and the careers of many talented players. The designation is honorary in nature and does not make the park part of the National Park System, meaning it will not be managed or operated by the federal government like national parks such as Yellowstone or the Grand Canyon.\n\nThe bill allows the Secretary of the Interior to enter into cooperative agreements with public or private organizations, including New York City officials, for educational and interpretive purposes. These agreements could include installing a plaque, exhibit, or marker at the park to commemorate Holcombe Rucker's achievements and the park's basketball history. However, any such installation would require written permission from the property owner. The bill explicitly states that the designation does not give the federal government any authority to interfere with property rights, local zoning laws, or land use plans in New York.\n\nThe legislation includes several important limitations to protect local control and property rights. The Secretary of the Interior cannot acquire the land through condemnation (the government's power to take private property for public use) or any other means. The designation does not affect how New York City or New York State currently administers the park. Property owners, including the owner of the commemorative site itself, retain all their existing rights to use and manage their property as they see fit. In essence, this is a symbolic federal recognition that allows for potential educational partnerships but maintains complete local control over the park.",
+    "key_provisions": [
+      "Designates Holcombe Rucker Park in Harlem, New York as the 'Holcombe Rucker Park National Commemorative Site.'",
+      "Authorizes the Secretary of the Interior to enter into cooperative agreements with public or private entities, including the Mayor of New York City, for interpretive and educational purposes related to the site.",
+      "Permits installation of plaques, interpretive exhibits, or markers at the site with written consent of the property owner to memorialize Holcombe Rucker's achievements and the park's historic role in basketball development.",
+      "Explicitly states that the Commemorative Site shall not be a unit of the National Park System.",
+      "Prohibits the Secretary of the Interior from interfering with private property rights, local zoning ordinances, or land use plans, and from acquiring land through condemnation or otherwise.",
+      "Maintains existing administration of the site by New York City or the State of New York without federal interference."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates Holcombe Rucker Park in Harlem, New York as a \"National Commemorative Site,\" but explicitly states this does NOT make it part of the National Park System. The designation is primarily symbolic, recognizing the park's historical significance in basketball history and honoring Holcombe Rucker's achievements. The bill authorizes the Secretary of the Interior to work with New York City officials or other entities to install educational markers like plaques or exhibits at the park, but only with the property owner's written consent.\n\nFor residents of Harlem and visitors to Rucker Park, the most tangible change would be the potential addition of interpretive exhibits or historical markers explaining the park's basketball heritage. However, these educational installations are voluntary\u2014the bill only authorizes cooperative agreements, it does not mandate them. The bill contains strong protections ensuring that property rights, local zoning laws, and New York City's administration of the park remain unchanged. The federal government cannot acquire the land, interfere with the property owner's rights, or alter how the city manages the park.\n\nThe bill does not specify a timeline for implementation, funding amounts, or when any plaques or exhibits might appear. Basketball enthusiasts and local community members may appreciate the federal recognition of the park's cultural importance, but their day-to-day use of the park and surrounding area would remain the same. No citizens are required to take any action, pay any fees, or change their behavior as a result of this designation.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:36:47.915178",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 3622,
+  "cost": 0.022398,
+  "_metadata": {
+    "bill_number": "H.R. 6852",
+    "saved_at": "2025-10-10T02:36:47.915900",
+    "version": 1
+  }
+}

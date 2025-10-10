@@ -1,0 +1,33 @@
+{
+  "bill_number": "H.R. 8012",
+  "title": "Jackie Robinson Ballpark National Commemorative Site Act",
+  "sponsor": "Rep. Waltz, Michael [R-FL-6]",
+  "introduced_date": "2024-04-15",
+  "text_url": "https://www.congress.gov/118/bills/hr8012/BILLS-118hr8012enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-247.",
+  "chunks_count": 2,
+  "analysis": {
+    "plain_english_summary": "This bill officially designates Jackie Robinson Ballpark in Daytona Beach, Florida, as the Jackie Robinson Ballpark National Commemorative Site. The site honors the historic significance of this location in civil rights history. The bill makes the site part of the African American Civil Rights Network, which was established by Congress in 2017 to recognize and preserve locations important to African American civil rights history. However, the bill explicitly states that this designation does not make the ballpark a unit of the National Park System, meaning it will not be managed directly by the National Park Service like national parks or monuments.\n\nThe bill authorizes the Secretary of the Interior to enter into cooperative agreements with public or private organizations for educational and interpretive programs related to the site. Importantly, the legislation includes several limitations on federal authority: the Secretary cannot interfere with private property rights or local zoning laws, cannot affect how current owners manage the site, and cannot acquire land through condemnation (the government's power to take private property for public use). These provisions ensure that the commemorative designation is largely symbolic and educational rather than involving direct federal control or ownership.\n\nThe bill requires the Secretary of the Interior to conduct a special resource study within two years after funding becomes available. This study must evaluate whether the site has national significance and whether it would be suitable and feasible to designate it as a full unit of the National Park System in the future. The study must also consider alternative ways that federal, state, local, or private organizations could preserve, protect, and interpret the site. Once completed, the Secretary must submit a report to Congress with the study's findings and any recommendations about the site's future status.",
+    "key_provisions": [
+      "Designates Jackie Robinson Ballpark in Daytona Beach, Florida, as the Jackie Robinson Ballpark National Commemorative Site, though it will not be a unit of the National Park System.",
+      "Includes the Site as part of the African American Civil Rights Network established under the African American Civil Rights Network Act of 2017.",
+      "Requires the Secretary of the Interior to conduct a special resource study to evaluate the national significance of the Site and determine the suitability and feasibility of designating it as a unit of the National Park System.",
+      "Authorizes the Secretary to enter into cooperative agreements with public or private entities for interpretative and educational purposes related to the Site.",
+      "Prohibits the Secretary from acquiring land or interests in land through condemnation or otherwise, and from interfering with private property rights or local zoning ordinances.",
+      "Requires the Secretary to submit a report to Congress within 2 years after funds are made available, describing the study results and any recommendations regarding the Site."
+    ],
+    "practical_impact": "This bill has minimal direct impact on most ordinary citizens. It designates Jackie Robinson Ballpark in Daytona Beach, Florida, as a national commemorative site, but explicitly states this does not make it part of the National Park System. The designation is primarily symbolic, recognizing the historical significance of the location where Jackie Robinson broke baseball's color barrier during spring training in 1947. Visitors to Daytona Beach may see interpretive materials or educational programs about Jackie Robinson and civil rights history if the Secretary of the Interior enters into cooperative agreements with public or private entities, but the bill does not mandate any specific visitor services or facilities.\n\nThe bill explicitly protects private property rights and local control, stating that the Secretary cannot interfere with property owners' rights, local zoning ordinances, or land use plans. The current owners and operators of the ballpark will continue managing it as they do now, with no federal takeover or acquisition authority. The bill requires a study within two years to evaluate whether the site should become a full National Park System unit in the future, but this study itself does not change anything for citizens. Local residents near the ballpark will not experience changes to their property rights, zoning, or daily life as a result of this designation.\n\nThe primary beneficiaries are those interested in civil rights history and Jackie Robinson's legacy, who may gain access to enhanced educational resources if cooperative agreements are established. The bill does not appropriate specific funding, so the timeline and extent of any interpretive programs depend on future budget decisions and voluntary partnerships. For the vast majority of Americans outside the Daytona Beach area, this legislation has no practical effect on their daily lives.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:28:05.332686",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 4081,
+  "cost": 0.024063,
+  "_metadata": {
+    "bill_number": "H.R. 8012",
+    "saved_at": "2025-10-10T02:28:05.333403",
+    "version": 1
+  }
+}

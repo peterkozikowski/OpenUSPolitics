@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8057",
+  "title": "To designate the facility of the United States Postal Service located at 9317 Bolsa Avenue in Westminster, California, as the \"Little Saigon Vietnam War Veterans Memorial Post Office\".",
+  "sponsor": "Rep. Steel, Michelle [R-CA-45]",
+  "introduced_date": "2024-04-17",
+  "text_url": "https://www.congress.gov/118/bills/hr8057/BILLS-118hr8057enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-248.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as the \"Little Saigon Vietnam War Veterans Memorial Post Office.\" The post office being renamed is located at 9317 Bolsa Avenue in Westminster, California. The purpose of this legislation is to honor Vietnam War veterans through this memorial designation in the Little Saigon community.\n\nThe bill contains two main provisions. First, it officially designates the postal facility with its new commemorative name. Second, it establishes that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new designated name. This ensures consistency across all government materials and communications.\n\nThe bill does not specify an implementation timeline, funding requirements, or additional details about the renaming process. Post office naming bills like this one are typically ceremonial in nature and do not require significant administrative changes beyond updating signage and official records. The legislation has been passed by both the House of Representatives and the Senate, as indicated by the signatures of the Speaker of the House and the Vice President serving as President of the Senate.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 9317 Bolsa Avenue in Westminster, California, as the 'Little Saigon Vietnam War Veterans Memorial Post Office'.",
+      "Requires that all references to this facility in any law, map, regulation, document, paper, or other record of the United States be deemed references to the 'Little Saigon Vietnam War Veterans Memorial Post Office'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates an existing United States Postal Service facility located at 9317 Bolsa Avenue in Westminster, California, with a new commemorative name: the \"Little Saigon Vietnam War Veterans Memorial Post Office.\" The physical building, its location, hours of operation, services offered, and staff remain unchanged. Customers who use this post office for mailing packages, buying stamps, or other postal services will experience no changes to how the facility operates or the services they receive.\n\nThe primary practical effect is that official government documents, maps, and records will refer to this facility by its new name. Local residents may see updated signage at the building and may need to use the new name when providing the post office location as a reference point for directions or addresses. The bill contains no provisions that create new requirements for citizens, change postal rates, modify service availability, or impose any obligations on individuals or businesses. The designation is ceremonial in nature, honoring Vietnam War veterans in the Little Saigon community.\n\nThe bill does not specify an implementation timeline, though such facility redesignations typically take effect upon enactment and physical changes like new signage occur within a reasonable period thereafter. No funding provisions or cost implications for postal customers are mentioned in the bill text.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:27:32.102201",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2413,
+  "cost": 0.015243,
+  "_metadata": {
+    "bill_number": "H.R. 8057",
+    "saved_at": "2025-10-10T02:27:32.102562",
+    "version": 1
+  }
+}

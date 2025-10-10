@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8976",
+  "title": "To designate the facility of the United States Postal Service located at 20 West White Street in Millstadt, Illinois, as the \"Corporal Matthew A. Wyatt Post Office\".",
+  "sponsor": "Rep. Bost, Mike [R-IL-12]",
+  "introduced_date": "2024-07-10",
+  "text_url": "https://www.congress.gov/118/bills/hr8976/BILLS-118hr8976enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-257.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a United States Postal Service facility located at 20 West White Street in Millstadt, Illinois, as the \"Corporal Matthew A. Wyatt Post Office.\" The legislation is a commemorative measure that renames this specific post office building in honor of Corporal Matthew A. Wyatt. This type of bill is a common way Congress recognizes individuals who have made significant contributions or sacrifices, typically members of the military or other public servants.\n\nThe bill contains two main provisions. First, it officially designates the postal facility with the new name. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new name \"Corporal Matthew A. Wyatt Post Office.\" This ensures consistency across all government materials and communications going forward.\n\nThe bill does not specify an implementation timeline, funding requirements, or operational changes to the postal facility. The renaming is purely ceremonial and does not affect the post office's daily operations, services, or staffing. No information is provided in the bill text about Corporal Matthew A. Wyatt's background or the reasons for this honor, though such designations typically recognize military service members who died in the line of duty or made exceptional contributions to their communities.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 20 West White Street in Millstadt, Illinois, as the 'Corporal Matthew A. Wyatt Post Office'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Corporal Matthew A. Wyatt Post Office'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It designates a specific United States Postal Service facility located at 20 West White Street in Millstadt, Illinois, as the \"Corporal Matthew A. Wyatt Post Office.\" The only tangible change for residents who use this post office is that the facility will have a new official name. All postal services, operations, hours, and functions at this location will remain unchanged.\n\nThe bill does not impose any requirements on citizens, businesses, or organizations. People who mail letters or packages, purchase stamps, or conduct other postal business at this facility can continue to do so exactly as before. The physical address (20 West White Street) remains the same. The renaming affects only official government documents, maps, and records that reference this facility\u2014they will use the new designation going forward. No timeline for implementation is specified in the bill text, though such designations typically take effect upon enactment and involve updating signage and official records.\n\nThe primary significance is symbolic rather than functional, honoring Corporal Matthew A. Wyatt through the naming of this postal facility. Local residents of Millstadt, Illinois, particularly those who use this post office regularly, will see the new name on building signage and in official correspondence, but their day-to-day interactions with postal services will not change in any material way.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:23:28.862869",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2462,
+  "cost": 0.016158,
+  "_metadata": {
+    "bill_number": "H.R. 8976",
+    "saved_at": "2025-10-10T02:23:28.863599",
+    "version": 1
+  }
+}

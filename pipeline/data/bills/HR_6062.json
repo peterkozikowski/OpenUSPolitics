@@ -1,0 +1,32 @@
+{
+  "bill_number": "H.R. 6062",
+  "title": "To restore the ability of the people of American Samoa to approve amendments to the territorial constitution based on majority rule in a democratic act of self-determination, as authorized pursuant to an Act of Congress delegating administration of Federal territorial law in the territory to the President, and to the Secretary of the Interior under Executive Order 10264, dated June 29, 1951, under which the Constitution of American Samoa was approved and may be amended without requirement for further congressional action, subject to the authority of Congress under the Territorial Clause in article IV, section 3, clause 2 of the United States Constitution.",
+  "sponsor": "Del. Radewagen, Aumua Amata Coleman [R-AS-At Large]",
+  "introduced_date": "2023-10-25",
+  "text_url": "https://www.congress.gov/118/bills/hr6062/BILLS-118hr6062enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-232.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill removes a restriction on how the people of American Samoa can amend their territorial constitution. Currently, Section 12 of Public Law 98-213 places some limitation on constitutional amendments in American Samoa. By repealing this section, the bill would restore the ability of American Samoans to approve changes to their constitution based on majority rule\u2014meaning more than half of voters would need to approve an amendment for it to pass. The bill's title indicates this is considered an act of self-determination, allowing the territory's residents to have more direct control over their governing document.\n\nThe mechanism for this change is straightforward: the bill simply repeals Section 12 of Public Law 98-213 (codified at 48 U.S.C. 1662a). The bill text itself does not provide details about what specific restriction currently exists in that section or what the amendment process will look like after the restriction is removed. According to the bill's title, the constitutional amendment authority stems from earlier federal actions\u2014specifically an Act of Congress that delegated administration of federal territorial law to the President, and Executive Order 10264 from 1951, under which American Samoa's constitution was originally approved. The title also notes that Congress retains ultimate authority over territories under the Territorial Clause of the U.S. Constitution (Article IV, Section 3, Clause 2).\n\nThe bill does not specify an implementation timeline or transition period. It does not detail what voting thresholds or procedures will apply to future constitutional amendments once the restriction is removed, nor does it explain what administrative steps the Secretary of the Interior or other federal officials must take. The primary stakeholders are the residents of American Samoa, who would gain expanded ability to modify their constitution, and the U.S. Department of the Interior, which has administrative oversight of the territory under the referenced executive order.",
+    "key_provisions": [
+      "Repeals Section 12 of Public Law 98-213 (48 U.S.C. 1662a), which currently restricts amendments to the Constitution of American Samoa.",
+      "Restores the ability of American Samoa residents to approve constitutional amendments based on majority rule without additional congressional approval.",
+      "Reaffirms that constitutional amendments may proceed under the existing framework established by Executive Order 10264, dated June 29, 1951.",
+      "Maintains that any constitutional amendments remain subject to Congress's authority under the Territorial Clause of Article IV, Section 3, Clause 2 of the U.S. Constitution.",
+      "Removes the requirement for further congressional action on American Samoa constitutional amendments, delegating this authority to the President and Secretary of the Interior as previously established."
+    ],
+    "practical_impact": "This bill directly affects the approximately 55,000 residents of American Samoa by changing how they can amend their territorial constitution. Currently, Section 12 of Public Law 98-213 imposes some restriction on constitutional amendments (the specific restriction is not detailed in the provided text). By repealing this section, the bill restores the ability of American Samoans to approve constitutional amendments through majority rule, meaning that proposed changes to their constitution would require approval by a simple majority of voters rather than any higher threshold that may currently exist.\n\nThe practical effect is that residents of American Samoa would have an easier path to modifying their territorial governing document through democratic voting. For example, if American Samoans wanted to change provisions in their constitution regarding land ownership rules, government structure, or civil rights protections, they would need only majority support rather than meeting whatever more stringent requirement currently exists. This change would take effect upon the bill's enactment, though the bill text does not specify an implementation timeline or transition period.\n\nThe bill does not affect residents of the 50 states or other US territories. The impact is limited to American Samoa's internal governance processes. The bill text does not provide details about what specific restriction is being removed, what the current voting threshold is, or what types of constitutional amendments have been blocked under the existing law, making it difficult to assess the full scope of practical changes American Samoans will experience.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:40:00.084342",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2687,
+  "cost": 0.019389,
+  "_metadata": {
+    "bill_number": "H.R. 6062",
+    "saved_at": "2025-10-10T02:40:00.085140",
+    "version": 1
+  }
+}

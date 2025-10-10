@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8717",
+  "title": "To designate the facility of the United States Postal Service located at 20 West Main Street in Santaquin, Utah, as the \"SGT Bill Hooser Post Office Building\".",
+  "sponsor": "Rep. Owens, Burgess [R-UT-4]",
+  "introduced_date": "2024-06-12",
+  "text_url": "https://www.congress.gov/118/bills/hr8717/BILLS-118hr8717enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-252.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a United States Postal Service facility located at 20 West Main Street in Santaquin, Utah, as the 'SGT Bill Hooser Post Office Building.' The legislation is a ceremonial naming act that honors SGT Bill Hooser by officially attaching his name to this specific post office location.\n\nThe bill contains two main provisions. First, it establishes the official designation of the postal facility with the new name. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new name 'SGT Bill Hooser Post Office Building.' This ensures consistency across all government materials and communications.\n\nThe bill does not provide information about who SGT Bill Hooser was, why this honor is being bestowed, or any details about his service or connection to the Santaquin community. The legislation also does not specify an implementation timeline, require any physical changes to the building, or allocate funding for new signage or administrative updates. It is purely a symbolic designation that changes how the facility is officially referenced in government documents.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 20 West Main Street in Santaquin, Utah, as the 'SGT Bill Hooser Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'SGT Bill Hooser Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates the United States Postal Service facility located at 20 West Main Street in Santaquin, Utah, as the \"SGT Bill Hooser Post Office Building.\" The primary practical effect is that the building will have a new official name, which may appear on official government documents, maps, and records.\n\nResidents of Santaquin, Utah, and surrounding areas who use this postal facility will continue to receive the same postal services at the same location without any changes to operations, hours, or services offered. The building's address (20 West Main Street) remains unchanged. Citizens may notice new signage on the building reflecting the new name, and they may see the new designation on official correspondence or when looking up the facility in government databases. No action is required from postal customers, and there are no new requirements, fees, or service modifications associated with this naming designation.\n\nThe bill does not specify an implementation timeline, but such facility redesignations typically take effect upon enactment of the legislation. The Postal Service would then update signage and official records accordingly. This is a ceremonial designation honoring SGT Bill Hooser, and it does not create any financial obligations for citizens or change how they interact with this post office.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:25:39.615361",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2389,
+  "cost": 0.015243,
+  "_metadata": {
+    "bill_number": "H.R. 8717",
+    "saved_at": "2025-10-10T02:25:39.615529",
+    "version": 1
+  }
+}

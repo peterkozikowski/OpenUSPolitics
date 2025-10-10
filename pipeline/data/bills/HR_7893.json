@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 7893",
+  "title": "To designate the facility of the United States Postal Service located at 306 Pickens Street in Marion, Alabama, as the \"Albert Turner, Sr. Post Office Building\".",
+  "sponsor": "Rep. Sewell, Terri A. [D-AL-7]",
+  "introduced_date": "2024-04-09",
+  "text_url": "https://www.congress.gov/118/bills/hr7893/BILLS-118hr7893enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-245.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a United States Postal Service facility located at 306 Pickens Street in Marion, Alabama, as the \"Albert Turner, Sr. Post Office Building.\" The legislation is a ceremonial naming act that officially changes how this particular post office will be identified in federal records and documents.\n\nThe bill contains two main provisions. First, it establishes the official designation of the postal facility with the new name honoring Albert Turner, Sr. Second, it includes a technical provision stating that any existing reference to this facility in any federal law, map, regulation, document, paper, or other official record will now be considered a reference to the \"Albert Turner, Sr. Post Office Building.\" This ensures consistency across all government materials and legal documents.\n\nThe bill does not provide information about implementation timelines, funding requirements, or background details about Albert Turner, Sr. It does not specify any operational changes to the postal facility itself or affect how the post office functions or serves the public. This type of legislation is procedural in nature and focuses solely on the ceremonial renaming of a federal building.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 306 Pickens Street in Marion, Alabama, as the 'Albert Turner, Sr. Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Albert Turner, Sr. Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates an existing United States Postal Service facility located at 306 Pickens Street in Marion, Alabama, as the \"Albert Turner, Sr. Post Office Building.\" The post office will continue to operate exactly as it did before, with no changes to services, hours, staffing, or operations. Citizens who use this facility for mailing letters, purchasing stamps, or other postal services will experience no functional changes.\n\nThe only practical effect is that the building's official name will change in government records, maps, and documents. Local residents may see updated signage on the building itself, and the new name may appear on official correspondence or documentation referencing this facility. There are no mandatory requirements for citizens to take any action, no costs imposed on the public, and no changes to how anyone interacts with postal services. The bill text does not specify an implementation timeline, though such designations typically take effect upon enactment.\n\nThe designation is purely ceremonial and honorary in nature. It does not affect postal rates, delivery services, facility accessibility, or any other aspect of postal operations that would impact how citizens use this post office or any other postal facility.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:29:11.914357",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2331,
+  "cost": 0.014625,
+  "_metadata": {
+    "bill_number": "H.R. 7893",
+    "saved_at": "2025-10-10T02:29:11.915175",
+    "version": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 10065",
+  "title": "To designate the facility of the United States Postal Service located at 802 North Tancahua Street in Corpus Christi, Texas, as the \"Captain Robert E. 'Bob' Batterson Post Office\".",
+  "sponsor": "Rep. Cloud, Michael [R-TX-27]",
+  "introduced_date": "2024-10-29",
+  "text_url": "https://www.congress.gov/118/bills/hr10065/BILLS-118hr10065enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-270.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility located at 802 North Tancahua Street in Corpus Christi, Texas, as the \"Captain Robert E. 'Bob' Batterson Post Office.\" The legislation is a ceremonial naming act that honors Captain Robert E. Batterson by officially attaching his name to this postal facility.\n\nThe bill contains two main provisions. First, it establishes the official designation of the post office building. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new name \"Captain Robert E. 'Bob' Batterson Post Office.\" This ensures consistency across all government materials and communications.\n\nThe bill does not provide information about who Captain Robert E. Batterson was, why he is being honored, or any timeline for when the name change will take effect. The legislation does not allocate any funding, create new programs, or impose requirements beyond the naming designation itself. This type of bill is common in Congress and typically enjoys bipartisan support as a way to honor individuals who have made significant contributions to their communities or the nation.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 802 North Tancahua Street in Corpus Christi, Texas, as the 'Captain Robert E. 'Bob' Batterson Post Office'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed to be a reference to the 'Captain Robert E. 'Bob' Batterson Post Office'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates an existing United States Postal Service facility located at 802 North Tancahua Street in Corpus Christi, Texas, with a new commemorative name honoring Captain Robert E. 'Bob' Batterson. The post office will continue to operate with the same services, hours, and functions as before. Residents who use this facility for mailing packages, buying stamps, or other postal services will experience no changes to these operations.\n\nThe practical effects are limited to administrative and symbolic changes. The facility's official name in government documents, maps, and records will change to reflect the new designation. This may result in updated signage at the building and revised references in official correspondence or databases. Local residents and businesses that use this post office as a mailing address may see the new name appear on postal materials, though their actual street address (802 North Tancahua Street) remains unchanged.\n\nThe bill contains no timeline for implementation, no funding provisions, and no requirements that would affect postal rates, service availability, or operational procedures. There are no mandatory actions required of citizens, businesses, or organizations beyond the federal government's administrative update of official records and references to use the new facility name.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:44:23.047374",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2483,
+  "cost": 0.015753,
+  "_metadata": {
+    "bill_number": "H.R. 10065",
+    "saved_at": "2025-10-10T02:44:23.048066",
+    "version": 1
+  }
+}

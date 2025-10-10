@@ -1,0 +1,31 @@
+{
+  "bill_number": "H.R. 1318",
+  "title": "Women\u2019s Suffrage National Monument Location Act",
+  "sponsor": "Rep. Neguse, Joe [D-CO-2]",
+  "introduced_date": "2023-03-01",
+  "text_url": "https://www.congress.gov/118/bills/hr1318/BILLS-118hr1318enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-226.",
+  "chunks_count": 2,
+  "analysis": {
+    "plain_english_summary": "This bill, called the Women's Suffrage National Monument Location Act, designates where a monument honoring women's suffrage (the right of women to vote) can be built in Washington, D.C. The bill overrides a specific restriction in existing law that would otherwise limit where commemorative monuments can be placed. It allows the Women's Suffrage National Monument to be located within an area called the Reserve, which is a specific zone in the nation's capital where monuments and memorials are typically situated.\n\nThe bill works by creating an exception to one particular rule in federal law (section 8908(c) of title 40, United States Code) while keeping all other rules about building commemorative monuments in place. This means that while the location restriction is lifted for this specific monument, all other requirements from the Commemorative Works Act still apply. The Commemorative Works Act is the federal law that governs how monuments are planned, approved, funded, and built on federal land in Washington, D.C. The bill references a monument that was previously authorized by Public Law 116-217, meaning Congress had already approved the creation of this monument in earlier legislation\u2014this current bill simply addresses where it can be placed.\n\nThe bill is brief and focused solely on the location issue. It does not provide details about the monument's design, funding sources, construction timeline, or specific placement within the Reserve. Those details would be governed by the broader Commemorative Works Act and determined through the standard monument development process. The bill defines its key terms clearly, specifying that the Reserve refers to the area defined in existing federal code, which is a designated zone in Washington, D.C. for national monuments and memorials.",
+    "key_provisions": [
+      "Designates the location of the Women's Suffrage National Monument within the Reserve (as defined in section 8902(a)(3) of title 40, United States Code), overriding the restriction in section 8908(c) of title 40.",
+      "Applies the Commemorative Works Act (chapter 89 of title 40, United States Code) to the Women's Suffrage National Monument, except for the location requirement which is specifically modified by this Act.",
+      "Confirms that the Women's Suffrage National Monument refers to the commemorative work previously authorized under Public Law 116-217.",
+      "Establishes that all other provisions of the Commemorative Works Act remain applicable to the monument's establishment and maintenance beyond the location specification."
+    ],
+    "practical_impact": "This bill has minimal direct impact on the daily lives of ordinary citizens. It addresses a specific administrative matter regarding the location of the Women's Suffrage National Monument, allowing it to be placed within the 'Reserve' (which refers to the Reserve area defined in federal commemorative works law, typically the National Mall and surrounding areas in Washington, D.C.). The bill creates an exception to existing location restrictions that would otherwise apply to new monuments in this area.\n\nThe primary groups affected are those involved in planning, designing, and constructing the monument itself\u2014including the organizations authorized to establish it, federal agencies managing public lands in Washington, D.C., and construction contractors. Once completed, the monument would be accessible to tourists, school groups, and residents who visit the National Mall area. The bill does not specify a timeline for when the monument must be built or opened to the public.\n\nFor the general public, the practical effect is that visitors to Washington, D.C. will eventually have access to this monument in a central location rather than a more remote site. The bill does not impose any requirements on citizens, create new taxes or fees, or mandate any changes to individual behavior. It does not affect employment, healthcare, education, or other aspects of daily life for most Americans.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:43:54.066962",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 3713,
+  "cost": 0.021615000000000002,
+  "_metadata": {
+    "bill_number": "H.R. 1318",
+    "saved_at": "2025-10-10T02:43:54.067720",
+    "version": 1
+  }
+}

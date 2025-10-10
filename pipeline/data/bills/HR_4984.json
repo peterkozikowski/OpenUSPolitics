@@ -1,0 +1,44 @@
+{
+  "bill_number": "H.R. 4984",
+  "title": "D.C. Robert F. Kennedy Memorial Stadium Campus Revitalization Act",
+  "sponsor": "Rep. Comer, James [R-KY-1]",
+  "introduced_date": "2023-07-27",
+  "text_url": "https://www.congress.gov/118/bills/hr4984/BILLS-118hr4984enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-274.",
+  "chunks_count": 4,
+  "analysis": {
+    "plain_english_summary": "This bill transfers control of the Robert F. Kennedy Memorial Stadium Campus, a 174-acre area of federal land in Washington, D.C., from the Secretary of the Interior to the District of Columbia government. The transfer must occur within 180 days of the bill's enactment and would last for at least 99 years, with possible renewal. The federal government would retain ownership of the land, but D.C. would gain administrative jurisdiction, meaning the authority to manage and develop it. The bill allows D.C. to use the campus for stadium purposes (including training facilities and offices), commercial and residential development, parks and recreational facilities, educational and cultural activities, and other public purposes that were approved before June 1, 1985. The bill also permits demolition to facilitate these developments.\n\nThe bill includes several mandatory requirements that D.C. must meet. At least 30 percent of the campus (excluding a designated riparian area along the water) must be set aside as the \"Robert F. Kennedy Memorial Park\" for parks and open space. D.C. must ensure that development does not harm National Park Service lands, including wetlands near Kingman Island, and must improve public access to the Anacostia River while maintaining the Anacostia River Trail. The District must provide adequate parking, public safety measures, and take steps to reduce noise and traffic impacts on nearby residential areas. A riparian area along the water cannot be developed beyond maintaining existing infrastructure. Federal funds cannot be used for stadium construction or related facilities. The bill also prohibits members of Congress and other government officials from benefiting personally from any leases on the property.\n\nD.C. must conduct a survey to determine the exact boundaries and acreage of the campus and submit it to four congressional committees. The District is responsible for all costs related to the transfer, including survey and environmental analysis costs. The Secretary of the Interior and D.C. must create a memorandum of understanding to allocate responsibility for environmental cleanup costs under federal environmental laws. If D.C. fails to comply with the terms of the agreement and does not correct violations within 90 days of written notice, administrative jurisdiction would revert back to the Secretary of the Interior, and D.C. would bear the costs of removing structures or rehabilitating the property. The bill also terminates an existing 1988 lease between the federal government and D.C. for the campus.",
+    "key_provisions": [
+      "Transfers administrative jurisdiction of the approximately 174-acre Robert F. Kennedy Memorial Stadium Campus from the Secretary of the Interior to the District of Columbia within 180 days of enactment, for a term of at least 99 years while maintaining federal ownership.",
+      "Authorizes the District to develop and use the Campus for stadium purposes, commercial and residential development, and recreational facilities, but prohibits the use of federal funds for stadium construction.",
+      "Requires the District to designate, develop, and maintain at least 30 percent of the Campus (excluding riparian areas) as the 'Robert F. Kennedy Memorial Park' for parks and open space reserved for passive and active outdoor recreation for the duration of the transfer.",
+      "Prohibits any Member of Congress or federal or District official from being admitted to any share or benefit of leases entered into by the District for the Campus, except as shareholders of publicly held corporations.",
+      "Establishes reversion provisions allowing administrative jurisdiction to return to the Secretary if the District fails to comply with the Declaration of Covenants and does not correct violations within 90 days of written notice.",
+      "Repeals the District of Columbia Stadium Act of 1957 and terminates the existing January 14, 1988 lease between the United States and the District for the Campus upon transfer of administrative jurisdiction.",
+      "Requires the District to ensure development does not materially degrade National Park Service lands, provides improved public access to the Anacostia River, and minimizes noise and traffic impacts on surrounding residential areas."
+    ],
+    "practical_impact": "This bill primarily affects residents of Washington, D.C. and visitors to the area around the current RFK Memorial Stadium site. The legislation transfers control of approximately 174 acres of federal land to D.C. government, allowing redevelopment over a 99-year period. D.C. residents could see significant changes to their neighborhood, including construction of a new stadium with training facilities and offices, commercial and residential buildings, and expanded parks and recreational areas. At least 30 percent of the site (excluding riparian areas) must become the \"Robert F. Kennedy Memorial Park\" for public recreation. The bill requires improved public access to the Anacostia River and protection of the Anacostia River Trail, which would benefit residents who use these areas for walking, biking, or other outdoor activities. The timeline calls for transfer within 180 days of enactment, though actual development would occur over subsequent years.\n\nResidents living near the stadium campus will experience both benefits and burdens from redevelopment. The bill mandates that D.C. must reduce noise and traffic impacts on surrounding residential areas \"to the greatest extent practicable\" and provide adequate parking facilities. However, the construction of a stadium and commercial/residential development will likely increase traffic, noise, and activity in what is currently a less-developed area. Local businesses could benefit from increased foot traffic and economic activity, while some residents may face disruption during construction phases. The bill prohibits using federal funds for stadium construction, meaning D.C. taxpayers or private developers would bear those costs. The requirement to protect National Park Service lands and wetlands south of Kingman Island aims to preserve environmental resources, though the bill does not specify enforcement mechanisms or penalties beyond potential reversion of the land to federal control if D.C. violates the agreement terms.",
+    "fiscal_impact": {
+      "total_cost": "Not specified in the bill text",
+      "annual_cost": "Not specified in the bill text",
+      "funding_sources": [
+        "District of Columbia (for transfer costs and post-transfer expenses)",
+        "Cost allocation between United States and District of Columbia for environmental responsibilities to be determined by memorandum of understanding"
+      ],
+      "revenue_effects": "Not specified; potential future revenue to District of Columbia from commercial and residential development not quantified",
+      "cbo_score": null,
+      "breakdown": "The bill specifies cost responsibilities but does not provide dollar amounts: (1) District of Columbia responsible for all costs of the transfer, including survey costs and environmental analysis costs; (2) District of Columbia responsible for all costs and expenses associated with the Campus after transfer, except as provided in the memorandum of understanding; (3) Costs of environmental responsibilities under CERCLA and Solid Waste Disposal Act to be allocated between the Secretary and District through memorandum of understanding; (4) District of Columbia responsible for actual cost of removing structures or rehabilitating the Campus if administrative jurisdiction reverts to the Secretary; (5) Federal funds explicitly prohibited from being used for stadium purposes on the Campus"
+    },
+    "generated_at": "2025-10-09T21:39:40.859092",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 17348,
+  "cost": 0.070956,
+  "_metadata": {
+    "bill_number": "H.R. 4984",
+    "saved_at": "2025-10-10T01:39:40.859912",
+    "version": 1
+  }
+}

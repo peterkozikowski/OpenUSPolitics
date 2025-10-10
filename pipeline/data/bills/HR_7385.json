@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 7385",
+  "title": "To designate the facility of the United States Postal Service located at 29 Franklin Street in Petersburg, Virginia, as the \"John Mercer Langston Post Office Building\".",
+  "sponsor": "Rep. McClellan, Jennifer L. [D-VA-4]",
+  "introduced_date": "2024-02-15",
+  "text_url": "https://www.congress.gov/118/bills/hr7385/BILLS-118hr7385enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-239.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a United States Postal Service facility located at 29 Franklin Street in Petersburg, Virginia, as the \"John Mercer Langston Post Office Building.\" The legislation is a ceremonial naming bill that officially assigns a specific name to this existing post office location.\n\nThe bill contains two main provisions. First, it formally establishes that the postal facility at the specified address will be known and designated by the name \"John Mercer Langston Post Office Building.\" Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records of the United States must use this designated name. This means all government documents and materials will need to refer to the building by its new official name going forward.\n\nThe bill does not provide information about implementation timelines, funding requirements, or the process for physically updating signage or materials at the facility. It also does not include background information about John Mercer Langston or explain the reason for the naming designation. The legislation is straightforward in scope, focusing solely on the official naming designation and ensuring consistent use of that name across all federal records and documents.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 29 Franklin Street in Petersburg, Virginia, as the 'John Mercer Langston Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'John Mercer Langston Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates an existing United States Postal Service facility located at 29 Franklin Street in Petersburg, Virginia, as the \"John Mercer Langston Post Office Building.\" The physical building, its location, hours of operation, services provided, and staff remain unchanged. Citizens who use this post office will continue to receive the same postal services at the same address as before.\n\nThe only observable change for residents and visitors will be the official name of the facility. Any future signage, official correspondence, or references to this post office in government documents will use the new designation. For people mailing letters or packages to this location, or using it as a return address, the street address (29 Franklin Street, Petersburg, Virginia) remains the same, so no changes to mailing practices are required. Local residents may see updated building signage reflecting the new name at some point after the bill's enactment, though the bill text does not specify a timeline for such changes.\n\nThis type of legislation does not create new programs, impose requirements on citizens or businesses, change postal rates, alter service delivery, or affect federal spending in ways that would impact taxpayers. The renaming is ceremonial in nature, honoring John Mercer Langston, but does not modify how citizens interact with or use postal services at this facility.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:34:04.565976",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2393,
+  "cost": 0.015446999999999999,
+  "_metadata": {
+    "bill_number": "H.R. 7385",
+    "saved_at": "2025-10-10T02:34:04.566677",
+    "version": 1
+  }
+}

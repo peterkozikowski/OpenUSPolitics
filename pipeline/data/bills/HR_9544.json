@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 9544",
+  "title": "To designate the facility of the United States Postal Service located at 340 South Loudon Avenue in Baltimore, Maryland, as the \"United States Representative Elijah E. Cummings Post Office Building\".",
+  "sponsor": "Rep. Mfume, Kweisi [D-MD-7]",
+  "introduced_date": "2024-09-11",
+  "text_url": "https://www.congress.gov/118/bills/hr9544/BILLS-118hr9544enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-264.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a United States Postal Service facility located at 340 South Loudon Avenue in Baltimore, Maryland, as the \"United States Representative Elijah E. Cummings Post Office Building.\" The legislation is a ceremonial naming bill that honors the late Representative Elijah E. Cummings by officially attaching his name to this specific post office location.\n\nThe bill contains two main provisions. First, it establishes the official designation of the postal facility with the new name. Second, it requires that all future references to this facility in any federal law, map, regulation, document, paper, or other official record must use the new designated name. This means that once the bill becomes law, all government documents and materials will need to refer to this location as the \"United States Representative Elijah E. Cummings Post Office Building\" rather than by its street address or any previous designation.\n\nThe bill does not include information about implementation timelines, funding requirements, or specific procedures for changing signage or updating records. As a facility naming bill, it does not create new programs, impose new requirements on individuals or businesses, or allocate federal funds. The legislation affects only the official name used for this one postal facility in Baltimore, Maryland.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 340 South Loudon Avenue in Baltimore, Maryland, as the 'United States Representative Elijah E. Cummings Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'United States Representative Elijah E. Cummings Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens' daily lives. The legislation solely renames an existing United States Postal Service facility located at 340 South Loudon Avenue in Baltimore, Maryland, to honor former United States Representative Elijah E. Cummings. Residents and businesses in the Baltimore area who use this particular post office location will see the building's name change on signage, official documents, and maps, but all postal services, hours of operation, and staff will remain unchanged.\n\nThe practical effects are limited to administrative updates. Anyone who needs to reference this facility in official correspondence, legal documents, or navigation systems will use the new name going forward. Local residents mailing packages, purchasing stamps, or conducting other postal business at this location will experience no change in services or procedures. The bill does not allocate funding, create new programs, impose requirements on citizens, or alter how the postal facility operates.\n\nThe timeline for implementation is not specified in the bill text, though such facility redesignations typically take effect upon enactment and physical changes like new signage occur over subsequent months as resources allow. No individuals or groups face mandatory requirements or restrictions as a result of this naming designation.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:21:19.420251",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2480,
+  "cost": 0.015672,
+  "_metadata": {
+    "bill_number": "H.R. 9544",
+    "saved_at": "2025-10-10T02:21:19.421394",
+    "version": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 7417",
+  "title": "To designate the facility of the United States Postal Service located at 135 West Spring Street in Titusville, Pennsylvania, as the \"Edwin L. Drake Post Office Building\".",
+  "sponsor": "Rep. Kelly, Mike [R-PA-16]",
+  "introduced_date": "2024-02-20",
+  "text_url": "https://www.congress.gov/118/bills/hr7417/BILLS-118hr7417enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-240.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as the \"Edwin L. Drake Post Office Building.\" The post office being renamed is located at 135 West Spring Street in Titusville, Pennsylvania. This is a ceremonial designation that changes the official name of the building.\n\nThe bill contains two main provisions. First, it establishes that the postal facility at the specified address will officially be known and designated by the new name. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new name \"Edwin L. Drake Post Office Building.\" This ensures consistency across all government materials and documentation.\n\nThe bill does not provide information about implementation timelines, funding requirements, or the reason for choosing this particular name. It does not specify who Edwin L. Drake was or why this honor is being bestowed. The legislation is straightforward and limited in scope, focusing solely on the renaming of this single postal facility without affecting the building's operations, services, or any other aspects of its function as a post office.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 135 West Spring Street in Titusville, Pennsylvania, as the 'Edwin L. Drake Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Edwin L. Drake Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It solely designates the United States Postal Service facility located at 135 West Spring Street in Titusville, Pennsylvania, as the \"Edwin L. Drake Post Office Building.\" The only concrete change people will experience is that official government documents, maps, and records will refer to this facility by its new name rather than its street address or previous designation.\n\nResidents of Titusville, Pennsylvania, who use this particular post office location are the most directly affected group, though the impact is limited to the building's name. They will see the new name on the building's signage and in any official correspondence or references to this facility. Postal services, hours of operation, staffing, and all other functions of the post office remain unchanged. The bill does not impose any mandatory requirements on citizens, businesses, or organizations beyond the administrative update of how this facility is referenced in official government records.\n\nThe bill does not specify an implementation timeline, though such naming designations typically take effect upon enactment and physical changes like new signage occur as resources allow. There are no financial impacts on citizens, no changes to postal rates or services, and no new obligations created by this legislation. The designation is purely ceremonial in nature.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:33:34.949032",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2348,
+  "cost": 0.01488,
+  "_metadata": {
+    "bill_number": "H.R. 7417",
+    "saved_at": "2025-10-10T02:33:34.949753",
+    "version": 1
+  }
+}

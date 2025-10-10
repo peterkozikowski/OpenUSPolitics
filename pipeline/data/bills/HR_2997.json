@@ -1,0 +1,41 @@
+{
+  "bill_number": "H.R. 2997",
+  "title": "CONVEY Act",
+  "sponsor": "Rep. Boebert, Lauren [R-CO-3]",
+  "introduced_date": "2023-04-28",
+  "text_url": "https://www.congress.gov/118/bills/hr2997/BILLS-118hr2997enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-227.",
+  "chunks_count": 2,
+  "analysis": {
+    "plain_english_summary": "The CONVEY Act (Clifton Opportunities Now for Vibrant Economic Yields Act) requires the federal government to transfer approximately 31.1 acres of federal land to Mesa County, Colorado. This land, called the Clifton parcel, is currently managed by the Bureau of Land Management and is identified on a specific map dated April 19, 2023. The transfer overrides two older Secretarial Orders from 1902 and 1908 that previously governed this land. The bill's main purpose is to move this particular piece of federal property into local county ownership.\n\nThe transfer must occur at fair market value, meaning Mesa County must pay what the land is worth based on an independent appraisal. This appraisal must follow two specific sets of professional standards: the Uniform Appraisal Standards for Federal Land Acquisitions and the Uniform Standards of Professional Appraisal Practice. Mesa County is responsible for paying all costs related to the transfer, including any surveys needed to complete the transaction. The conveyance is subject to valid existing rights, meaning any legitimate claims or uses of the land that existed before the transfer will remain in effect. The money received from the sale will be deposited into the Federal Land Disposal Account, where it can be used according to the Federal Land Transaction Facilitation Act.\n\nThe Secretary of the Interior, working through the Bureau of Land Management Director, must complete the transfer as soon as practicable after the bill becomes law. The Secretary must also create a final map and legal description of the land being transferred. If there are any conflicts between the map and the written legal description, the map takes priority. The Secretary and Mesa County can mutually agree to fix any minor errors in these documents. Both the map and legal description will be kept on file and made available for public viewing at Bureau of Land Management offices.",
+    "key_provisions": [
+      "Requires the Secretary of the Interior to convey approximately 31.1 acres of Federal land in Clifton, Colorado (the 'Clifton parcel') to Mesa County, Colorado, notwithstanding two Secretarial Orders from 1902 and 1908.",
+      "Mandates that the conveyance be sold to Mesa County for not less than fair market value, as determined by an independent appraisal conducted according to Uniform Appraisal Standards for Federal Land Acquisitions and Uniform Standards of Professional Appraisal Practice.",
+      "Requires Mesa County to pay all costs associated with the conveyance, including costs for any surveys conducted to accomplish the land transfer.",
+      "Directs that proceeds from the sale be deposited into the Federal Land Disposal Account established by the Federal Land Transaction Facilitation Act and made available for expenditure under that Act.",
+      "Requires the Secretary to finalize a map and legal description of the land to be conveyed, with the map controlling in case of any discrepancy between the two documents."
+    ],
+    "practical_impact": "This bill directly affects residents and businesses in Mesa County, Colorado, particularly those in or near the Clifton area. The legislation requires the federal government to sell approximately 31.1 acres of Bureau of Land Management land to Mesa County at fair market value. Once the county acquires this land, it could potentially be used for local development purposes such as commercial projects, housing, public facilities, or infrastructure, depending on the county's plans. The actual impact on ordinary citizens will depend entirely on how Mesa County chooses to use the property after purchase, which is not specified in the bill text.\n\nMesa County taxpayers will bear the costs of this transaction, as the county must pay fair market value for the land (determined by an independent appraisal) plus all associated costs including surveys and conveyance expenses. The timeline indicates the transfer should occur \"as soon as practicable\" after the bill's enactment, though specific dates are not provided. The bill requires the Secretary of the Interior to finalize a map and legal description of the land after enactment, suggesting implementation could take several months to over a year.\n\nFor citizens outside Mesa County, Colorado, the impact is minimal and indirect. The proceeds from the land sale will be deposited into the Federal Land Disposal Account, which is used to fund federal land acquisitions and related activities under existing law. The conveyance is subject to \"valid existing rights,\" meaning any current legal uses or claims on the property (such as easements or mineral rights) would continue after the transfer.",
+    "fiscal_impact": {
+      "total_cost": "No federal appropriations required. The County pays all conveyance costs.",
+      "annual_cost": "Not specified",
+      "funding_sources": [
+        "Mesa County, Colorado (pays all costs associated with conveyance, including survey costs)"
+      ],
+      "revenue_effects": "Federal government receives fair market value proceeds from sale of approximately 31.1 acres. Proceeds deposited into Federal Land Disposal Account established by Federal Land Transaction Facilitation Act (43 U.S.C. 2301 et seq.) and available for expenditure under that Act.",
+      "cbo_score": null,
+      "breakdown": "The bill requires Mesa County to pay: (1) fair market value for the 31.1-acre Clifton parcel as determined by independent appraisal using Uniform Appraisal Standards for Federal Land Acquisitions and Uniform Standards of Professional Appraisal Practice; (2) all costs associated with the conveyance; and (3) all costs associated with any survey conducted for the conveyance. The federal government receives revenue from the sale, which is deposited into the Federal Land Disposal Account for future expenditure under the Federal Land Transaction Facilitation Act."
+    },
+    "generated_at": "2025-10-09T22:43:18.123947",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 6374,
+  "cost": 0.034985999999999996,
+  "_metadata": {
+    "bill_number": "H.R. 2997",
+    "saved_at": "2025-10-10T02:43:18.124523",
+    "version": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8841",
+  "title": "To designate the facility of the United States Postal Service located at 114 Center Street East in Roseau, Minnesota, as the \"Floyd B. Olson Post Office\".",
+  "sponsor": "Rep. Fischbach, Michelle [R-MN-7]",
+  "introduced_date": "2024-06-26",
+  "text_url": "https://www.congress.gov/118/bills/hr8841/BILLS-118hr8841enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-253.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as the \"Floyd B. Olson Post Office.\" The post office being renamed is located at 114 Center Street East in Roseau, Minnesota. This is a ceremonial designation that changes the official name of the building.\n\nThe bill contains two main provisions. First, it establishes that the postal facility at the specified address will officially be known and designated by the new name. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new name \"Floyd B. Olson Post Office.\" This ensures consistency across all government materials and communications.\n\nThe bill does not provide information about who Floyd B. Olson was or why this post office is being named in their honor. It also does not specify an implementation timeline or require any physical changes to the building itself beyond the name change. No funding provisions or additional requirements for the Postal Service are included in the bill text. This type of legislation is common in Congress and typically honors individuals who have made significant contributions to their communities or the nation.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 114 Center Street East in Roseau, Minnesota, as the 'Floyd B. Olson Post Office'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Floyd B. Olson Post Office'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It designates a single United States Postal Service facility located at 114 Center Street East in Roseau, Minnesota, as the \"Floyd B. Olson Post Office.\" The only concrete change is that this post office will have a new official name. Residents of Roseau who use this postal facility, local businesses that mail packages from this location, and anyone who needs to reference this facility in official documents will use the new name going forward.\n\nThe bill does not change postal services, hours of operation, staffing, or any functional aspects of how the post office operates. Mail delivery, package handling, and all other postal services will continue exactly as before. The designation affects only the official name used in laws, maps, regulations, documents, and other records of the United States. The timeline for implementation is not specified in the bill text, though such designations typically take effect upon enactment.\n\nThe impact is essentially symbolic rather than substantive. No citizens are required to take any action, no fees or costs are imposed, and no benefits or services are created or eliminated. The primary effect is that official signage and references to this facility will reflect the new name honoring Floyd B. Olson.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:25:13.812557",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2356,
+  "cost": 0.015,
+  "_metadata": {
+    "bill_number": "H.R. 8841",
+    "saved_at": "2025-10-10T02:25:13.813409",
+    "version": 1
+  }
+}

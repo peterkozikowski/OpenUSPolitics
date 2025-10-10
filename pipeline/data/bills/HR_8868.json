@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8868",
+  "title": "To designate the facility of the United States Postal Service located at 609 Portsmouth Avenue in Greenland, New Hampshire, as the \"Chief Michael Maloney Post Office Building\".",
+  "sponsor": "Rep. Pappas, Chris [D-NH-1]",
+  "introduced_date": "2024-06-27",
+  "text_url": "https://www.congress.gov/118/bills/hr8868/BILLS-118hr8868enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-254.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "H.R. 8868 is a straightforward bill that renames a United States Postal Service facility in Greenland, New Hampshire. The bill designates the post office located at 609 Portsmouth Avenue as the \"Chief Michael Maloney Post Office Building.\" This type of legislation is a ceremonial act by Congress to honor individuals by naming federal buildings after them.\n\nThe bill contains two main provisions. First, it officially designates the postal facility with the new name. Second, it requires that all future references to this facility in any federal law, map, regulation, document, paper, or other official record must use the new name \"Chief Michael Maloney Post Office Building.\" This ensures consistency across all government documents and communications going forward.\n\nThe bill does not provide information about who Chief Michael Maloney was or why this honor is being bestowed. It also does not specify any timeline for when the renaming must take effect, any costs associated with changing signage or documents, or any implementation procedures beyond the automatic updating of references in federal records. The bill does not affect the operations, services, or functions of the post office itself\u2014it simply changes the official name of the building.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 609 Portsmouth Avenue in Greenland, New Hampshire, as the 'Chief Michael Maloney Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed to be a reference to the 'Chief Michael Maloney Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It designates an existing United States Postal Service facility located at 609 Portsmouth Avenue in Greenland, New Hampshire, as the \"Chief Michael Maloney Post Office Building.\" The post office will continue to operate exactly as it did before, with no changes to services, hours, staffing, or operations. Residents of Greenland and surrounding areas who use this facility will experience no difference in how they mail packages, buy stamps, or access postal services.\n\nThe only tangible change citizens will notice is the building's official name. The facility will be referred to as the \"Chief Michael Maloney Post Office Building\" in official government documents, maps, and records. This may appear on signage at the building itself, though the bill text does not specify requirements for physical signage changes. People using the post office's address for mailing purposes will continue to use 609 Portsmouth Avenue, Greenland, New Hampshire, as the street address remains unchanged.\n\nThe bill does not specify an implementation timeline, create any new costs for taxpayers related to the designation itself, or impose requirements on citizens or businesses. The designation is purely ceremonial and honorary in nature, affecting only the official name by which the federal government refers to this particular postal facility.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:24:48.109729",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2386,
+  "cost": 0.015342,
+  "_metadata": {
+    "bill_number": "H.R. 8868",
+    "saved_at": "2025-10-10T02:24:48.110489",
+    "version": 1
+  }
+}

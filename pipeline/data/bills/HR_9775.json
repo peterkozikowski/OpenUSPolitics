@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 9775",
+  "title": "To designate the facility of the United States Postal Service located at 119 North Anderson Street in Elwood, Indiana, as the \"Officer Noah Jacob Shahnavaz Post Office Building\".",
+  "sponsor": "Rep. Spartz, Victoria [R-IN-5]",
+  "introduced_date": "2024-09-24",
+  "text_url": "https://www.congress.gov/118/bills/hr9775/BILLS-118hr9775enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-269.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as an honorary building named after Officer Noah Jacob Shahnavaz. The post office is located at 119 North Anderson Street in Elwood, Indiana. Once this bill becomes law, this postal facility will officially be known as the \"Officer Noah Jacob Shahnavaz Post Office Building.\"\n\nThe bill includes a references provision, which is a standard legal mechanism in naming legislation. This provision states that any mention of this postal facility in any official U.S. government document\u2014whether in laws, maps, regulations, or other records\u2014will be considered a reference to the \"Officer Noah Jacob Shahnavaz Post Office Building.\" This ensures consistency in how the facility is identified across all federal materials going forward.\n\nThe bill does not provide information about who Officer Noah Jacob Shahnavaz was or why this honor is being bestowed. It also does not specify any timeline for when the new name must be implemented, any costs associated with changing signage or materials, or any requirements for ceremonies or other commemorative activities. The legislation is focused solely on the legal designation of the building's name and does not alter the postal facility's operations, services, or functions in any way.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 119 North Anderson Street in Elwood, Indiana, as the 'Officer Noah Jacob Shahnavaz Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Officer Noah Jacob Shahnavaz Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates a single United States Postal Service facility located at 119 North Anderson Street in Elwood, Indiana, as the \"Officer Noah Jacob Shahnavaz Post Office Building.\" The only practical change is that this post office will have a new official name.\n\nResidents of Elwood, Indiana, who use this particular post office will see the facility referred to by its new name in official documents, maps, and signage. However, the bill does not change any postal services, hours of operation, staffing, or fees. Mail delivery, package handling, and all other postal functions will continue exactly as before. The physical address (119 North Anderson Street) remains the same for mailing purposes.\n\nThe timeline for implementation is not specified in the bill text, though such designations typically take effect upon enactment and physical changes like new signage may occur gradually. No citizens are required to take any action as a result of this bill, and there are no mandatory requirements or costs imposed on individuals or businesses. The impact is essentially ceremonial in nature.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:19:35.279051",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2382,
+  "cost": 0.014957999999999999,
+  "_metadata": {
+    "bill_number": "H.R. 9775",
+    "saved_at": "2025-10-10T02:19:35.279850",
+    "version": 1
+  }
+}

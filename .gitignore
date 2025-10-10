@@ -63,5 +63,3 @@ pipeline/.env
 pipeline/logs/
 pipeline/chromadb_data/
 pipeline/data/vector_db/
-pipeline/data/bills/*.json
-!pipeline/data/bills/metadata.json

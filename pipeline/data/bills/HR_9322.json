@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 9322",
+  "title": "To designate the facility of the United States Postal Service located at 675 Wolf Ledges Parkway in Akron, Ohio, as the \"Judge James R. Williams Post Office Building\".",
+  "sponsor": "Rep. Sykes, Emilia Strong [D-OH-13]",
+  "introduced_date": "2024-08-06",
+  "text_url": "https://www.congress.gov/118/bills/hr9322/BILLS-118hr9322enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-261.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a United States Postal Service facility located at 675 Wolf Ledges Parkway in Akron, Ohio, as the \"Judge James R. Williams Post Office Building.\" The legislation is a ceremonial naming bill that honors Judge James R. Williams by officially attaching his name to this specific post office location.\n\nThe bill contains two main provisions. First, it establishes the official designation of the postal facility with Judge Williams' name. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new designated name. This means that all government documents and materials will need to refer to this location as the \"Judge James R. Williams Post Office Building\" going forward.\n\nThe bill does not provide information about who Judge James R. Williams was, why he is being honored, or when this designation will take effect. It also does not address any costs associated with implementing the name change, such as updating signage or official records. The legislation follows a standard format used by Congress for naming federal buildings and facilities after individuals deemed worthy of recognition.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 675 Wolf Ledges Parkway in Akron, Ohio, as the 'Judge James R. Williams Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Judge James R. Williams Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates a specific United States Postal Service facility located at 675 Wolf Ledges Parkway in Akron, Ohio, with a new official name honoring Judge James R. Williams. The post office will continue to operate exactly as it did before, providing the same mail and postal services to local residents and businesses. No changes to hours, services, staffing, or operations are specified in the bill.\n\nThe only practical effect citizens will experience is that official government documents, maps, and records will refer to this facility by its new name. Local residents who use this post office location may see updated signage and may need to use the new name when providing their post office location for official purposes, though the street address remains unchanged. The bill does not impose any requirements on private citizens to use the new name in their personal correspondence or daily activities.\n\nThe timeline for implementation is not specified in the bill text, though such designations typically take effect upon enactment. There are no costs, fees, or obligations placed on citizens, and no changes to postal rates or service delivery. The legislation is purely ceremonial in nature, honoring an individual through the naming of a federal facility.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:22:11.642103",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2384,
+  "cost": 0.015024000000000001,
+  "_metadata": {
+    "bill_number": "H.R. 9322",
+    "saved_at": "2025-10-10T02:22:11.642830",
+    "version": 1
+  }
+}

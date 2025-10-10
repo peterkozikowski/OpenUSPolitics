@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 9421",
+  "title": "To designate the facility of the United States Postal Service located at 108 North Main Street in Bucoda, Washington, as the \"Mayor Rob Gordon Post Office\".",
+  "sponsor": "Rep. Perez, Marie Gluesenkamp [D-WA-3]",
+  "introduced_date": "2024-08-27",
+  "text_url": "https://www.congress.gov/118/bills/hr9421/BILLS-118hr9421enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-262.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as the \"Mayor Rob Gordon Post Office.\" The post office being renamed is located at 108 North Main Street in Bucoda, Washington. This is a ceremonial designation that changes the official name of the facility to honor Mayor Rob Gordon.\n\nThe bill contains a references provision that ensures consistency in how the facility is identified going forward. This means that any existing or future federal laws, maps, regulations, documents, papers, or other official records that mention this postal facility must use the new name \"Mayor Rob Gordon Post Office.\" This standardizes the naming across all government materials and legal documents.\n\nThe bill does not provide information about who Mayor Rob Gordon was, why this honor is being bestowed, or any details about his service or contributions. The legislation also does not specify any timeline for when the name change must take effect, nor does it address practical matters such as signage updates or associated costs. This type of bill is a common way Congress honors individuals by naming federal facilities after them.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 108 North Main Street in Bucoda, Washington, as the 'Mayor Rob Gordon Post Office'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Mayor Rob Gordon Post Office'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It designates the United States Postal Service facility located at 108 North Main Street in Bucoda, Washington, with a new official name honoring Mayor Rob Gordon. The post office will continue to operate exactly as it did before, with no changes to services, hours, staffing, or postal rates. Residents of Bucoda and surrounding areas who use this facility will experience no disruption to their mail delivery or postal services.\n\nThe only observable change for citizens will be the facility's official name. The building's signage may be updated to reflect the new designation, and official government documents, maps, and records will reference it as the \"Mayor Rob Gordon Post Office\" going forward. Local residents mailing letters or packages may eventually see the new name on the building, but their day-to-day interactions with postal services remain unchanged. No individuals, businesses, or organizations are required to take any action as a result of this designation.\n\nThe bill does not specify an implementation timeline, though such facility redesignations typically take effect upon enactment and physical signage changes occur as resources allow. There are no costs imposed on citizens, no new requirements or restrictions, and no changes to how the postal facility serves the community. This is purely a ceremonial designation that recognizes an individual through the naming of a federal facility.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:21:45.734977",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2319,
+  "cost": 0.014805,
+  "_metadata": {
+    "bill_number": "H.R. 9421",
+    "saved_at": "2025-10-10T02:21:45.735690",
+    "version": 1
+  }
+}

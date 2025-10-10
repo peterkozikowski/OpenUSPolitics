@@ -1,0 +1,30 @@
+{
+  "bill_number": "H.R. 8667",
+  "title": "To rename the community-based outpatient clinic of the Department of Veterans Affairs in Cadillac, Michigan, as the \"Duane E. Dewey VA Clinic\".",
+  "sponsor": "Rep. Moolenaar, John R. [R-MI-2]",
+  "introduced_date": "2024-06-07",
+  "text_url": "https://www.congress.gov/118/bills/hr8667/BILLS-118hr8667enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-251.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill renames a Department of Veterans Affairs outpatient clinic located in Cadillac, Michigan. The clinic, currently situated at 1905 North Mitchell Street, would be officially designated as the \"Duane E. Dewey Department of Veterans Affairs Clinic\" or the \"Duane E. Dewey VA Clinic.\" An outpatient clinic is a medical facility where veterans can receive healthcare services without being admitted to a hospital overnight.\n\nThe bill establishes that this new name takes effect immediately after the bill becomes law. It also includes a technical provision requiring that any existing references to this clinic in federal laws, regulations, maps, documents, or other official records be updated to reflect the new name. This ensures consistency across all government materials and communications.\n\nThe bill does not provide information about who Duane E. Dewey was or why the clinic is being named in his honor. It also does not specify any changes to the clinic's operations, services, funding, or staffing\u2014the legislation solely addresses the facility's official name. No timeline for implementing the name change beyond the effective date is mentioned, and no additional stakeholders or implementation requirements are detailed in the provided text.",
+    "key_provisions": [
+      "Designates the Department of Veterans Affairs outpatient clinic located at 1905 North Mitchell Street in Cadillac, Michigan, as the 'Duane E. Dewey Department of Veterans Affairs Clinic' or 'Duane E. Dewey VA Clinic'.",
+      "Requires that all references to this community-based outpatient clinic in any law, regulation, map, document, paper, or other record of the United States be considered references to the Duane E. Dewey VA Clinic.",
+      "Makes the designation effective after the date of enactment of this Act."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. The legislation simply renames an existing Department of Veterans Affairs outpatient clinic in Cadillac, Michigan, from its current designation to the \"Duane E. Dewey VA Clinic.\" Veterans who currently receive healthcare services at this facility located at 1905 North Mitchell Street will continue to receive the same services at the same location. The only change they will experience is that the clinic will have a new name on signage, correspondence, and official documents.\n\nThe renaming takes effect immediately upon enactment of the bill. No changes to clinic operations, staffing, services offered, or eligibility requirements are specified in the legislation. Veterans will not need to take any action in response to this name change. Any existing references to the clinic in federal laws, regulations, maps, or other official documents will automatically be considered references to the newly named facility. The practical effect is purely ceremonial\u2014honoring an individual through the facility's name while maintaining all existing functions and services for the veteran community in the Cadillac area.\n\nLocal residents and businesses near the clinic may notice updated signage, but this change does not affect their daily lives. The bill contains no provisions that create new requirements, benefits, costs, or obligations for any individuals or organizations beyond the administrative task of updating the facility's name in official records and materials.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:26:06.650976",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2592,
+  "cost": 0.016703999999999997,
+  "_metadata": {
+    "bill_number": "H.R. 8667",
+    "saved_at": "2025-10-10T02:26:06.651708",
+    "version": 1
+  }
+}

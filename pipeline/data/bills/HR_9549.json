@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 9549",
+  "title": "To designate the facility of the United States Postal Service located at 125 South 1st Avenue in Hillsboro, Oregon, as the \"Elizabeth Furse Post Office Building\".",
+  "sponsor": "Rep. Bonamici, Suzanne [D-OR-1]",
+  "introduced_date": "2024-09-12",
+  "text_url": "https://www.congress.gov/118/bills/hr9549/BILLS-118hr9549enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-265.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility located at 125 South 1st Avenue in Hillsboro, Oregon, as the \"Elizabeth Furse Post Office Building.\" The legislation is a ceremonial naming act that officially changes how this particular post office will be known in federal records and documents.\n\nThe bill contains two main provisions. First, it establishes the official designation of the postal facility with the name honoring Elizabeth Furse. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new name \"Elizabeth Furse Post Office Building.\" This ensures consistency across all government materials and legal documents going forward.\n\nThe bill does not provide information about who Elizabeth Furse is, why this honor is being bestowed, or any timeline for when the name change will take effect. It also does not address practical matters such as signage changes, costs associated with the renaming, or any ceremonies that might accompany the designation. The legislation is straightforward and limited in scope, focusing solely on the official naming designation and ensuring that all federal references reflect this new name.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 125 South 1st Avenue in Hillsboro, Oregon, as the 'Elizabeth Furse Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Elizabeth Furse Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It designates a specific United States Postal Service facility located at 125 South 1st Avenue in Hillsboro, Oregon, as the \"Elizabeth Furse Post Office Building.\" The legislation changes only the official name of this building; it does not alter postal operations, services, hours, staffing, or any functions of the facility.\n\nResidents of Hillsboro and surrounding areas who use this post office will continue to receive the same postal services as before. The only observable change will be the building's name on signage, official documents, maps, and government records. Individuals mailing letters or packages to this facility may eventually see the new name on address references, though the street address (125 South 1st Avenue) remains unchanged. No timeline for implementation is specified in the bill text, though such designations typically take effect upon enactment and physical changes like new signage occur gradually thereafter.\n\nThe bill creates no new requirements, costs, or obligations for citizens, businesses, or organizations. Postal customers are not required to use the new building name in their correspondence, as the street address remains the primary identifier for mail delivery purposes. The designation is honorary in nature and does not affect postal rates, delivery services, or access to the facility.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:20:52.692257",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2384,
+  "cost": 0.015312000000000001,
+  "_metadata": {
+    "bill_number": "H.R. 9549",
+    "saved_at": "2025-10-10T02:20:52.692952",
+    "version": 1
+  }
+}

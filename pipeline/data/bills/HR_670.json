@@ -1,0 +1,34 @@
+{
+  "bill_number": "H.R. 670",
+  "title": "Think Differently Database Act",
+  "sponsor": "Rep. Molinaro, Marcus J. [R-NY-19]",
+  "introduced_date": "2023-01-31",
+  "text_url": "https://www.congress.gov/118/bills/hr670/BILLS-118hr670enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-225.",
+  "chunks_count": 2,
+  "analysis": {
+    "plain_english_summary": "The Think Differently Database Act requires the Secretary of Health and Human Services to create a public website that provides information about resources available to people with disabilities and their caregivers and families. The website must include information about how people with disabilities can qualify for Medicaid (the government health insurance program for people with low incomes and disabilities), including details about specific eligibility pathways. It must also explain what long-term services and supports Medicaid covers, such as help with daily activities like bathing, dressing, and eating.\n\nThe website must provide specific, practical information for each state, including which states offer certain Medicaid eligibility options for people with disabilities, what each state's specific requirements are, and how to contact each state's Medicaid office with links and phone numbers. Additionally, the website must show how long people typically wait to get into state waiver programs that provide home and community-based services (programs that help people with disabilities live in their homes or communities rather than in institutions). The Secretary is also directed to promote awareness of this website through activities like working with the Social Security Administration when it updates its informational materials.\n\nThe Secretary has three years from when the law is enacted to establish the website and must update it periodically to keep the information current. The law specifically mentions that the Secretary may use an existing website called thinkdifferently.net as a model when creating the new federal website. The bill also states that the Paperwork Reduction Act, which normally requires federal agencies to get approval before collecting certain types of information, does not apply to implementing this law.",
+    "key_provisions": [
+      "Requires the Secretary of Health and Human Services to establish a publicly available website within 3 years of enactment providing resources and information for people with disabilities and their caregivers and families.",
+      "Mandates the website include information on Medicaid eligibility based on disability, specifically covering eligibility under subclauses (XIII), (XV), (XVI), and (XIX) of section 1902(a)(10)(A)(ii) of the Social Security Act.",
+      "Requires the website to identify which States offer eligibility under the specified Medicaid subclauses and provide each State's specific eligibility requirements.",
+      "Mandates inclusion of contact information for each State's Medicaid office, including links and phone numbers, and general information on Medicaid-covered long-term services and supports.",
+      "Requires the website to display average wait times for individuals newly enrolled in State waiver programs for home and community-based services over the past 12 months.",
+      "Directs the Secretary to identify and disseminate promotional activities to improve awareness of the website resources, including potential collaboration with the Social Security Administration during Red Book updates.",
+      "Exempts implementation of this Act from the Paperwork Reduction Act of 1995."
+    ],
+    "practical_impact": "This bill directly affects people with disabilities, their family members, and caregivers by requiring the Secretary of Health and Human Services to create a centralized public website within 3 years that consolidates information about Medicaid disability benefits and services. Currently, individuals seeking this information must navigate multiple state websites and contact various offices to understand what benefits are available, which states offer specific programs, and how to apply. The new website will provide state-by-state eligibility requirements for specific Medicaid disability programs, contact information for each state's Medicaid office, information about long-term services and supports, and data on waiting times for home and community-based services waivers.\n\nThe practical impact means that a parent of a child with a disability, or an adult caring for an aging family member with disabilities, will be able to visit one federal website to compare what their state offers versus other states, understand eligibility criteria, and access direct contact information rather than conducting extensive research across multiple sources. For example, someone could learn whether their state offers a particular Medicaid waiver program and see the average wait time for enrollment. The bill also requires the Secretary to promote awareness of this website through channels like the Social Security Administration's Red Book updates, which could help reach people who may not know these resources exist. This is a mandatory requirement, not voluntary, though the specific promotional methods are left to the Secretary's discretion.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:37:22.798885",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 4640,
+  "cost": 0.025464,
+  "_metadata": {
+    "bill_number": "H.R. 670",
+    "saved_at": "2025-10-10T02:37:22.800155",
+    "version": 1
+  }
+}

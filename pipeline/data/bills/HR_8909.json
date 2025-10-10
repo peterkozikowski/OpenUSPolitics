@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8909",
+  "title": "To designate the facility of the United States Postal Service located at 82-6110 Mamalahoa Highway in Captain Cook, Hawaii, as the \"Army 1st Lt. John Kuulei Kauhaihao Post Office Building\".",
+  "sponsor": "Rep. Tokuda, Jill N. [D-HI-2]",
+  "introduced_date": "2024-06-28",
+  "text_url": "https://www.congress.gov/118/bills/hr8909/BILLS-118hr8909enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-255.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility in Captain Cook, Hawaii, with an honorary name. The post office located at 82-6110 Mamalahoa Highway would officially be known as the \"Army 1st Lt. John Kuulei Kauhaihao Post Office Building.\" This type of legislation is ceremonial in nature, honoring an individual by naming a federal building after them.\n\nThe bill contains two main provisions. First, it establishes the official designation of the postal facility with the new name. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new designated name. This ensures consistency across all government materials and communications.\n\nThe bill does not include information about implementation timelines, funding requirements, or operational changes to the postal facility. The legislation appears to have completed the congressional process, as indicated by the signatures of the Speaker of the House of Representatives and the Vice President of the United States (in their role as President of the Senate). The bill does not provide background information about Army 1st Lt. John Kuulei Kauhaihao or explain the reasons for this particular honor, focusing solely on the administrative act of renaming the facility.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 82-6110 Mamalahoa Highway in Captain Cook, Hawaii, as the 'Army 1st Lt. John Kuulei Kauhaihao Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Army 1st Lt. John Kuulei Kauhaihao Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates an existing United States Postal Service facility located at 82-6110 Mamalahoa Highway in Captain Cook, Hawaii, as the \"Army 1st Lt. John Kuulei Kauhaihao Post Office Building.\" The physical building, its location, hours of operation, services provided, and staff remain unchanged. Citizens who use this post office will continue to receive the same postal services they currently receive.\n\nThe only observable change for residents and visitors will be the official name of the building. Any future references to this facility in federal laws, maps, regulations, documents, or other official records will use the new designated name. This may appear on signage, official correspondence, and government documents. Local residents in Captain Cook, Hawaii, who use this particular post office location are the primary group who might notice the name change, though it does not alter how they interact with postal services.\n\nThe bill contains no provisions that create new requirements, costs, benefits, or obligations for individuals, businesses, or organizations. No timeline for implementation is specified in the bill text, though such facility redesignations typically take effect upon enactment and physical changes like new signage occur as resources allow.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:24:23.329063",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2602,
+  "cost": 0.016458,
+  "_metadata": {
+    "bill_number": "H.R. 8909",
+    "saved_at": "2025-10-10T02:24:23.329755",
+    "version": 1
+  }
+}

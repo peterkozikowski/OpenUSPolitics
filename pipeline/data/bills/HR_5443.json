@@ -1,0 +1,32 @@
+{
+  "bill_number": "H.R. 5443",
+  "title": "AACE Act",
+  "sponsor": "Rep. Lee, Susie [D-NV-3]",
+  "introduced_date": "2023-09-13",
+  "text_url": "https://www.congress.gov/118/bills/hr5443/BILLS-118hr5443enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-230.",
+  "chunks_count": 2,
+  "analysis": {
+    "plain_english_summary": "The AACE Act (Accelerating Appraisals and Conservation Efforts Act) changes the rules for real property appraisers working on Department of the Interior transactions. Currently, appraisers typically need to be licensed in the specific state where a property is located. This bill allows appraisers who are licensed or certified in any single state to perform appraisal work on properties in any other state, as long as the work is for a transaction under the Secretary of the Interior's authority. An appraisal is a professional assessment that determines how much a property is worth.\n\nThe bill includes several requirements to guide how this new flexibility is used. When the Department of the Interior hires outside appraisers (non-Federal covered appraisers), it must try to use appraisers licensed in the state where the property is located whenever possible. The Department can only use an appraiser from a different state if local appraisers are unavailable within a reasonable time, lack the necessary qualifications for the specific assignment, or are not cost competitive. The bill requires the Department to submit annual reports to Congress for five years, comparing the number of appraisal requests and completion times before and after the law takes effect, assessing how the new flexibility helps operations, and providing a complete list of cases where out-of-state appraisers were used.\n\nThe bill also mandates transparency by requiring the Department to make all appraisal-related policies, guidance documents, and procedures publicly available online within 90 days of the law's enactment. The legislation clarifies that existing federal and state laws still apply to appraisers, except for the specific requirement that appraisers must be licensed in the state where the property is located for Interior Department transactions. This exemption only applies to transactions under the Secretary of the Interior's jurisdiction and does not authorize appraisers to work on other types of transactions in states where they are not licensed.",
+    "key_provisions": [
+      "Allows real property appraisers licensed or certified in any single state to perform appraisal services for Department of Interior transactions in all states, eliminating the requirement for state-specific licensing.",
+      "Requires the Secretary of Interior to prioritize using certified general real property appraisers licensed in the state where the property is located, and only use out-of-state appraisers when local appraisers are unavailable, unqualified, or not cost competitive.",
+      "Mandates annual reports to Congress for five years comparing the number of appraisal requests and completion times before and after the Act's enactment, along with workforce data and a complete list of cases using this authority.",
+      "Requires the Department of Interior to make all appraisal-related policies, guidance documents, handbooks, and procedures publicly available online within 90 days of enactment.",
+      "Overrides any federal or state law enacted before this Act that requires appraisers to be licensed in a specific state for Department of Interior transactions, while maintaining all other applicable laws and regulations."
+    ],
+    "practical_impact": "This bill primarily affects citizens involved in real estate transactions with the Department of the Interior, particularly landowners selling property to or buying property from the federal government for conservation, land exchanges, or other Interior Department purposes. Currently, property appraisers must be licensed in the specific state where the property is located. Under this bill, appraisers licensed in any state can perform appraisals for Interior Department transactions nationwide, though the Department must still prioritize local appraisers when they are available, qualified, and cost-competitive. This change could potentially speed up federal land transactions that have been delayed due to shortages of local certified appraisers, which may benefit landowners waiting to complete sales or exchanges with the government.\n\nThe practical effects will likely be most noticeable in rural or remote areas where certified general real property appraisers are scarce. For example, a rancher in Montana seeking to sell conservation easements to the Interior Department might experience faster processing if the Department can hire an appraiser from a neighboring state when local appraisers are unavailable or backlogged. The bill takes effect upon enactment, with the Department required to publish its appraisal policies online within 90 days. However, the actual impact on transaction timelines remains uncertain, as the bill requires annual reports to Congress for five years to measure whether appraisals are actually completed faster and to assess the overall effect on the Department's operations. Most ordinary citizens not involved in federal land transactions will see no direct impact from this legislation.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:41:38.798172",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 8102,
+  "cost": 0.03705,
+  "_metadata": {
+    "bill_number": "H.R. 5443",
+    "saved_at": "2025-10-10T02:41:38.799035",
+    "version": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bill_number": "H.R. 9124",
+  "title": "To name the Department of Veterans Affairs community-based outpatient clinic in Auburn, California, as the \"Louis A. Conter VA Clinic\".",
+  "sponsor": "Rep. Kiley, Kevin [R-CA-3]",
+  "introduced_date": "2024-07-24",
+  "text_url": "https://www.congress.gov/118/bills/hr9124/BILLS-118hr9124enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-259.",
+  "chunks_count": 2,
+  "analysis": {
+    "plain_english_summary": "This bill renames a Department of Veterans Affairs medical facility in Auburn, California, to honor Lieutenant Commander Louis A. Conter. The facility, which is a community-based outpatient clinic (a smaller VA medical center that provides healthcare services to veterans closer to where they live), will be officially designated as the \"Louis A. Conter VA Clinic.\" Once the bill becomes law, all official government documents, maps, regulations, and records must refer to the facility by this new name.\n\nThe bill includes detailed findings about Lieutenant Commander Conter's military service and life. Born in 1921 in Wisconsin, Conter was the last surviving crew member of the USS Arizona from the Pearl Harbor attack on December 7, 1941. During that attack, he helped evacuate wounded and burned shipmates and prevented others from jumping into burning waters, saving many lives. He continued serving in World War II as a naval aviation pilot, earning the Distinguished Flying Cross for helping rescue 219 Australians trapped by Japanese forces in New Guinea. He also served during the Korean War and later worked as a military intelligence advisor to Presidents Eisenhower, Kennedy, and Johnson. In the 1950s, he helped establish the Navy's SERE (Survival, Evasion, Resistance and Escape) training program.\n\nAfter retiring from the Navy in 1967 following 28 years of service, Conter dedicated time to speaking at veterans' ceremonies and educating students about his experiences. He passed away in Grass Valley, California, on April 1, 2024. The bill recognizes his decades of military service and his contributions to veteran and student communities after retirement. The renaming takes effect immediately upon the bill's enactment, requiring no additional implementation steps beyond updating official references to the clinic.",
+    "key_provisions": [
+      "Designates the Department of Veterans Affairs community-based outpatient clinic in Auburn, California, as the 'Louis A. Conter VA Clinic' effective upon the date of enactment.",
+      "Requires that all references to this clinic in any law, regulation, map, document, record, or other paper of the United States be considered references to the Louis A. Conter VA Clinic.",
+      "Honors Lieutenant Commander Louis A. Conter, the last remaining survivor of the USS Arizona attack at Pearl Harbor, who passed away on April 1, 2024.",
+      "Recognizes Conter's military service spanning 28 years including World War II, the Korean War, and service as a military intelligence advisor to Presidents Eisenhower, Kennedy, and Johnson.",
+      "Acknowledges Conter's receipt of the Distinguished Flying Cross for rescuing 219 Australians trapped by Japanese troops in New Guinea during World War II."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It renames an existing Department of Veterans Affairs outpatient clinic in Auburn, California, from its current name to the \"Louis A. Conter VA Clinic\" in honor of Lt. Commander Louis Conter, the last survivor of the USS Arizona at Pearl Harbor who passed away in April 2024. Veterans who receive healthcare services at this facility will continue to receive the same medical care at the same location; only the name on signage, official documents, and correspondence will change.\n\nThe practical effects are limited to administrative updates. The clinic's address, services, staff, and operations remain unchanged. Veterans currently using this clinic do not need to take any action\u2014their appointments, medical records, and benefits continue uninterrupted. Government documents, maps, and official references will be updated to reflect the new name after the bill's enactment, though the timeline for these changes is not specified in the bill text.\n\nThe primary significance is symbolic rather than functional, honoring a decorated veteran's service and legacy. Local residents in Auburn and the surrounding area may notice updated signage at the facility. There are no new costs, benefits, requirements, or restrictions imposed on citizens, businesses, or organizations by this legislation.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:16:04.614806",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 4470,
+  "cost": 0.024534,
+  "_metadata": {
+    "bill_number": "H.R. 9124",
+    "saved_at": "2025-10-10T02:16:04.615542",
+    "version": 1
+  }
+}

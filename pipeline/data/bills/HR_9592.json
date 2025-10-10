@@ -1,0 +1,33 @@
+{
+  "bill_number": "H.R. 9592",
+  "title": "Federal Register Modernization Act of 2024",
+  "sponsor": "Rep. Higgins, Clay [R-LA-3]",
+  "introduced_date": "2024-09-16",
+  "text_url": "https://www.congress.gov/118/bills/hr9592/BILLS-118hr9592enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-267.",
+  "chunks_count": 4,
+  "analysis": {
+    "plain_english_summary": "The Federal Register Modernization Act of 2024 updates the laws governing how the Federal Register is published and distributed. The Federal Register is the official daily publication where federal agencies publish new rules, proposed regulations, and other government documents. This bill modernizes the language in existing law by replacing outdated references to \"printing\" with \"publishing,\" recognizing that the Federal Register is now primarily distributed electronically rather than as physical printed copies. The bill defines \"publish\" to mean circulating documents for sale or distribution to the public, as determined by the Administrative Committee of the Federal Register.\n\nThe bill makes several key operational changes to how the Federal Register system works. It streamlines the document filing process by requiring agencies to submit only one original document instead of duplicate copies. The Government Publishing Office must still print at least two physical copies of each Federal Register issue, which must be stored in separate facilities to ensure preservation for continuity of government purposes. The bill also grants the Office of the Federal Register authority to establish alternative publication methods during continuity of operations events when the Government Publishing Office cannot fulfill its normal publication duties. Additionally, the bill updates provisions for the Code of Federal Regulations, allowing the Office to create electronic updates that let users retrieve versions of regulations as they existed on specific dates.\n\nThe Administrative Committee of the Federal Register receives expanded authority to prescribe regulations covering modern communication methods, including telecommunications and the Internet, for distributing Federal Register content. The committee can also establish how the Federal Register receives information and comments from the public when practicable and efficient. The bill maintains that documents published in the Code of Federal Regulations serve as prima facie evidence (legally acceptable proof unless contradicted) of their text and that they are in effect. The changes take effect upon enactment and apply to the operations of the National Archives and Records Administration, the Government Publishing Office, and all federal agencies that publish documents in the Federal Register.",
+    "key_provisions": [
+      "Modernizes the Federal Register by replacing references to 'printing' with 'publishing' throughout Chapter 15 of Title 44, reflecting the shift from physical to digital publication methods.",
+      "Defines 'publish' as circulating for sale or distribution to the public, with the specific determination made by the Administrative Committee of the Federal Register.",
+      "Authorizes the Office of the Federal Register to establish alternative publication methods during continuity of operations events when the Government Publishing Office cannot fulfill normal publication requirements.",
+      "Requires the Government Publishing Office to print at least two physical copies of each Federal Register issue, with not less than two copies stored in separate facilities to ensure preservation for continuity of government purposes.",
+      "Allows the Office of the Federal Register to create electronic updates of Code of Federal Regulations units and provide public access to an electronic edition that enables users to retrieve the version in effect on any specific date.",
+      "Expands the Administrative Committee's regulatory authority to include prescribing how the Federal Register may receive information and comments from the public, if practicable and efficient."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens' daily lives. It primarily modernizes the administrative processes for publishing the Federal Register and Code of Federal Regulations by replacing references to physical \"printing\" with \"publishing,\" which allows for digital distribution. The most concrete change is that the Government Publishing Office will only be required to print at least two physical copies of each Federal Register issue (stored in separate facilities for continuity of government purposes), rather than printing large quantities. Citizens who currently access the Federal Register and federal regulations online will see no change, as these documents are already available electronically. The small number of individuals or organizations that rely on physical printed copies may find them less readily available for purchase, though the bill does not eliminate the option to produce physical copies beyond the minimum two required.\n\nThe bill does include a continuity provision allowing the Office of the Federal Register to establish alternative publication methods if the Government Publishing Office cannot fulfill its duties during emergencies. This could affect citizens who need to access newly published federal regulations during a crisis, though the bill does not specify what alternative methods would be used. For researchers, legal professionals, businesses, and others who regularly consult federal regulations to ensure compliance, the practical experience should remain largely unchanged since digital access is already the primary method of distribution. The bill does not alter the content of regulations, the rulemaking process, or citizens' rights to comment on proposed rules\u2014it only changes the technical requirements for how these documents are published and preserved.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:13:26.640793",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 14041,
+  "cost": 0.054278999999999994,
+  "_metadata": {
+    "bill_number": "H.R. 9592",
+    "saved_at": "2025-10-10T02:13:26.641593",
+    "version": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8641",
+  "title": "To designate the facility of the United States Postal Service located at 401 Main Street in Brawley, California, as the \"Walter Francis Ulloa Memorial Post Office Building\".",
+  "sponsor": "Rep. Ruiz, Raul [D-CA-25]",
+  "introduced_date": "2024-06-05",
+  "text_url": "https://www.congress.gov/118/bills/hr8641/BILLS-118hr8641enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-249.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as a memorial building. The post office located at 401 Main Street in Brawley, California, would officially be named the \"Walter Francis Ulloa Memorial Post Office Building.\" This is a ceremonial designation that honors Walter Francis Ulloa by attaching his name to this federal facility.\n\nThe bill contains a standard provision that ensures the new name will be used consistently across all official government materials. Any future references to this postal facility in federal laws, maps, regulations, documents, papers, or other official records must use the designated memorial name. This means that once the bill becomes law, the government will recognize the building by its new memorial name in all official contexts.\n\nThe bill does not provide information about who Walter Francis Ulloa was or why this particular post office is being named in his honor. It also does not address any changes to the post office's operations, services, or funding. The legislation is purely ceremonial in nature, focusing solely on the naming designation. No timeline for implementation is specified in the provided text, and no additional stakeholders or requirements beyond the naming itself are mentioned.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 401 Main Street in Brawley, California, as the 'Walter Francis Ulloa Memorial Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Walter Francis Ulloa Memorial Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It designates the United States Postal Service facility located at 401 Main Street in Brawley, California, as the \"Walter Francis Ulloa Memorial Post Office Building.\" The only concrete change is that this post office will have a new official name. Residents of Brawley and surrounding areas who use this postal facility will continue to receive the same postal services at the same location with no changes to operations, hours, or services offered.\n\nThe bill does not impose any mandatory requirements on citizens, businesses, or organizations. People who mail letters or packages to this facility may eventually see the new name on official correspondence or documentation, but the street address (401 Main Street, Brawley, California) remains unchanged, so there is no need for anyone to update mailing addresses or records. The timeline for implementation is not specified in the bill text, though such designations typically take effect upon enactment and physical signage changes occur as resources allow.\n\nThe primary effect is symbolic rather than functional\u2014honoring Walter Francis Ulloa through the naming of this federal facility. No citizens are required to take any action as a result of this legislation, and daily interactions with this post office will remain unchanged.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:27:05.429044",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2383,
+  "cost": 0.015117,
+  "_metadata": {
+    "bill_number": "H.R. 8641",
+    "saved_at": "2025-10-10T02:27:05.429784",
+    "version": 1
+  }
+}

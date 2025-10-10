@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8666",
+  "title": "To amend title 28, United States Code, to authorize holding court for the Central Division of Utah in Moab and Monticello.",
+  "sponsor": "Rep. Maloy, Celeste [R-UT-2]",
+  "introduced_date": "2024-06-07",
+  "text_url": "https://www.congress.gov/118/bills/hr8666/BILLS-118hr8666enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-250.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "H.R. 8666 is a brief bill that adds two new locations where federal court can be held in Utah's Central Division. Specifically, it amends Section 125 of Title 28 of the United States Code to authorize federal court sessions in Moab and Monticello, in addition to the existing location of St. George. Title 28 of the United States Code contains laws governing the federal judiciary system, including where federal courts can hold sessions within each judicial district.\n\nThe bill makes this change through a simple text amendment, replacing the phrase \"and St. George\" with \"St. George, Moab, and Monticello\" in the existing law. This means that federal judges assigned to Utah's Central Division will now have the authority to hold court proceedings in these two additional cities. The Central Division is one of the geographic subdivisions within Utah's federal judicial district, and this change expands the locations where residents and parties to federal cases can access court services within that division.\n\nThe bill text does not specify an implementation timeline, funding requirements, or other procedural details beyond the statutory amendment itself. It does not explain the reasons for adding these locations or provide information about courthouse facilities, staffing, or how frequently court sessions would be held in Moab and Monticello. The bill has been passed by both the House of Representatives and the Senate, as indicated by the signatures of the Speaker of the House and the Vice President (who serves as President of the Senate).",
+    "key_provisions": [
+      "Amends Section 125 of title 28, United States Code, to authorize the Central Division of the federal judicial district of Utah to hold court in two additional locations: Moab and Monticello.",
+      "Expands the existing court locations for the Central Division of Utah, which previously included St. George, by adding Moab and Monticello as authorized venues for federal court proceedings."
+    ],
+    "practical_impact": "This bill directly affects residents, businesses, and organizations in the Moab and Monticello areas of Utah who need to access federal court services. Currently, these communities are part of the Central Division of Utah's federal judicial district, but the bill text does not specify where court is currently held for this division. By authorizing federal court to be held in Moab and Monticello, residents in these southeastern Utah communities would have the option to attend federal court proceedings closer to home rather than potentially traveling longer distances to other locations within the Central Division.\n\nThe practical changes would apply to anyone involved in federal court matters in this region, including individuals filing lawsuits, defendants in federal cases, witnesses, attorneys, and jurors. For example, a small business owner in Monticello involved in a federal contract dispute, or a resident of Moab called for jury duty in a federal case, could potentially attend proceedings locally rather than traveling to more distant court locations. The bill does not specify when these changes would take effect or whether holding court in these locations is mandatory or optional for judges.\n\nThe impact is geographically limited to southeastern Utah communities. The bill does not indicate whether courthouse facilities already exist in these locations, whether new facilities would need to be built, or how frequently court would be held there. Without this information from the bill text, the full scope of practical changes for citizens remains unclear, though the authorization itself creates the legal framework for local federal court access.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:26:38.701733",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2217,
+  "cost": 0.015975,
+  "_metadata": {
+    "bill_number": "H.R. 8666",
+    "saved_at": "2025-10-10T02:26:38.702453",
+    "version": 1
+  }
+}

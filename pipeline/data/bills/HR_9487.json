@@ -1,0 +1,31 @@
+{
+  "bill_number": "H.R. 9487",
+  "title": "House Office of Legislative Counsel Modernization Act",
+  "sponsor": "Rep. Steil, Bryan [R-WI-1]",
+  "introduced_date": "2024-09-06",
+  "text_url": "https://www.congress.gov/118/bills/hr9487/BILLS-118hr9487enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-263.",
+  "chunks_count": 2,
+  "analysis": {
+    "plain_english_summary": "The House Office of Legislative Counsel Modernization Act makes changes to how the House of Representatives' Office of Legislative Counsel operates when its leader is absent. The Legislative Counsel is the head attorney who oversees the office that helps members of Congress draft legislation. Currently, the law allows for only one Deputy Legislative Counsel to serve as backup. This bill changes that rule to allow the Legislative Counsel to designate multiple Deputy Legislative Counsels from among the attorneys working in the office.\n\nThe bill establishes a clear system for determining which Deputy Legislative Counsel takes over when the Legislative Counsel is unavailable. If there is more than one Deputy Legislative Counsel, the Legislative Counsel must file a written notice with both the Speaker of the House and the Minority Leader specifying the order in which these deputies would assume the role. This creates a succession plan similar to what exists in many organizations, ensuring continuity of operations without confusion about who is in charge.\n\nThe bill accomplishes this by amending Section 522 of the Legislative Reorganization Act of 1970, which governs the structure and operations of the House Office of Legislative Counsel. The changes are relatively minor technical adjustments to existing law, updating language from singular 'Deputy Legislative Counsel' to plural 'Deputy Legislative Counsels' where appropriate. No timeline for implementation is specified in the bill text, and no additional funding or resources are mentioned. The bill focuses solely on organizational flexibility within the existing office structure.",
+    "key_provisions": [
+      "Authorizes the House Legislative Counsel to designate multiple Deputy Legislative Counsels, rather than being limited to a single Deputy Legislative Counsel.",
+      "Requires the Legislative Counsel to file a notice with the Speaker and Minority Leader of the House specifying the order in which Deputy Legislative Counsels will perform the Legislative Counsel's functions during absences or incapacity.",
+      "Establishes that when the Legislative Counsel is absent or incapacitated, a Deputy Legislative Counsel will perform the Legislative Counsel's functions according to the predetermined order of succession.",
+      "Amends Section 522(b) of the Legislative Reorganization Act of 1970 to update references from singular 'Deputy Legislative Counsel' to plural 'Deputy Legislative Counsels' throughout the statute."
+    ],
+    "practical_impact": "This bill has no direct impact on ordinary citizens. It is an internal administrative measure that affects only the operations of the House Office of Legislative Counsel, which is a congressional office that drafts legislation for members of Congress. The bill simply allows the Legislative Counsel to designate multiple Deputy Legislative Counsels instead of just one, and establishes a succession order for who performs the Legislative Counsel's duties when that position is vacant or unavailable.\n\nThe changes are purely procedural and organizational within a House office. Citizens will not experience any concrete changes to their daily lives, rights, obligations, or interactions with government. There are no new requirements, benefits, restrictions, or programs created that would affect individuals, businesses, or organizations outside of Congress. The bill does not specify an implementation timeline, but such internal administrative changes typically take effect upon enactment without requiring any action from or creating any obligations for the general public.\n\nThe only potential indirect effect would be if having multiple deputy positions improves the efficiency or continuity of legislative drafting services for members of Congress, which could theoretically affect the speed or quality of legislation produced. However, such effects would be speculative and far removed from any measurable impact on citizens' lives.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:14:46.527546",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 3023,
+  "cost": 0.018668999999999998,
+  "_metadata": {
+    "bill_number": "H.R. 9487",
+    "saved_at": "2025-10-10T02:14:46.528269",
+    "version": 1
+  }
+}

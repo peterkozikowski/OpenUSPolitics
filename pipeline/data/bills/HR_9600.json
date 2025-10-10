@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 9600",
+  "title": "To designate the facility of the United States Postal Service located at 119 Main Street in Plains, Georgia, as the \"Jimmy and Rosalynn Carter Post Office\".",
+  "sponsor": "Rep. Bishop, Sanford D. [D-GA-2]",
+  "introduced_date": "2024-09-16",
+  "text_url": "https://www.congress.gov/118/bills/hr9600/BILLS-118hr9600enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-268.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a United States Postal Service facility located at 119 Main Street in Plains, Georgia, as the \"Jimmy and Rosalynn Carter Post Office.\" The legislation is a ceremonial naming bill that honors both Jimmy Carter and Rosalynn Carter by officially renaming this specific post office building after them.\n\nThe bill contains two main provisions. First, it formally designates the postal facility at the specified address with the new name. Second, it establishes that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new name \"Jimmy and Rosalynn Carter Post Office.\" This ensures consistency in how the federal government refers to this building going forward.\n\nThe bill does not include information about implementation timelines, funding requirements, or specific ceremonial procedures. It does not alter the operations, services, or functions of the post office itself\u2014it simply changes the official name of the building. No additional stakeholders, agencies, or implementation steps beyond the naming designation are specified in the provided text.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 119 Main Street in Plains, Georgia, as the 'Jimmy and Rosalynn Carter Post Office'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Jimmy and Rosalynn Carter Post Office'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It designates the United States Postal Service facility located at 119 Main Street in Plains, Georgia, as the \"Jimmy and Rosalynn Carter Post Office.\" The only concrete change is that this post office will have a new official name. Residents of Plains, Georgia, who use this postal facility will continue to receive the same postal services at the same location with no changes to operations, hours, or services offered.\n\nThe bill does not impose any mandatory requirements on citizens, businesses, or organizations. People mailing letters or packages to or from this facility may see the new name on official correspondence or documentation, but the street address (119 Main Street, Plains, Georgia) remains unchanged. The bill text does not specify an implementation timeline, though such designations typically take effect upon enactment and involve updating signage and official records.\n\nThe financial impact on taxpayers is not specified in the bill text, though post office naming designations historically involve minimal costs for new signage and administrative updates. No citizens are required to take any action as a result of this bill, and it does not create new rights, obligations, or restrictions for any individuals or groups.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:20:01.305748",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2325,
+  "cost": 0.014571,
+  "_metadata": {
+    "bill_number": "H.R. 9600",
+    "saved_at": "2025-10-10T02:20:01.306513",
+    "version": 1
+  }
+}

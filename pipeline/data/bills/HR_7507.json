@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 7507",
+  "title": "To designate the facility of the United States Postal Service located at 203 East 6th Street in Lexington, Nebraska, as the \u2018William E. and Elsie L. Barrett Post Office Building.",
+  "sponsor": "Rep. Smith, Adrian [R-NE-3]",
+  "introduced_date": "2024-02-29",
+  "text_url": "https://www.congress.gov/118/bills/hr7507/BILLS-118hr7507enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-241.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as an honorary building name. The post office located at 203 East 6th Street in Lexington, Nebraska, would officially be named the 'William E. and Elsie L. Barrett Post Office Building.' This is a ceremonial designation that honors William E. and Elsie L. Barrett, though the bill text does not provide information about who these individuals were or why they are being honored.\n\nThe bill contains two main provisions. First, it establishes the official designation of the postal facility with the new name. Second, it requires that all future references to this facility in any federal law, map, regulation, document, paper, or other official record must use the new name 'William E. and Elsie L. Barrett Post Office Building.' This ensures consistency across all government documents and communications.\n\nThe bill does not specify an implementation timeline, funding requirements, or operational changes to the postal facility. The designation is purely ceremonial and would not affect the day-to-day operations of the post office or postal services provided at this location. No information is provided in the bill text about the cost of implementing the name change, such as updating signage or official records.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 203 East 6th Street in Lexington, Nebraska, as the 'William E. and Elsie L. Barrett Post Office Building.'",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'William E. and Elsie L. Barrett Post Office Building.'"
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates the United States Postal Service facility located at 203 East 6th Street in Lexington, Nebraska, as the 'William E. and Elsie L. Barrett Post Office Building.' The primary practical effect is that the building will have a new official name, which will appear on official government documents, maps, and records.\n\nFor residents of Lexington, Nebraska, who use this postal facility, the change means the building's name will be different in official contexts, but postal services themselves remain unchanged. Mail delivery, package handling, hours of operation, staffing, and all other postal functions continue exactly as before. Citizens may see the new name on signage at the facility or in official correspondence, but their day-to-day interactions with the post office are unaffected. The bill does not impose any new requirements on citizens, businesses, or organizations, nor does it create any costs or benefits beyond the administrative task of updating references to the facility's name.\n\nThe bill does not specify an implementation timeline, though such naming designations typically take effect upon enactment. No funding provisions, service changes, or operational modifications are included in the bill text. The impact is essentially ceremonial, honoring William E. and Elsie L. Barrett through the facility's designation without altering how citizens use postal services.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:32:50.926125",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2497,
+  "cost": 0.016107,
+  "_metadata": {
+    "bill_number": "H.R. 7507",
+    "saved_at": "2025-10-10T02:32:50.926831",
+    "version": 1
+  }
+}

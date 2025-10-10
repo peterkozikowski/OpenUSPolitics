@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 8919",
+  "title": "To designate the facility of the United States Postal Service located at 151 Highway 74 South in Peachtree City, Georgia, as the \"SFC Shawn McCloskey Post Office\".",
+  "sponsor": "Rep. Ferguson, A. Drew [R-GA-3]",
+  "introduced_date": "2024-07-02",
+  "text_url": "https://www.congress.gov/118/bills/hr8919/BILLS-118hr8919enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-256.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as the \"SFC Shawn McCloskey Post Office.\" The facility is located at 151 Highway 74 South in Peachtree City, Georgia. This is a ceremonial designation that renames the post office building in honor of SFC Shawn McCloskey.\n\nThe bill contains two main provisions. First, it officially designates the postal facility with the new name. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the new name \"SFC Shawn McCloskey Post Office.\" This ensures consistency across all government materials and communications.\n\nThe bill does not provide information about who SFC Shawn McCloskey was or why this honor is being bestowed. It also does not specify any timeline for when the renaming must take effect, any costs associated with changing signage or materials, or any other implementation requirements beyond the name change itself. Post office naming bills like this one are typically ceremonial in nature and do not affect postal operations or services.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 151 Highway 74 South in Peachtree City, Georgia, as the 'SFC Shawn McCloskey Post Office'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'SFC Shawn McCloskey Post Office'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates a specific United States Postal Service facility located at 151 Highway 74 South in Peachtree City, Georgia, with a new name honoring SFC Shawn McCloskey. The physical building, its location, hours of operation, services provided, and staff remain unchanged. Citizens who use this post office will continue to conduct their postal business\u2014mailing packages, buying stamps, accessing P.O. boxes\u2014exactly as before.\n\nThe practical changes are limited to the facility's official name. The building will display new signage with the designated name, and official government documents, maps, and records will reference it as the \"SFC Shawn McCloskey Post Office.\" Local residents may need to use this new name when providing their post office location for official purposes, though the street address remains the same. The bill does not specify an implementation timeline, but such redesignations typically take effect upon enactment, with physical signage changes occurring over subsequent months.\n\nThe primary significance is symbolic rather than functional\u2014honoring a service member through the naming of a federal facility. No citizens are required to take any action, no fees or costs are imposed, and no postal services are added or removed. The impact is essentially limited to residents of Peachtree City who may notice the name change on the building and in official references.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:23:55.885756",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2444,
+  "cost": 0.015708,
+  "_metadata": {
+    "bill_number": "H.R. 8919",
+    "saved_at": "2025-10-10T02:23:55.886439",
+    "version": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 7508",
+  "title": "To designate the facility of the United States Postal Service located at 1285 Emancipation Highway in Fredericksburg, Virginia, as the \"Gladys P. Todd Post Office\".",
+  "sponsor": "Rep. Spanberger, Abigail Davis [D-VA-7]",
+  "introduced_date": "2024-02-29",
+  "text_url": "https://www.congress.gov/118/bills/hr7508/BILLS-118hr7508enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-242.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "H.R. 7508 is a straightforward bill that renames a United States Postal Service facility. The bill designates the post office located at 1285 Emancipation Highway in Fredericksburg, Virginia, as the \"Gladys P. Todd Post Office.\" This type of legislation is a ceremonial act by Congress to honor an individual by naming a federal building after them.\n\nThe bill contains two main provisions. First, it officially designates the postal facility with the new name. Second, it requires that any future references to this facility in federal laws, maps, regulations, documents, papers, or other official records must use the name \"Gladys P. Todd Post Office.\" This ensures consistency across all government materials and communications.\n\nThe bill does not include information about who Gladys P. Todd was or why this honor is being bestowed. It also does not specify any timeline for implementation, costs associated with the name change, or requirements for updating signage at the facility. The bill has been passed by both the House of Representatives and the Senate, as indicated by the signatures of the Speaker of the House and the Vice President (who serves as President of the Senate).",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 1285 Emancipation Highway in Fredericksburg, Virginia, as the 'Gladys P. Todd Post Office'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed to be a reference to the 'Gladys P. Todd Post Office'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It designates a specific United States Postal Service facility located at 1285 Emancipation Highway in Fredericksburg, Virginia, as the \"Gladys P. Todd Post Office.\" The only concrete change is that this post office will have a new official name. People who use this particular post office location will see the new name on signage and official documents, but postal services, hours of operation, staffing, and all other functions will remain unchanged.\n\nThe bill affects only those who interact with this specific postal facility in Fredericksburg, Virginia\u2014primarily local residents, businesses, and organizations that use this location for mailing services, purchasing stamps, or other postal transactions. The renaming does not create any new requirements for citizens, change how they access postal services, or affect postal rates or delivery. Official government documents, maps, and records will reference the facility by its new name going forward.\n\nThe bill does not specify an implementation timeline, though such designations typically take effect upon enactment and physical changes like new signage occur afterward. No citizens are required to take any action as a result of this bill, and there are no financial impacts on postal customers. The legislation is purely ceremonial in nature, honoring an individual through the naming of a federal facility.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:31:39.860019",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2414,
+  "cost": 0.015582,
+  "_metadata": {
+    "bill_number": "H.R. 7508",
+    "saved_at": "2025-10-10T02:31:39.860760",
+    "version": 1
+  }
+}

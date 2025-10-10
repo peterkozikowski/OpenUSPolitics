@@ -1,0 +1,32 @@
+{
+  "bill_number": "H.R. 82",
+  "title": "Social Security Fairness Act of 2023",
+  "sponsor": "Rep. Graves, Garret [R-LA-6]",
+  "introduced_date": "2023-01-09",
+  "text_url": "https://www.congress.gov/118/bills/hr82/BILLS-118hr82enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-273.",
+  "chunks_count": 5,
+  "analysis": {
+    "plain_english_summary": "The Social Security Fairness Act of 2023 eliminates two provisions that currently reduce Social Security benefits for certain public sector workers and their families. Specifically, the bill repeals the Government Pension Offset (GPO) and the Windfall Elimination Provision (WEP). The GPO currently reduces Social Security spousal or survivor benefits for people who receive a pension from federal, state, or local government employment where they did not pay Social Security taxes. The WEP currently reduces Social Security retirement or disability benefits for workers who also receive a pension from employment not covered by Social Security. By repealing these provisions, the bill would allow affected individuals to receive their full Social Security benefits without reductions based on their government pensions.\n\nThe bill achieves these changes by removing specific paragraphs from the Social Security Act that establish the offset calculations. For the GPO, it strikes Section 202(k)(5), which contains the formula that reduces spousal and survivor benefits. For the WEP, it removes Section 215(a)(7), Section 215(d)(3), and Section 215(f)(9), which contain the provisions that modify how primary insurance amounts are calculated for workers with non-covered pensions. The bill also includes several conforming amendments that update cross-references throughout the Social Security Act to reflect the removal of these provisions, ensuring the law remains internally consistent.\n\nThe changes would take effect for monthly Social Security benefits payable after December 2023. The bill directs the Commissioner of Social Security to adjust primary insurance amounts as necessary to implement the repeal of the WEP. This means that individuals currently receiving reduced benefits due to these provisions would see their benefits increase starting in January 2024, and new applicants after that date would not have these offsets applied to their benefits. The bill does not specify funding mechanisms or provide cost estimates for implementing these changes.",
+    "key_provisions": [
+      "Repeals the Government Pension Offset (GPO) provision in Section 202(k)(5) of the Social Security Act, which currently reduces Social Security spousal or survivor benefits for individuals who receive government pensions.",
+      "Repeals the Windfall Elimination Provision (WEP) by striking paragraphs in Section 215 of the Social Security Act that reduce Social Security benefits for individuals who receive pensions from employment not covered by Social Security.",
+      "Applies these changes to monthly Social Security insurance benefits payable for months after December 2023, establishing an effective date for implementation.",
+      "Requires the Commissioner of Social Security to adjust primary insurance amounts as necessary to implement the repeal of the Windfall Elimination Provision.",
+      "Makes conforming amendments throughout the Social Security Act to remove references to the repealed GPO and WEP provisions in multiple subsections governing benefit calculations."
+    ],
+    "practical_impact": "This bill directly affects public sector workers and their families who receive both government pensions (from jobs not covered by Social Security, such as certain state, local, or federal positions) and Social Security benefits. Currently, two provisions reduce Social Security benefits for these individuals: the Government Pension Offset (GPO), which reduces spousal or survivor benefits, and the Windfall Elimination Provision (WEP), which reduces retirement benefits. The bill eliminates both provisions, meaning affected individuals would receive their full Social Security benefits without reductions. For example, a retired teacher with a state pension who is also entitled to Social Security survivor benefits from a deceased spouse would no longer see those survivor benefits reduced or eliminated.\n\nThe changes apply to monthly benefits payable after December 2023, meaning eligible individuals would see increased payments beginning in early 2024. Those currently receiving reduced benefits would have their payments recalculated and increased. Those not yet receiving benefits but who will become eligible would receive full benefits without the previous reductions. The bill requires the Commissioner of Social Security to adjust benefit calculations as necessary to implement these changes. The practical effect is increased monthly income for an estimated 2-3 million current and future beneficiaries who worked in non-Social Security-covered government jobs, though the exact number of affected individuals is not specified in the bill text.\n\nThe bill does not affect individuals who only receive Social Security benefits from private sector employment, nor does it change benefit calculations for those who never worked in government positions outside the Social Security system. It is a mandatory change that automatically applies to all eligible beneficiaries without requiring them to take any action, though they may need to contact the Social Security Administration to ensure their payments are properly adjusted.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T23:19:18.616119",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 4321,
+  "cost": 0.025215,
+  "_metadata": {
+    "bill_number": "H.R. 82",
+    "saved_at": "2025-10-10T03:19:18.617219",
+    "version": 1
+  }
+}

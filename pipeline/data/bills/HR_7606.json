@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 7606",
+  "title": "To designate the facility of the United States Postal Service located at 1087 Route 47 South in Rio Grande, New Jersey, as the \"Carlton H. Hand Post Office Building\".",
+  "sponsor": "Rep. Van Drew, Jefferson [R-NJ-2]",
+  "introduced_date": "2024-03-08",
+  "text_url": "https://www.congress.gov/118/bills/hr7606/BILLS-118hr7606enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-243.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a United States Postal Service facility located at 1087 Route 47 South in Rio Grande, New Jersey, as the \"Carlton H. Hand Post Office Building.\" The legislation is a commemorative measure that renames this specific post office in honor of Carlton H. Hand, though the bill text does not provide information about who Carlton H. Hand was or the reasons for this designation.\n\nThe bill establishes that all future references to this postal facility in any official U.S. government documents, laws, maps, regulations, or records must use the new name \"Carlton H. Hand Post Office Building.\" This is a standard provision in postal facility naming bills to ensure consistency across all federal documentation. The designation is permanent unless changed by future legislation.\n\nThe bill does not specify an implementation timeline, require any physical changes to the building, or allocate funding for new signage or administrative updates. As is typical with post office naming legislation, the practical effect is primarily symbolic, honoring an individual by attaching their name to a federal facility that serves the local community. The bill has been passed by both the House of Representatives and the Senate, as indicated by the signatures of the Speaker of the House and the Vice President (in their role as President of the Senate).",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 1087 Route 47 South in Rio Grande, New Jersey, as the 'Carlton H. Hand Post Office Building'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Carlton H. Hand Post Office Building'."
+    ],
+    "practical_impact": "This bill has minimal practical impact on ordinary citizens. It solely renames an existing United States Postal Service facility located at 1087 Route 47 South in Rio Grande, New Jersey, to the \"Carlton H. Hand Post Office Building.\" The physical building, its location, hours of operation, services provided, and staff remain unchanged. Residents and businesses in Rio Grande and surrounding areas will continue to use this post office exactly as they did before\u2014mailing packages, buying stamps, accessing P.O. boxes, and conducting other postal business without any disruption or modification to services.\n\nThe only observable change for citizens will be the building's official name on signage, official documents, maps, and government records. Local residents may see updated signage at the facility itself, and the new name will appear in future references in federal documents and regulations. There are no new requirements, costs, fees, or obligations imposed on any individuals or businesses. The bill does not specify an implementation timeline, though such facility redesignations typically take effect upon enactment and physical signage updates occur as resources allow.\n\nThe designation honors an individual named Carlton H. Hand, though the bill text does not provide information about who this person was or their connection to the community. For the vast majority of Americans outside the immediate Rio Grande area, this legislation has no direct effect whatsoever.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:30:48.340894",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2419,
+  "cost": 0.015765,
+  "_metadata": {
+    "bill_number": "H.R. 7606",
+    "saved_at": "2025-10-10T02:30:48.341599",
+    "version": 1
+  }
+}

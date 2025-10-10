@@ -1,0 +1,29 @@
+{
+  "bill_number": "H.R. 9285",
+  "title": "To designate the facility of the United States Postal Service located at 3913 Leland Avenue Northwest in Comstock Park, Michigan, as the \"Captain Miguel Justin Nava Post Office\".",
+  "sponsor": "Rep. Scholten, Hillary J. [D-MI-3]",
+  "introduced_date": "2024-08-02",
+  "text_url": "https://www.congress.gov/118/bills/hr9285/BILLS-118hr9285enr.htm",
+  "bill_version": "Enrolled Bill",
+  "status": "Became Public Law No: 118-260.",
+  "chunks_count": 1,
+  "analysis": {
+    "plain_english_summary": "This bill designates a specific United States Postal Service facility as an honorary post office named after Captain Miguel Justin Nava. The facility is located at 3913 Leland Avenue Northwest in Comstock Park, Michigan. Once this bill becomes law, this post office will officially be known as the \"Captain Miguel Justin Nava Post Office.\"\n\nThe bill establishes that any future references to this postal facility in federal laws, maps, regulations, documents, papers, or other official records must use the new designated name. This means that all official government materials will refer to this location as the Captain Miguel Justin Nava Post Office rather than by its street address or any previous designation.\n\nThe bill does not provide information about who Captain Miguel Justin Nava was or why this honor is being bestowed. It also does not specify any changes to the postal facility's operations, services, or funding. This is a ceremonial designation that changes only the official name of the building. No timeline for implementation or additional stakeholders beyond the United States Postal Service are mentioned in the bill text.",
+    "key_provisions": [
+      "Designates the United States Postal Service facility located at 3913 Leland Avenue Northwest in Comstock Park, Michigan, as the 'Captain Miguel Justin Nava Post Office'.",
+      "Requires that any reference to this facility in any law, map, regulation, document, paper, or other record of the United States shall be deemed a reference to the 'Captain Miguel Justin Nava Post Office'."
+    ],
+    "practical_impact": "This bill has minimal direct impact on ordinary citizens. It designates a single United States Postal Service facility located at 3913 Leland Avenue Northwest in Comstock Park, Michigan, as the \"Captain Miguel Justin Nava Post Office.\" The facility will continue to operate exactly as it did before\u2014providing the same postal services, maintaining the same hours, and serving the same customers. No changes to postal operations, staffing, or service delivery are specified in the bill.\n\nThe practical effects are limited to symbolic and administrative matters. Residents and businesses using this post office may see updated signage reflecting the new name. Any official government documents, maps, or records that reference this facility will use the new designation. People mailing letters or packages to or from this location may eventually see the new name on postal materials, though their mailing addresses and zip codes remain unchanged. The timeline for implementation is not specified in the bill text, though such name changes typically occur after the bill is signed into law and the Postal Service completes administrative updates.\n\nNo individuals or groups face new requirements, costs, or restrictions from this legislation. The bill is purely ceremonial in nature, honoring Captain Miguel Justin Nava through the naming of this postal facility. It does not affect postal rates, delivery services, facility access, or any other aspect of how citizens interact with the post office.",
+    "fiscal_impact": null,
+    "generated_at": "2025-10-09T22:22:37.447133",
+    "model_used": "claude-sonnet-4-5-20250929"
+  },
+  "model": "claude-sonnet-4-5-20250929",
+  "total_tokens": 2402,
+  "cost": 0.015294,
+  "_metadata": {
+    "bill_number": "H.R. 9285",
+    "saved_at": "2025-10-10T02:22:37.447839",
+    "version": 1
+  }
+}
