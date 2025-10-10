@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 General Discussion
+    url: https://github.com/openuspolitics/openuspolitics.org/discussions
+    about: For general questions, ideas, and community discussion
+  - name: 📖 Documentation
+    url: https://github.com/openuspolitics/openuspolitics.org#readme
+    about: View the project documentation and guides
+  - name: 🔒 Security Issue
+    url: https://github.com/openuspolitics/openuspolitics.org/security/advisories/new
+    about: Report a security vulnerability (private disclosure)

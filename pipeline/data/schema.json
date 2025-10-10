@@ -1,0 +1,334 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://openuspolitics.org/schemas/bill.json",
+  "title": "Bill",
+  "description": "Schema for a Congressional bill with AI-generated analysis",
+  "type": "object",
+  "required": [
+    "bill_number",
+    "title",
+    "sponsor",
+    "status",
+    "introduced_date",
+    "last_updated",
+    "plain_english_summary",
+    "source_url",
+    "congress",
+    "bill_type"
+  ],
+  "properties": {
+    "bill_number": {
+      "type": "string",
+      "pattern": "^(H\\.R\\.|S\\.|H\\.J\\.Res\\.|S\\.J\\.Res\\.|H\\.Con\\.Res\\.|S\\.Con\\.Res\\.|H\\.Res\\.|S\\.Res\\.) \\d+$",
+      "description": "Bill identifier (e.g., 'H.R. 1234')",
+      "examples": ["H.R. 1234", "S. 567"]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "Official bill title"
+    },
+    "sponsor": {
+      "$ref": "#/definitions/Representative",
+      "description": "Primary sponsor of the bill"
+    },
+    "cosponsors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Representative"
+      },
+      "description": "List of bill co-sponsors",
+      "default": []
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "introduced",
+        "in_committee",
+        "passed_house",
+        "passed_senate",
+        "signed",
+        "vetoed",
+        "failed"
+      ],
+      "description": "Current status in legislative process"
+    },
+    "introduced_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 date when bill was introduced"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 date of last update"
+    },
+    "topic": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "healthcare",
+          "defense",
+          "economy",
+          "education",
+          "environment",
+          "infrastructure",
+          "immigration",
+          "justice",
+          "technology",
+          "foreign_policy",
+          "agriculture",
+          "energy",
+          "labor",
+          "social_services",
+          "other"
+        ]
+      },
+      "description": "Topic categories",
+      "default": []
+    },
+    "fiscal_impact": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/FiscalImpact"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Fiscal impact information (null if not applicable)"
+    },
+    "plain_english_summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10000,
+      "description": "AI-generated plain English summary"
+    },
+    "key_provisions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000
+      },
+      "description": "Key provisions extracted from bill",
+      "default": []
+    },
+    "practical_impact": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 5000,
+      "description": "Practical impact on citizens",
+      "default": ""
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to bill on congress.gov"
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ProvenanceLink"
+      },
+      "description": "Provenance links for traceability",
+      "default": []
+    },
+    "source_chunks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/DocumentChunk"
+      },
+      "description": "Source text chunks",
+      "default": []
+    },
+    "congress": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "description": "Congress number (e.g., 118)"
+    },
+    "bill_type": {
+      "type": "string",
+      "pattern": "^(hr|s|hjres|sjres|hconres|sconres|hres|sres)$",
+      "description": "Bill type (e.g., 'hr', 's')"
+    }
+  },
+  "definitions": {
+    "Representative": {
+      "type": "object",
+      "required": ["id", "name", "party", "state", "office", "congress_gov_url"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique identifier"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Full name"
+        },
+        "party": {
+          "type": "string",
+          "enum": ["D", "R", "I"],
+          "description": "Political party"
+        },
+        "state": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "Two-letter state code"
+        },
+        "district": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "District number (null for Senators)"
+        },
+        "photo_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to official photo",
+          "default": ""
+        },
+        "office": {
+          "type": "string",
+          "enum": ["House", "Senate"],
+          "description": "Congressional office"
+        },
+        "congress_gov_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to congress.gov profile"
+        }
+      }
+    },
+    "FiscalImpact": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "cost_estimate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Estimated cost in USD"
+        },
+        "revenue_estimate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Estimated revenue in USD"
+        },
+        "cbo_score_url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "URL to CBO score"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Plain English summary of fiscal impact"
+        }
+      }
+    },
+    "DocumentChunk": {
+      "type": "object",
+      "required": ["id", "text", "section", "start_char", "end_char"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique chunk identifier"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Chunk text content"
+        },
+        "section": {
+          "type": "string",
+          "description": "Section number or name"
+        },
+        "start_char": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Starting character position"
+        },
+        "end_char": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Ending character position"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Page number (null if not paginated)"
+        }
+      }
+    },
+    "ProvenanceLink": {
+      "type": "object",
+      "required": ["summary_phrase", "source_chunk_id", "source_offsets"],
+      "properties": {
+        "summary_phrase": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Phrase from AI-generated summary"
+        },
+        "source_chunk_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "ID of the source chunk"
+        },
+        "source_offsets": {
+          "type": "object",
+          "required": ["start", "end"],
+          "properties": {
+            "start": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Starting character position"
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Ending character position"
+            }
+          }
+        }
+      }
+    }
+  }
+}

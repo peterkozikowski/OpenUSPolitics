@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* CSS Custom Properties for Theme */
+  :root {
+    --color-primary: 30 64 175;      /* primary-800 */
+    --color-neutral: 100 116 139;    /* neutral-500 */
+    --color-accent: 5 150 105;       /* accent-600 */
+  }
+
+  /* Smooth scrolling behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Base body styles */
+  body {
+    @apply text-neutral-900 bg-white antialiased;
+  }
+
+  /* Typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-neutral-900;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors duration-150;
+  }
+
+  /* Focus visible styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-600 rounded-sm;
+  }
+}
+
+@layer components {
+  /* Container styles */
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary-800 text-white px-6 py-3 rounded-lg font-semibold
+           hover:bg-primary-700 active:bg-primary-900
+           focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2
+           transition-colors duration-150;
+  }
+
+  .btn-secondary {
+    @apply bg-neutral-200 text-neutral-900 px-6 py-3 rounded-lg font-semibold
+           hover:bg-neutral-300 active:bg-neutral-400
+           focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2
+           transition-colors duration-150;
+  }
+
+  .btn-accent {
+    @apply bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold
+           hover:bg-accent-700 active:bg-accent-800
+           focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2
+           transition-colors duration-150;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-lg shadow-md border border-neutral-200
+           hover:shadow-lg transition-shadow duration-200;
+  }
+
+  /* Traceable text - for linked phrases in bill summaries */
+  .traceable-text {
+    @apply border-b-2 border-primary-400 border-dotted cursor-pointer
+           hover:bg-primary-50 hover:border-primary-600
+           transition-colors duration-150;
+    position: relative;
+  }
+
+  .traceable-text:hover::after {
+    content: '🔗';
+    @apply absolute -right-5 top-0 text-xs text-primary-600;
+  }
+
+  /* Source highlight - for highlighting source text when hovering summary */
+  .source-highlight {
+    @apply bg-yellow-200 transition-all duration-300;
+    animation: pulse-highlight 0.6s ease-in-out;
+  }
+
+  @keyframes pulse-highlight {
+    0%, 100% {
+      @apply bg-yellow-200;
+    }
+    50% {
+      @apply bg-yellow-300;
+    }
+  }
+
+  /* Bill prose - optimized typography for bill text */
+  .prose-bill {
+    @apply max-w-content text-neutral-700 leading-relaxed font-serif;
+  }
+
+  .prose-bill p {
+    @apply mb-4;
+  }
+
+  .prose-bill h1, .prose-bill h2, .prose-bill h3 {
+    @apply font-sans font-bold text-neutral-900 mt-8 mb-4;
+  }
+
+  .prose-bill ul, .prose-bill ol {
+    @apply ml-6 mb-4 space-y-2;
+  }
+
+  .prose-bill ul {
+    @apply list-disc;
+  }
+
+  .prose-bill ol {
+    @apply list-decimal;
+  }
+
+  .prose-bill blockquote {
+    @apply border-l-4 border-neutral-300 pl-4 italic text-neutral-600 my-4;
+  }
+
+  .prose-bill code {
+    @apply bg-neutral-100 px-2 py-1 rounded text-sm font-mono text-neutral-800;
+  }
+
+  /* Skip to main content link (accessibility) */
+  .skip-to-main {
+    @apply absolute left-0 top-0 bg-primary-800 text-white px-4 py-2
+           -translate-y-full focus:translate-y-0
+           transition-transform duration-200 z-50;
+  }
+
+  /* Mobile menu overlay */
+  .mobile-menu-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40
+           transition-opacity duration-300;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply inline-block w-6 h-6 border-3 border-current border-t-transparent
+           rounded-full animate-spin;
+  }
+}
+
+@layer utilities {
+  /* Custom utility classes */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-800 to-accent-600 bg-clip-text text-transparent;
+  }
+
+  /* Scrollbar styling (for webkit browsers) */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-neutral-100;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-neutral-400 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-500;
+  }
+
+  /* Fade in animation */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scrollbar hide utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,81 @@
+# Dependabot configuration for automated dependency updates
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates
+
+version: 2
+updates:
+  # Update npm dependencies for Next.js frontend
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    # Limit number of open PRs
+    open-pull-requests-limit: 5
+    # Group minor and patch updates together
+    groups:
+      production-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    # Customize commit messages
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    # Auto-merge for patch and minor updates (optional)
+    labels:
+      - "dependencies"
+      - "frontend"
+    reviewers:
+      - "openuspolitics/maintainers"
+    # Ignore specific packages if needed
+    ignore:
+      # Example: ignore major updates for specific packages
+      # - dependency-name: "next"
+      #   update-types: ["version-update:semver-major"]
+
+  # Update pip dependencies for Python pipeline
+  - package-ecosystem: "pip"
+    directory: "/pipeline"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    groups:
+      production-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "backend"
+    reviewers:
+      - "openuspolitics/maintainers"
+
+  # Update GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore(ci)"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    reviewers:
+      - "openuspolitics/maintainers"
