@@ -341,6 +341,7 @@ def analyze_single_bill(
             "bill_version": bill_text_data.get("version", "Unknown"),
             "status": bill_details.get("status", "Unknown"),
             "chunks_count": len(chunks),
+            "chunks": chunks,  # Include actual chunks for frontend
             "analysis": {
                 "plain_english_summary": analysis.get("plain_english_summary", ""),
                 "key_provisions": analysis.get("key_provisions", []),

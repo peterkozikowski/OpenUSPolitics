@@ -204,7 +204,7 @@ export function adaptPipelineBill(pipelineData: any): Bill {
     practical_impact: pipelineData.analysis?.practical_impact || '',
     source_url: pipelineData.text_url || 'https://www.congress.gov',
     provenance: [], // Not in pipeline data yet
-    source_chunks: [], // Not in pipeline data yet
+    source_chunks: pipelineData.chunks || [],
     congress,
     bill_type
   }
