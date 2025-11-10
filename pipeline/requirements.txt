@@ -12,7 +12,7 @@ tiktoken==0.5.2  # Token counting
 
 # Vector database and embeddings
 chromadb==0.4.22
-sentence-transformers==2.2.2  # Text embeddings (includes cross-encoders)
+sentence-transformers==3.0.0  # Text embeddings (includes cross-encoders) - Updated for huggingface-hub compatibility
 rank-bm25==0.2.2  # BM25 keyword search
 
 # Testing

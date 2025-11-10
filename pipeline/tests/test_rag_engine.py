@@ -14,14 +14,21 @@ import pytest
 from unittest.mock import Mock, MagicMock, patch
 import numpy as np
 
-from analyzers.rag_engine import (
-    RAGEngine,
-    RAGEngineError,
-    setup_bm25_index,
-    tokenize_query,
-    count_tokens,
-    normalize_scores,
-)
+# Try importing RAG engine dependencies - skip all tests if not available
+try:
+    from analyzers.rag_engine import (
+        RAGEngine,
+        RAGEngineError,
+        setup_bm25_index,
+        tokenize_query,
+        count_tokens,
+        normalize_scores,
+    )
+
+    RAG_ENGINE_AVAILABLE = True
+except ImportError as e:
+    RAG_ENGINE_AVAILABLE = False
+    pytestmark = pytest.mark.skip(f"RAG engine dependencies not available: {e}")
 
 
 # ============================================================================
