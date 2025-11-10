@@ -151,8 +151,7 @@ class ProvenanceTracker:
             List of events for this bill in chronological order
         """
         bill_events = [
-            event for event in self.events
-            if event.get("bill_number") == bill_number
+            event for event in self.events if event.get("bill_number") == bill_number
         ]
 
         # Sort by timestamp

@@ -22,7 +22,7 @@ from tenacity import (
     retry,
     stop_after_attempt,
     wait_exponential,
-    retry_if_exception_type
+    retry_if_exception_type,
 )
 from pydantic import BaseModel, Field, ValidationError
 from cachetools import TTLCache
@@ -44,18 +44,22 @@ logger = logging.getLogger(__name__)
 # Custom Exceptions
 # ============================================================================
 
+
 class ClaudeAPIError(Exception):
     """Base exception for Claude API errors."""
+
     pass
 
 
 class InvalidJSONError(ClaudeAPIError):
     """Raised when Claude returns invalid JSON."""
+
     pass
 
 
 class RateLimitError(ClaudeAPIError):
     """Raised when rate limit is exceeded."""
+
     pass
 
 
@@ -63,23 +67,28 @@ class RateLimitError(ClaudeAPIError):
 # Pydantic Models for Validation
 # ============================================================================
 
+
 class SummaryResponse(BaseModel):
     """Validation model for summary response."""
+
     plain_english_summary: str = Field(..., min_length=300, max_length=5000)
 
 
 class ProvisionsResponse(BaseModel):
     """Validation model for key provisions response."""
+
     key_provisions: List[str] = Field(..., min_items=1, max_items=15)
 
 
 class ImpactResponse(BaseModel):
     """Validation model for practical impact response."""
+
     practical_impact: str = Field(..., min_length=200, max_length=5000)
 
 
 class FiscalDetails(BaseModel):
     """Fiscal impact details."""
+
     total_cost: Optional[str] = None
     annual_cost: Optional[str] = None
     funding_sources: List[str] = Field(default_factory=list)
@@ -90,11 +99,13 @@ class FiscalDetails(BaseModel):
 
 class FiscalResponse(BaseModel):
     """Validation model for fiscal impact response."""
+
     fiscal_impact: Optional[FiscalDetails] = None
 
 
 class ProvenanceEntry(BaseModel):
     """Single provenance entry."""
+
     summary_sentence: str
     source_chunk_id: str
     source_text: str
@@ -104,11 +115,13 @@ class ProvenanceEntry(BaseModel):
 
 class ProvenanceResponse(BaseModel):
     """Validation model for provenance response."""
+
     provenance: List[ProvenanceEntry]
 
 
 class BillAnalysis(BaseModel):
     """Complete bill analysis structure."""
+
     bill_number: str
     bill_title: str
     plain_english_summary: str
@@ -124,6 +137,7 @@ class BillAnalysis(BaseModel):
 # ============================================================================
 # Rate Limiter
 # ============================================================================
+
 
 class RateLimiter:
     """Simple rate limiter for API calls."""
@@ -152,6 +166,7 @@ class RateLimiter:
 # Cost Calculator
 # ============================================================================
 
+
 class CostTracker:
     """Track API costs across sessions."""
 
@@ -173,12 +188,14 @@ class CostTracker:
         self.total_output_tokens += output_tokens
         self.total_cost += cost
 
-        self.calls.append({
-            "timestamp": datetime.now().isoformat(),
-            "input_tokens": input_tokens,
-            "output_tokens": output_tokens,
-            "cost": cost
-        })
+        self.calls.append(
+            {
+                "timestamp": datetime.now().isoformat(),
+                "input_tokens": input_tokens,
+                "output_tokens": output_tokens,
+                "cost": cost,
+            }
+        )
 
         logger.info(
             f"API call: {input_tokens} in, {output_tokens} out, ${cost:.4f} "
@@ -208,13 +225,16 @@ class CostTracker:
             "total_input_tokens": self.total_input_tokens,
             "total_output_tokens": self.total_output_tokens,
             "total_cost": self.total_cost,
-            "average_cost_per_call": self.total_cost / len(self.calls) if self.calls else 0
+            "average_cost_per_call": (
+                self.total_cost / len(self.calls) if self.calls else 0
+            ),
         }
 
 
 # ============================================================================
 # Claude Analyzer
 # ============================================================================
+
 
 class ClaudeAnalyzer:
     """
@@ -253,13 +273,11 @@ class ClaudeAnalyzer:
         # Cost tracking
         self.cost_tracker = CostTracker()
 
-        logger.info(f"Initialized ClaudeAnalyzer (model: {self.model}, rate: {rate_limit_rpm} RPM)")
+        logger.info(
+            f"Initialized ClaudeAnalyzer (model: {self.model}, rate: {rate_limit_rpm} RPM)"
+        )
 
-    def analyze_bill(
-        self,
-        bill_data: Dict,
-        context_chunks: List[Dict]
-    ) -> Dict:
+    def analyze_bill(self, bill_data: Dict, context_chunks: List[Dict]) -> Dict:
         """
         Complete bill analysis pipeline.
 
@@ -308,8 +326,9 @@ class ClaudeAnalyzer:
                 "fiscal_impact": fiscal_data.get("fiscal_impact"),
                 "generated_at": datetime.now().isoformat(),
                 "model_used": self.model,
-                "total_tokens": self.cost_tracker.total_input_tokens + self.cost_tracker.total_output_tokens,
-                "estimated_cost": self.cost_tracker.total_cost
+                "total_tokens": self.cost_tracker.total_input_tokens
+                + self.cost_tracker.total_output_tokens,
+                "estimated_cost": self.cost_tracker.total_cost,
             }
 
             # Validate complete analysis
@@ -322,7 +341,9 @@ class ClaudeAnalyzer:
             logger.error(f"Analysis failed for {bill_number}: {e}")
             raise ClaudeAPIError(f"Bill analysis failed: {e}") from e
 
-    def _generate_summary(self, bill_number: str, bill_title: str, context: str) -> Dict:
+    def _generate_summary(
+        self, bill_number: str, bill_title: str, context: str
+    ) -> Dict:
         """Generate plain English summary."""
         prompt = format_summary_prompt(bill_number, bill_title, context)
         response = self._call_claude(prompt, max_tokens=1500)
@@ -331,7 +352,9 @@ class ClaudeAnalyzer:
         validated = SummaryResponse.model_validate(response)
         return validated.model_dump()
 
-    def _extract_provisions(self, bill_number: str, bill_title: str, context: str) -> Dict:
+    def _extract_provisions(
+        self, bill_number: str, bill_title: str, context: str
+    ) -> Dict:
         """Extract key provisions."""
         prompt = format_provisions_prompt(bill_number, bill_title, context)
         response = self._call_claude(prompt, max_tokens=1000)
@@ -361,7 +384,7 @@ class ClaudeAnalyzer:
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((RateLimitError, anthropic.APIConnectionError))
+        retry=retry_if_exception_type((RateLimitError, anthropic.APIConnectionError)),
     )
     def _call_claude(self, prompt: str, max_tokens: int = 1500) -> Dict:
         """
@@ -395,9 +418,7 @@ class ClaudeAnalyzer:
                 max_tokens=max_tokens,
                 temperature=0.0,  # Deterministic
                 system=ANALYST_SYSTEM_PROMPT,
-                messages=[
-                    {"role": "user", "content": prompt}
-                ]
+                messages=[{"role": "user", "content": prompt}],
             )
 
             # Extract response
@@ -422,8 +443,7 @@ class ClaudeAnalyzer:
 
             # Track cost
             self.cost_tracker.add_call(
-                response.usage.input_tokens,
-                response.usage.output_tokens
+                response.usage.input_tokens, response.usage.output_tokens
             )
 
             # Cache successful response
@@ -443,11 +463,7 @@ class ClaudeAnalyzer:
             logger.error(f"Unexpected error calling Claude: {e}")
             raise ClaudeAPIError(f"Unexpected error: {e}") from e
 
-    def generate_traceability(
-        self,
-        summary: str,
-        chunks: List[Dict]
-    ) -> List[Dict]:
+    def generate_traceability(self, summary: str, chunks: List[Dict]) -> List[Dict]:
         """
         Generate provenance links mapping summary sentences to source chunks.
 
@@ -527,8 +543,16 @@ class ClaudeAnalyzer:
     def _check_fiscal_keywords(self, context: str) -> bool:
         """Check if context contains fiscal keywords."""
         keywords = [
-            "appropriated", "authorized", "$", "million", "billion",
-            "funding", "budget", "cost", "revenue", "fiscal"
+            "appropriated",
+            "authorized",
+            "$",
+            "million",
+            "billion",
+            "funding",
+            "budget",
+            "cost",
+            "revenue",
+            "fiscal",
         ]
         context_lower = context.lower()
         return any(kw in context_lower for kw in keywords)
@@ -567,7 +591,7 @@ class ClaudeAnalyzer:
                 "from experience",
                 "as we all know",
                 "experts believe",
-                "it is widely known"
+                "it is widely known",
             ]
 
             for phrase in hallucination_phrases:
@@ -594,7 +618,7 @@ class ClaudeAnalyzer:
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     print("=" * 80)
@@ -608,20 +632,20 @@ if __name__ == "__main__":
         # Test data
         bill_data = {
             "bill_number": "H.R. 1234",
-            "title": "Healthcare Access and Funding Act of 2024"
+            "title": "Healthcare Access and Funding Act of 2024",
         }
 
         test_chunks = [
             {
                 "id": "chunk_0",
                 "text": "SEC. 1. SHORT TITLE. This Act may be cited as the 'Healthcare Access and Funding Act of 2024'.",
-                "metadata": {"section": "1", "section_title": "SHORT TITLE"}
+                "metadata": {"section": "1", "section_title": "SHORT TITLE"},
             },
             {
                 "id": "chunk_1",
                 "text": "SEC. 2. APPROPRIATIONS. There is authorized to be appropriated $500 million annually for fiscal years 2025 through 2030 for rural healthcare infrastructure improvements.",
-                "metadata": {"section": "2", "section_title": "APPROPRIATIONS"}
-            }
+                "metadata": {"section": "2", "section_title": "APPROPRIATIONS"},
+            },
         ]
 
         # Run analysis
@@ -630,14 +654,14 @@ if __name__ == "__main__":
 
         print(f"\n✅ Analysis complete!")
         print(f"\nSummary ({len(analysis['plain_english_summary'].split())} words):")
-        print(analysis['plain_english_summary'][:200] + "...")
+        print(analysis["plain_english_summary"][:200] + "...")
 
         print(f"\nKey Provisions ({len(analysis['key_provisions'])} total):")
-        for i, prov in enumerate(analysis['key_provisions'][:3], 1):
+        for i, prov in enumerate(analysis["key_provisions"][:3], 1):
             print(f"  {i}. {prov}")
 
         print(f"\nFiscal Impact:")
-        if analysis['fiscal_impact']:
+        if analysis["fiscal_impact"]:
             print(f"  Total: {analysis['fiscal_impact'].get('total_cost', 'N/A')}")
         else:
             print("  None identified")
@@ -651,4 +675,5 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"\n❌ Error: {e}")
         import traceback
+
         traceback.print_exc()

@@ -79,14 +79,18 @@ class Config:
     # ========================================================================
 
     CONGRESS_API_BASE_URL: str = "https://api.congress.gov/v3"
-    CONGRESS_API_RATE_LIMIT: float = float(os.getenv("CONGRESS_API_RATE_LIMIT", "0.28"))  # ~1000/hour
+    CONGRESS_API_RATE_LIMIT: float = float(
+        os.getenv("CONGRESS_API_RATE_LIMIT", "0.28")
+    )  # ~1000/hour
 
     # ========================================================================
     # Optional Features
     # ========================================================================
 
     ENABLE_BIAS_AUDIT: bool = os.getenv("ENABLE_BIAS_AUDIT", "false").lower() == "true"
-    ENABLE_TRACEABILITY: bool = os.getenv("ENABLE_TRACEABILITY", "true").lower() == "true"
+    ENABLE_TRACEABILITY: bool = (
+        os.getenv("ENABLE_TRACEABILITY", "true").lower() == "true"
+    )
 
     # ========================================================================
     # Git Configuration
@@ -137,7 +141,9 @@ class Config:
             errors.append("RAG_ALPHA must be between 0 and 1")
 
         if errors:
-            error_msg = "Configuration validation failed:\n" + "\n".join(f"  - {e}" for e in errors)
+            error_msg = "Configuration validation failed:\n" + "\n".join(
+                f"  - {e}" for e in errors
+            )
             raise ValueError(error_msg)
 
     @classmethod
@@ -156,6 +162,7 @@ class Config:
         Returns:
             Formatted configuration string
         """
+
         def mask_key(key: str) -> str:
             """Mask API key for display."""
             if not key:
@@ -214,7 +221,7 @@ Features:
             bias_audit=cls.ENABLE_BIAS_AUDIT,
             traceability=cls.ENABLE_TRACEABILITY,
             git_commit=cls.GIT_AUTO_COMMIT,
-            git_push=cls.GIT_AUTO_PUSH
+            git_push=cls.GIT_AUTO_PUSH,
         )
 
 

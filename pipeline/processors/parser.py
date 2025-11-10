@@ -21,8 +21,10 @@ logger = logging.getLogger(__name__)
 # Custom Exceptions
 # ============================================================================
 
+
 class BillParserError(Exception):
     """Custom exception for bill parsing errors."""
+
     pass
 
 
@@ -33,6 +35,7 @@ ParserError = BillParserError
 # ============================================================================
 # Main Parsing Functions
 # ============================================================================
+
 
 def parse_bill_text(url: str) -> Dict:
     """
@@ -101,6 +104,7 @@ def parse_bill_text(url: str) -> Dict:
 # PDF Parsing (PyMuPDF - Layout Aware)
 # ============================================================================
 
+
 def _parse_pdf_advanced(content: bytes) -> Dict:
     """
     Parse PDF content with layout-aware extraction using PyMuPDF.
@@ -133,11 +137,13 @@ def _parse_pdf_advanced(content: bytes) -> Dict:
 
         if cleaned_page.strip():
             text_parts.append(cleaned_page)
-            page_data.append({
-                "page_number": page_num,
-                "text": cleaned_page,
-                "char_count": len(cleaned_page)
-            })
+            page_data.append(
+                {
+                    "page_number": page_num,
+                    "text": cleaned_page,
+                    "char_count": len(cleaned_page),
+                }
+            )
 
     doc.close()
 
@@ -147,11 +153,7 @@ def _parse_pdf_advanced(content: bytes) -> Dict:
     # Clean and normalize the full text
     raw_text = _normalize_text(raw_text)
 
-    return {
-        "raw_text": raw_text,
-        "page_data": page_data,
-        "source_format": "pdf"
-    }
+    return {"raw_text": raw_text, "page_data": page_data, "source_format": "pdf"}
 
 
 def _clean_page_text(text: str, page_num: int) -> str:
@@ -172,7 +174,9 @@ def _clean_page_text(text: str, page_num: int) -> str:
     """
     # Remove common header patterns
     text = re.sub(r"\d+th CONGRESS.*?SESSION", "", text, flags=re.IGNORECASE)
-    text = re.sub(r"H\.\s*R\.\s*\d+", "", text, count=1)  # Remove bill number at top (keep in body)
+    text = re.sub(
+        r"H\.\s*R\.\s*\d+", "", text, count=1
+    )  # Remove bill number at top (keep in body)
     text = re.sub(r"IN THE (?:HOUSE|SENATE)", "", text, flags=re.IGNORECASE)
 
     # Remove page numbers (various formats)
@@ -189,6 +193,7 @@ def _clean_page_text(text: str, page_num: int) -> str:
 # ============================================================================
 # HTML Parsing
 # ============================================================================
+
 
 def _parse_html_advanced(content: bytes) -> Dict:
     """
@@ -209,10 +214,10 @@ def _parse_html_advanced(content: bytes) -> Dict:
     # Try to find the main content area
     # Congress.gov uses specific classes for bill text
     main_content = (
-        soup.find("pre", class_="styled-text") or
-        soup.find("div", class_="bill-text") or
-        soup.find("pre") or
-        soup.find("main")
+        soup.find("pre", class_="styled-text")
+        or soup.find("div", class_="bill-text")
+        or soup.find("pre")
+        or soup.find("main")
     )
 
     if main_content:
@@ -225,16 +230,13 @@ def _parse_html_advanced(content: bytes) -> Dict:
     # Normalize the text
     text = _normalize_text(text)
 
-    return {
-        "raw_text": text,
-        "page_data": [],
-        "source_format": "html"
-    }
+    return {"raw_text": text, "page_data": [], "source_format": "html"}
 
 
 # ============================================================================
 # Text Normalization
 # ============================================================================
+
 
 def _normalize_text(text: str) -> str:
     """
@@ -288,6 +290,7 @@ def _normalize_text(text: str) -> str:
 # Metadata Extraction
 # ============================================================================
 
+
 def _extract_metadata(text: str, url: str) -> Dict:
     """
     Extract metadata from bill text.
@@ -310,7 +313,7 @@ def _extract_metadata(text: str, url: str) -> Dict:
         "bill_number": None,
         "congress": None,
         "session": None,
-        "pages": None
+        "pages": None,
     }
 
     # Extract congress and session
@@ -323,7 +326,9 @@ def _extract_metadata(text: str, url: str) -> Dict:
         metadata["session"] = int(session_match.group(1))
 
     # Extract bill number from URL (more reliable than text)
-    bill_num_match = re.search(r"/(hr|s|hjres|sjres|hconres|sconres)(\d+)/", url, re.IGNORECASE)
+    bill_num_match = re.search(
+        r"/(hr|s|hjres|sjres|hconres|sconres)(\d+)/", url, re.IGNORECASE
+    )
     if bill_num_match:
         bill_type = bill_num_match.group(1).upper()
         bill_num = bill_num_match.group(2)
@@ -359,6 +364,7 @@ def _extract_metadata(text: str, url: str) -> Dict:
 # Section Extraction
 # ============================================================================
 
+
 def extract_sections(text: str) -> List[Dict]:
     """
     Parse bill into structured sections with hierarchy.
@@ -385,8 +391,7 @@ def extract_sections(text: str) -> List[Dict]:
     # Pattern for main section headers
     # Matches: SEC. 1., SECTION 1., Sec. 101., etc.
     section_pattern = re.compile(
-        r"^(SEC\.|SECTION)\s+(\d+(?:\.\s*)?)\s*(.+?)$",
-        re.MULTILINE | re.IGNORECASE
+        r"^(SEC\.|SECTION)\s+(\d+(?:\.\s*)?)\s*(.+?)$", re.MULTILINE | re.IGNORECASE
     )
 
     matches = list(section_pattern.finditer(text))
@@ -410,14 +415,16 @@ def extract_sections(text: str) -> List[Dict]:
         # Could extend to detect subsections, but for now all are level 1
         level = 1
 
-        sections.append({
-            "section_number": section_num,
-            "title": section_title,
-            "level": level,
-            "text": section_text,
-            "start_char": start_pos,
-            "end_char": end_pos,
-        })
+        sections.append(
+            {
+                "section_number": section_num,
+                "title": section_title,
+                "level": level,
+                "text": section_text,
+                "start_char": start_pos,
+                "end_char": end_pos,
+            }
+        )
 
     logger.info(f"Extracted {len(sections)} sections from bill")
     return sections
@@ -430,7 +437,7 @@ def extract_sections(text: str) -> List[Dict]:
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     # Test with a real bill URL

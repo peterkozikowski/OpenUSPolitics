@@ -223,6 +223,7 @@ Respond ONLY with valid JSON in this exact format:
 # Formatting Functions
 # ============================================================================
 
+
 def format_summary_prompt(bill_number: str, bill_title: str, context: str) -> str:
     """
     Format plain English summary prompt.
@@ -236,9 +237,7 @@ def format_summary_prompt(bill_number: str, bill_title: str, context: str) -> st
         Formatted prompt string
     """
     return SUMMARY_PROMPT.format(
-        bill_number=bill_number,
-        bill_title=bill_title,
-        context=context
+        bill_number=bill_number, bill_title=bill_title, context=context
     )
 
 
@@ -255,9 +254,7 @@ def format_provisions_prompt(bill_number: str, bill_title: str, context: str) ->
         Formatted prompt string
     """
     return KEY_PROVISIONS_PROMPT.format(
-        bill_number=bill_number,
-        bill_title=bill_title,
-        context=context
+        bill_number=bill_number, bill_title=bill_title, context=context
     )
 
 
@@ -274,9 +271,7 @@ def format_impact_prompt(bill_number: str, bill_title: str, context: str) -> str
         Formatted prompt string
     """
     return PRACTICAL_IMPACT_PROMPT.format(
-        bill_number=bill_number,
-        bill_title=bill_title,
-        context=context
+        bill_number=bill_number, bill_title=bill_title, context=context
     )
 
 
@@ -293,9 +288,7 @@ def format_fiscal_prompt(bill_number: str, bill_title: str, context: str) -> str
         Formatted prompt string
     """
     return FISCAL_IMPACT_PROMPT.format(
-        bill_number=bill_number,
-        bill_title=bill_title,
-        context=context
+        bill_number=bill_number, bill_title=bill_title, context=context
     )
 
 
@@ -310,10 +303,7 @@ def format_traceability_prompt(summary: str, chunks_context: str) -> str:
     Returns:
         Formatted prompt string
     """
-    return TRACEABILITY_PROMPT.format(
-        summary=summary,
-        chunks_context=chunks_context
-    )
+    return TRACEABILITY_PROMPT.format(summary=summary, chunks_context=chunks_context)
 
 
 # ============================================================================

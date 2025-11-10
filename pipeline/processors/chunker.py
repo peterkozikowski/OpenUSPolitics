@@ -18,8 +18,10 @@ logger = logging.getLogger(__name__)
 # Custom Exceptions
 # ============================================================================
 
+
 class ChunkerError(Exception):
     """Custom exception for chunking errors."""
+
     pass
 
 
@@ -36,10 +38,11 @@ TOKEN_ENCODING = "cl100k_base"  # OpenAI's encoding
 # Main Chunking Functions
 # ============================================================================
 
+
 def chunk_document(
     parsed_bill: Dict,
     chunk_size: int = DEFAULT_CHUNK_SIZE,
-    overlap: int = DEFAULT_OVERLAP
+    overlap: int = DEFAULT_OVERLAP,
 ) -> List[Dict]:
     """
     Split bill into overlapping chunks for RAG processing.
@@ -96,16 +99,13 @@ def chunk_document(
             page_data=page_data,
             chunk_size=chunk_size,
             overlap=overlap,
-            tokenizer=tokenizer
+            tokenizer=tokenizer,
         )
     else:
         # Fallback to simple chunking
         logger.info("No sections found, using simple chunking")
         chunks = _chunk_simple(
-            text=raw_text,
-            chunk_size=chunk_size,
-            overlap=overlap,
-            tokenizer=tokenizer
+            text=raw_text, chunk_size=chunk_size, overlap=overlap, tokenizer=tokenizer
         )
 
     logger.info(f"Created {len(chunks)} chunks")
@@ -118,7 +118,7 @@ def _chunk_with_sections(
     page_data: List[Dict],
     chunk_size: int,
     overlap: int,
-    tokenizer
+    tokenizer,
 ) -> List[Dict]:
     """
     Section-aware chunking strategy.
@@ -177,7 +177,7 @@ def _chunk_with_sections(
                 overlap=overlap,
                 tokenizer=tokenizer,
                 page_map=page_map,
-                chunk_id_start=chunk_id
+                chunk_id_start=chunk_id,
             )
             chunks.extend(section_chunks)
             chunk_id += len(section_chunks)
@@ -194,7 +194,7 @@ def _split_large_section(
     overlap: int,
     tokenizer,
     page_map: Dict,
-    chunk_id_start: int
+    chunk_id_start: int,
 ) -> List[Dict]:
     """
     Split a large section into multiple chunks at sentence boundaries.
@@ -247,7 +247,11 @@ def _split_large_section(
 
             current_chunk_text = overlap_text + " " + sentence
             current_tokens = overlap_tokens + sentence_tokens
-            chunk_start_pos = chunk_start_pos + len(current_chunk_text) - len(overlap_text + " " + sentence)
+            chunk_start_pos = (
+                chunk_start_pos
+                + len(current_chunk_text)
+                - len(overlap_text + " " + sentence)
+            )
         else:
             # Add sentence to current chunk
             if current_chunk_text:
@@ -275,12 +279,7 @@ def _split_large_section(
     return chunks
 
 
-def _chunk_simple(
-    text: str,
-    chunk_size: int,
-    overlap: int,
-    tokenizer
-) -> List[Dict]:
+def _chunk_simple(text: str, chunk_size: int, overlap: int, tokenizer) -> List[Dict]:
     """
     Simple chunking without section awareness.
 
@@ -327,7 +326,11 @@ def _chunk_simple(
 
             current_chunk_text = overlap_text + " " + sentence
             current_tokens = overlap_tokens + sentence_tokens
-            chunk_start_pos = chunk_start_pos + len(current_chunk_text) - len(overlap_text + " " + sentence)
+            chunk_start_pos = (
+                chunk_start_pos
+                + len(current_chunk_text)
+                - len(overlap_text + " " + sentence)
+            )
         else:
             if current_chunk_text:
                 current_chunk_text += " " + sentence
@@ -358,6 +361,7 @@ def _chunk_simple(
 # Helper Functions
 # ============================================================================
 
+
 def smart_split(text: str, max_tokens: int) -> List[str]:
     """
     Split text at sentence boundaries using regex-based sentence detection.
@@ -383,7 +387,7 @@ def smart_split(text: str, max_tokens: int) -> List[str]:
 
     # Pattern matches sentence endings: . ! ? followed by space/newline/end
     # Handles common legal citations like "U.S.C." by requiring space after period
-    sentence_pattern = r'(?<=[.!?])\s+(?=[A-Z])|(?<=[.!?])$'
+    sentence_pattern = r"(?<=[.!?])\s+(?=[A-Z])|(?<=[.!?])$"
 
     sentences = re.split(sentence_pattern, text)
 
@@ -396,7 +400,7 @@ def smart_split(text: str, max_tokens: int) -> List[str]:
     for sent in sentences:
         if len(sent) > max_tokens * 4:  # Rough char estimate (4 chars ~ 1 token)
             # Split at semicolons or dashes for very long sentences
-            subsents = re.split(r'[;—]', sent)
+            subsents = re.split(r"[;—]", sent)
             final_sentences.extend([s.strip() for s in subsents if s.strip()])
         else:
             final_sentences.append(sent)
@@ -483,7 +487,7 @@ def _get_page_number(char_pos: int, page_map: Dict[int, int]) -> Optional[int]:
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     # Test data
@@ -510,15 +514,15 @@ The Secretary shall establish requirements for implementation. This section cont
                 "level": 1,
                 "text": 'SEC. 1. SHORT TITLE.\n\nThis Act may be cited as the "Test Bill Act of 2024".',
                 "start_char": 0,
-                "end_char": 70
+                "end_char": 70,
             },
             {
                 "section_number": "2",
                 "title": "DEFINITIONS",
                 "level": 1,
-                "text": "SEC. 2. DEFINITIONS.\n\nIn this Act:\n(1) TERM 1.—The term \"term 1\" means something important that requires a detailed explanation to fully understand the legislative intent and scope of application within the context of this Act.\n(2) TERM 2.—The term \"term 2\" means something else that is equally important and requires careful consideration when implementing the provisions set forth in subsequent sections.",
+                "text": 'SEC. 2. DEFINITIONS.\n\nIn this Act:\n(1) TERM 1.—The term "term 1" means something important that requires a detailed explanation to fully understand the legislative intent and scope of application within the context of this Act.\n(2) TERM 2.—The term "term 2" means something else that is equally important and requires careful consideration when implementing the provisions set forth in subsequent sections.',
                 "start_char": 72,
-                "end_char": 450
+                "end_char": 450,
             },
             {
                 "section_number": "3",
@@ -526,14 +530,11 @@ The Secretary shall establish requirements for implementation. This section cont
                 "level": 1,
                 "text": "SEC. 3. REQUIREMENTS.\n\nThe Secretary shall establish requirements for implementation. This section contains very long text that will definitely exceed the chunk size limit and will need to be split into multiple chunks to handle properly. The implementation must follow strict guidelines and ensure compliance with all applicable federal regulations and standards.",
                 "start_char": 452,
-                "end_char": 800
-            }
+                "end_char": 800,
+            },
         ],
-        "metadata": {
-            "bill_number": "H.R. TEST",
-            "title": "Test Bill Act of 2024"
-        },
-        "page_data": []
+        "metadata": {"bill_number": "H.R. TEST", "title": "Test Bill Act of 2024"},
+        "page_data": [],
     }
 
     print("=" * 80)

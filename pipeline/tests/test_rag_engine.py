@@ -28,6 +28,7 @@ from analyzers.rag_engine import (
 # Fixtures
 # ============================================================================
 
+
 @pytest.fixture
 def mock_collection():
     """Create a mock ChromaDB collection."""
@@ -38,12 +39,18 @@ def mock_collection():
     collection.query.return_value = {
         "ids": [["chunk_0", "chunk_1", "chunk_2"]],
         "documents": [["Healthcare text", "Education text", "Budget text"]],
-        "metadatas": [[
-            {"section": "1", "section_title": "Healthcare", "bill_number": "H.R. 1"},
-            {"section": "2", "section_title": "Education", "bill_number": "H.R. 1"},
-            {"section": "3", "section_title": "Budget", "bill_number": "H.R. 1"}
-        ]],
-        "distances": [[0.2, 0.3, 0.4]]
+        "metadatas": [
+            [
+                {
+                    "section": "1",
+                    "section_title": "Healthcare",
+                    "bill_number": "H.R. 1",
+                },
+                {"section": "2", "section_title": "Education", "bill_number": "H.R. 1"},
+                {"section": "3", "section_title": "Budget", "bill_number": "H.R. 1"},
+            ]
+        ],
+        "distances": [[0.2, 0.3, 0.4]],
     }
 
     # Mock get results
@@ -51,10 +58,25 @@ def mock_collection():
         "ids": ["chunk_0", "chunk_1", "chunk_2"],
         "documents": ["Healthcare text", "Education text", "Budget text"],
         "metadatas": [
-            {"section": "1", "section_title": "Healthcare", "bill_number": "H.R. 1", "start_char": 0},
-            {"section": "2", "section_title": "Education", "bill_number": "H.R. 1", "start_char": 100},
-            {"section": "3", "section_title": "Budget", "bill_number": "H.R. 1", "start_char": 200}
-        ]
+            {
+                "section": "1",
+                "section_title": "Healthcare",
+                "bill_number": "H.R. 1",
+                "start_char": 0,
+            },
+            {
+                "section": "2",
+                "section_title": "Education",
+                "bill_number": "H.R. 1",
+                "start_char": 100,
+            },
+            {
+                "section": "3",
+                "section_title": "Budget",
+                "bill_number": "H.R. 1",
+                "start_char": 200,
+            },
+        ],
     }
 
     return collection
@@ -67,24 +89,25 @@ def test_chunks():
         {
             "id": "chunk_0",
             "text": "This bill provides healthcare funding for rural areas",
-            "metadata": {"section": "1", "bill_number": "H.R. 1"}
+            "metadata": {"section": "1", "bill_number": "H.R. 1"},
         },
         {
             "id": "chunk_1",
             "text": "The Secretary shall allocate education funds to schools",
-            "metadata": {"section": "2", "bill_number": "H.R. 1"}
+            "metadata": {"section": "2", "bill_number": "H.R. 1"},
         },
         {
             "id": "chunk_2",
             "text": "Appropriations of $50 million for healthcare programs",
-            "metadata": {"section": "3", "bill_number": "H.R. 1"}
-        }
+            "metadata": {"section": "3", "bill_number": "H.R. 1"},
+        },
     ]
 
 
 # ============================================================================
 # Helper Function Tests
 # ============================================================================
+
 
 class TestHelperFunctions:
     """Tests for helper functions."""
@@ -146,10 +169,11 @@ class TestHelperFunctions:
 # RAG Engine Tests
 # ============================================================================
 
+
 class TestRAGEngine:
     """Tests for RAGEngine class."""
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_init(self, mock_transformer, mock_collection):
         """Test RAG engine initialization."""
         engine = RAGEngine(mock_collection)
@@ -160,9 +184,11 @@ class TestRAGEngine:
         assert engine.use_reranker is False
         mock_transformer.assert_called_once()
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    @patch('analyzers.rag_engine.CrossEncoder')
-    def test_init_with_reranker(self, mock_cross_encoder, mock_transformer, mock_collection):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    @patch("analyzers.rag_engine.CrossEncoder")
+    def test_init_with_reranker(
+        self, mock_cross_encoder, mock_transformer, mock_collection
+    ):
         """Test initialization with reranker enabled."""
         engine = RAGEngine(mock_collection, use_reranker=True)
 
@@ -170,7 +196,7 @@ class TestRAGEngine:
         assert engine.reranker is not None
         mock_cross_encoder.assert_called_once()
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_get_all_chunks(self, mock_transformer, mock_collection):
         """Test getting all chunks from collection."""
         engine = RAGEngine(mock_collection)
@@ -185,7 +211,7 @@ class TestRAGEngine:
 class TestVectorSearch:
     """Tests for vector search functionality."""
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_vector_search(self, mock_transformer, mock_collection):
         """Test vector similarity search."""
         # Mock embedder
@@ -201,7 +227,7 @@ class TestVectorSearch:
         assert all("text" in r for r in results)
         mock_collection.query.assert_called_once()
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_vector_search_with_filter(self, mock_transformer, mock_collection):
         """Test vector search with bill number filter."""
         mock_model = Mock()
@@ -219,7 +245,7 @@ class TestVectorSearch:
 class TestBM25Search:
     """Tests for BM25 keyword search."""
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_bm25_search(self, mock_transformer, mock_collection, test_chunks):
         """Test BM25 keyword search."""
         engine = RAGEngine(mock_collection)
@@ -233,8 +259,10 @@ class TestBM25Search:
         assert all("bm25_score" in r for r in results)
         assert all(r["bm25_score"] > 0 for r in results)
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_bm25_search_with_filter(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_bm25_search_with_filter(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test BM25 search with bill number filter."""
         engine = RAGEngine(mock_collection)
         engine.bm25, engine.bm25_chunks = setup_bm25_index(test_chunks)
@@ -247,8 +275,10 @@ class TestBM25Search:
 class TestHybridSearch:
     """Tests for hybrid search combining vector and BM25."""
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_hybrid_search_balanced(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_hybrid_search_balanced(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test hybrid search with balanced weights."""
         mock_model = Mock()
         mock_model.encode.return_value = np.array([[0.1, 0.2, 0.3]])
@@ -265,8 +295,10 @@ class TestHybridSearch:
         scores = [r["final_score"] for r in results]
         assert scores == sorted(scores, reverse=True)
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_hybrid_search_pure_vector(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_hybrid_search_pure_vector(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test hybrid search with pure vector (alpha=1.0)."""
         mock_model = Mock()
         mock_model.encode.return_value = np.array([[0.1, 0.2, 0.3]])
@@ -280,8 +312,10 @@ class TestHybridSearch:
         # With alpha=1.0, should be pure vector search
         assert len(results) <= 2
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_hybrid_search_pure_bm25(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_hybrid_search_pure_bm25(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test hybrid search with pure BM25 (alpha=0.0)."""
         mock_model = Mock()
         mock_model.encode.return_value = np.array([[0.1, 0.2, 0.3]])
@@ -295,8 +329,10 @@ class TestHybridSearch:
         # With alpha=0.0, should be pure BM25 search
         assert len(results) <= 2
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_hybrid_search_caching(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_hybrid_search_caching(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test that hybrid search results are cached."""
         mock_model = Mock()
         mock_model.encode.return_value = np.array([[0.1, 0.2, 0.3]])
@@ -319,7 +355,7 @@ class TestHybridSearch:
 class TestContextRetrieval:
     """Tests for context retrieval with token limits."""
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_retrieve_context(self, mock_transformer, mock_collection, test_chunks):
         """Test context retrieval within token limit."""
         mock_model = Mock()
@@ -330,9 +366,7 @@ class TestContextRetrieval:
         engine.bm25, engine.bm25_chunks = setup_bm25_index(test_chunks)
 
         context = engine.retrieve_context(
-            bill_number="H.R. 1",
-            query="healthcare",
-            max_tokens=1000
+            bill_number="H.R. 1", query="healthcare", max_tokens=1000
         )
 
         assert isinstance(context, str)
@@ -341,8 +375,10 @@ class TestContextRetrieval:
         token_count = count_tokens(context)
         assert token_count <= 1000
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_retrieve_context_formatted(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_retrieve_context_formatted(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test that context is properly formatted with section headers."""
         mock_model = Mock()
         mock_model.encode.return_value = np.array([[0.1, 0.2, 0.3]])
@@ -352,9 +388,7 @@ class TestContextRetrieval:
         engine.bm25, engine.bm25_chunks = setup_bm25_index(test_chunks)
 
         context = engine.retrieve_context(
-            bill_number="H.R. 1",
-            query="healthcare",
-            max_tokens=2000
+            bill_number="H.R. 1", query="healthcare", max_tokens=2000
         )
 
         # Should contain section headers
@@ -364,7 +398,7 @@ class TestContextRetrieval:
 class TestFullBillContext:
     """Tests for retrieving full bill context."""
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_get_full_bill_context(self, mock_transformer, mock_collection):
         """Test getting full bill context in order."""
         engine = RAGEngine(mock_collection)
@@ -379,25 +413,29 @@ class TestFullBillContext:
 class TestSpecificProvisions:
     """Tests for finding specific provisions."""
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_find_provisions_any_keyword(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_find_provisions_any_keyword(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test finding provisions with ANY keyword match."""
         engine = RAGEngine(mock_collection)
 
         # Mock get_full_bill_context
-        with patch.object(engine, 'get_full_bill_context', return_value=test_chunks):
+        with patch.object(engine, "get_full_bill_context", return_value=test_chunks):
             provisions = engine.find_specific_provisions(
                 bill_number="H.R. 1",
                 keywords=["healthcare", "education"],
-                match_all=False
+                match_all=False,
             )
 
         assert len(provisions) > 0
         # Should find chunks with either keyword
         assert all("keyword_matches" in p for p in provisions)
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_find_provisions_all_keywords(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_find_provisions_all_keywords(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test finding provisions with ALL keywords required."""
         engine = RAGEngine(mock_collection)
 
@@ -405,11 +443,13 @@ class TestSpecificProvisions:
         test_chunks_modified = test_chunks.copy()
         test_chunks_modified[0]["text"] = "Healthcare and education funding bill"
 
-        with patch.object(engine, 'get_full_bill_context', return_value=test_chunks_modified):
+        with patch.object(
+            engine, "get_full_bill_context", return_value=test_chunks_modified
+        ):
             provisions = engine.find_specific_provisions(
                 bill_number="H.R. 1",
                 keywords=["healthcare", "education"],
-                match_all=True
+                match_all=True,
             )
 
         # Only chunks with ALL keywords should be returned
@@ -418,16 +458,18 @@ class TestSpecificProvisions:
             assert "healthcare" in text_lower
             assert "education" in text_lower
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
-    def test_find_provisions_sorted_by_matches(self, mock_transformer, mock_collection, test_chunks):
+    @patch("analyzers.rag_engine.SentenceTransformer")
+    def test_find_provisions_sorted_by_matches(
+        self, mock_transformer, mock_collection, test_chunks
+    ):
         """Test that provisions are sorted by number of keyword matches."""
         engine = RAGEngine(mock_collection)
 
-        with patch.object(engine, 'get_full_bill_context', return_value=test_chunks):
+        with patch.object(engine, "get_full_bill_context", return_value=test_chunks):
             provisions = engine.find_specific_provisions(
                 bill_number="H.R. 1",
                 keywords=["healthcare", "funding"],
-                match_all=False
+                match_all=False,
             )
 
         # Verify sorted by match count
@@ -440,10 +482,11 @@ class TestSpecificProvisions:
 # Query Type Tests
 # ============================================================================
 
+
 class TestQueryTypes:
     """Tests for various query types."""
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_broad_query(self, mock_transformer, mock_collection, test_chunks):
         """Test broad query like 'What does this bill do?'"""
         mock_model = Mock()
@@ -456,12 +499,12 @@ class TestQueryTypes:
         results = engine.hybrid_search(
             "What does this bill do?",
             top_k=5,
-            alpha=0.6  # Slightly favor vector for broad queries
+            alpha=0.6,  # Slightly favor vector for broad queries
         )
 
         assert len(results) > 0
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_specific_query(self, mock_transformer, mock_collection, test_chunks):
         """Test specific query like 'How much money is allocated?'"""
         mock_model = Mock()
@@ -474,12 +517,12 @@ class TestQueryTypes:
         results = engine.hybrid_search(
             "How much money is allocated?",
             top_k=3,
-            alpha=0.4  # Slightly favor BM25 for specific queries
+            alpha=0.4,  # Slightly favor BM25 for specific queries
         )
 
         assert len(results) > 0
 
-    @patch('analyzers.rag_engine.SentenceTransformer')
+    @patch("analyzers.rag_engine.SentenceTransformer")
     def test_impact_query(self, mock_transformer, mock_collection, test_chunks):
         """Test impact-focused query like 'Who is affected?'"""
         mock_model = Mock()
@@ -490,9 +533,7 @@ class TestQueryTypes:
         engine.bm25, engine.bm25_chunks = setup_bm25_index(test_chunks)
 
         results = engine.hybrid_search(
-            "Who is affected by this bill?",
-            top_k=5,
-            alpha=0.5
+            "Who is affected by this bill?", top_k=5, alpha=0.5
         )
 
         assert len(results) > 0
@@ -501,6 +542,7 @@ class TestQueryTypes:
 # ============================================================================
 # Integration Tests
 # ============================================================================
+
 
 @pytest.mark.skip(reason="Requires vector store and embeddings to be set up")
 def test_rag_engine_integration():

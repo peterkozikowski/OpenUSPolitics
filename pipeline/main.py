@@ -59,7 +59,9 @@ def setup_logging(verbose: bool = False) -> None:
     level = logging.DEBUG if verbose else logging.INFO
 
     # Create log filename with timestamp
-    log_filename = Config.LOGS_DIR / f"pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    log_filename = (
+        Config.LOGS_DIR / f"pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    )
 
     # Configure root logger
     logging.basicConfig(
@@ -127,7 +129,9 @@ class PipelineStats:
 
     def save_metrics(self):
         """Save metrics to JSON file."""
-        metrics_file = Config.LOGS_DIR / f"metrics_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        metrics_file = (
+            Config.LOGS_DIR / f"metrics_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        )
         with open(metrics_file, "w") as f:
             json.dump(self.get_summary(), f, indent=2)
         logger.info(f"Saved metrics to: {metrics_file}")
@@ -173,7 +177,12 @@ def validate_pipeline() -> bool:
         logger.info("✓ CONGRESS_GOV_API_KEY is set")
 
     # Check directories
-    required_dirs = [Config.DATA_DIR, Config.BILLS_DIR, Config.VECTOR_DB_DIR, Config.LOGS_DIR]
+    required_dirs = [
+        Config.DATA_DIR,
+        Config.BILLS_DIR,
+        Config.VECTOR_DB_DIR,
+        Config.LOGS_DIR,
+    ]
     for directory in required_dirs:
         if directory.exists():
             logger.info(f"✓ Directory exists: {directory}")
@@ -202,8 +211,11 @@ def validate_pipeline() -> bool:
         ]
         # Generate embeddings for test chunk
         from processors.embedder import generate_embeddings
+
         test_chunks_with_embeddings = generate_embeddings(test_chunks)
-        collection = setup_vector_store(test_chunks_with_embeddings, collection_name="validation_test")
+        collection = setup_vector_store(
+            test_chunks_with_embeddings, collection_name="validation_test"
+        )
         logger.info("✓ Vector store test passed")
     except Exception as e:
         logger.error(f"✗ Vector store test failed: {e}")
@@ -305,7 +317,9 @@ def analyze_single_bill(
 
         # Setup vector store
         collection_name = f"bill_{bill_number.replace('.', '_').replace(' ', '_')}"
-        collection = setup_vector_store(chunks_with_embeddings, collection_name=collection_name)
+        collection = setup_vector_store(
+            chunks_with_embeddings, collection_name=collection_name
+        )
         logger.info(f"  Stored in collection: {collection_name}")
 
         # Step 6: Retrieve context via RAG
@@ -320,7 +334,9 @@ def analyze_single_bill(
         logger.info(f"  Retrieved context: {len(context)} characters")
 
         # Step 7: Analyze with Claude
-        logger.info("Step 7/7: Analyzing with Claude (summary, provisions, impact, fiscal)...")
+        logger.info(
+            "Step 7/7: Analyzing with Claude (summary, provisions, impact, fiscal)..."
+        )
 
         bill_data = {
             "bill_number": bill_number,
@@ -332,7 +348,9 @@ def analyze_single_bill(
 
         analysis = claude_client.analyze_bill(bill_data, chunks_with_embeddings)
 
-        logger.info(f"  Analysis complete - Cost: ${analysis.get('estimated_cost', 0):.4f}")
+        logger.info(
+            f"  Analysis complete - Cost: ${analysis.get('estimated_cost', 0):.4f}"
+        )
         logger.info(f"  Tokens used: {analysis.get('total_tokens', 0)}")
 
         # Prepare final data
@@ -357,7 +375,9 @@ def analyze_single_bill(
 
         # Save analysis
         logger.info("Saving analysis to git storage...")
-        filepath = save_analysis(bill_number, analysis_data, auto_commit=Config.GIT_AUTO_COMMIT)
+        filepath = save_analysis(
+            bill_number, analysis_data, auto_commit=Config.GIT_AUTO_COMMIT
+        )
         logger.info(f"✓ Saved to: {filepath}")
 
         logger.info("=" * 80)
@@ -506,9 +526,9 @@ def main(
         logger.info(f"Total cost: ${summary['total_cost_usd']:.4f}")
         logger.info(f"Avg time per bill: {summary['avg_time_per_bill']}s")
 
-        if summary['errors']:
+        if summary["errors"]:
             logger.info(f"\nErrors encountered ({len(summary['errors'])}):")
-            for error in summary['errors']:
+            for error in summary["errors"]:
                 logger.info(f"  - {error['bill_number']}: {error['error']}")
 
         # Save metrics

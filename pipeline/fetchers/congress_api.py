@@ -16,7 +16,12 @@ import re
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry as UrlLibRetry
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+)
 from cachetools import TTLCache
 from tqdm import tqdm
 
@@ -29,29 +34,35 @@ logger = logging.getLogger(__name__)
 # Custom Exceptions
 # ============================================================================
 
+
 class CongressAPIError(Exception):
     """Base exception for Congress API errors."""
+
     pass
 
 
 class BillNotFoundError(CongressAPIError):
     """Raised when a bill cannot be found."""
+
     pass
 
 
 class APIRateLimitError(CongressAPIError):
     """Raised when API rate limit is exceeded."""
+
     pass
 
 
 class APIConnectionError(CongressAPIError):
     """Raised when there's a connection error to the API."""
+
     pass
 
 
 # ============================================================================
 # Congress API Client
 # ============================================================================
+
 
 class CongressAPIClient:
     """
@@ -84,7 +95,9 @@ class CongressAPIClient:
         """
         self.api_key = api_key or Config.CONGRESS_API_KEY
         if not self.api_key:
-            raise ValueError("Congress API key is required. Set CONGRESS_API_KEY in environment.")
+            raise ValueError(
+                "Congress API key is required. Set CONGRESS_API_KEY in environment."
+            )
 
         self.base_url = Config.CONGRESS_API_BASE_URL
         self.rate_limit = Config.CONGRESS_API_RATE_LIMIT  # requests per second
@@ -98,16 +111,20 @@ class CongressAPIClient:
             total=3,
             backoff_factor=1,
             status_forcelist=[429, 500, 502, 503, 504],
-            allowed_methods=["GET"]
+            allowed_methods=["GET"],
         )
-        adapter = HTTPAdapter(max_retries=retry_strategy, pool_connections=10, pool_maxsize=20)
+        adapter = HTTPAdapter(
+            max_retries=retry_strategy, pool_connections=10, pool_maxsize=20
+        )
         self.session.mount("https://", adapter)
         self.session.mount("http://", adapter)
 
         # Response cache with 5-minute TTL
         self.cache = TTLCache(maxsize=1000, ttl=300)
 
-        logger.info("CongressAPIClient initialized with rate limit: %s req/s", self.rate_limit)
+        logger.info(
+            "CongressAPIClient initialized with rate limit: %s req/s", self.rate_limit
+        )
 
     def _rate_limit_wait(self) -> None:
         """Implement rate limiting between requests (1000 req/hour = ~0.28 req/sec)."""
@@ -218,10 +235,7 @@ class CongressAPIClient:
     # ========================================================================
 
     def fetch_recent_bills(
-        self,
-        limit: int = 10,
-        congress: int = 118,
-        bill_type: str = "hr"
+        self, limit: int = 10, congress: int = 118, bill_type: str = "hr"
     ) -> List[Dict]:
         """
         Fetch most recent bills from Congress.gov.
@@ -249,7 +263,9 @@ class CongressAPIClient:
             >>> bills = client.fetch_recent_bills(limit=5, congress=118, bill_type="hr")
             >>> print(bills[0]['bill_number'])  # "H.R. 1234"
         """
-        logger.info(f"Fetching {limit} recent bills from {congress}th Congress ({bill_type})")
+        logger.info(
+            f"Fetching {limit} recent bills from {congress}th Congress ({bill_type})"
+        )
 
         params = {
             "limit": min(limit, 250),
@@ -265,7 +281,9 @@ class CongressAPIClient:
 
         # Format bills with detailed information
         formatted_bills = []
-        for raw_bill in tqdm(raw_bills, desc="Processing bills", disable=len(raw_bills) < 10):
+        for raw_bill in tqdm(
+            raw_bills, desc="Processing bills", disable=len(raw_bills) < 10
+        ):
             bill_data = self._format_bill(raw_bill, congress)
             formatted_bills.append(bill_data)
 
@@ -288,7 +306,7 @@ class CongressAPIClient:
                 "name": sponsor_data.get("fullName", "Unknown"),
                 "party": sponsor_data.get("party", ""),
                 "state": sponsor_data.get("state", ""),
-                "bioguide_id": sponsor_data.get("bioguideId", "")
+                "bioguide_id": sponsor_data.get("bioguideId", ""),
             }
 
         # Get policy area/topics
@@ -321,7 +339,7 @@ class CongressAPIClient:
             "hconres": "H.Con.Res.",
             "sconres": "S.Con.Res.",
             "hres": "H.Res.",
-            "sres": "S.Res."
+            "sres": "S.Res.",
         }
         formatted_type = type_map.get(bill_type.lower(), bill_type.upper())
         return f"{formatted_type} {number}"
@@ -438,30 +456,40 @@ class CongressAPIClient:
         # Fetch actions
         actions = []
         if "actions" in bill_data and "url" in bill_data["actions"]:
-            actions_endpoint = bill_data["actions"]["url"].replace(self.base_url + "/", "")
+            actions_endpoint = bill_data["actions"]["url"].replace(
+                self.base_url + "/", ""
+            )
             actions_response = self._make_request(actions_endpoint)
             actions = actions_response.get("actions", [])
 
         # Fetch committees
         committees = []
         if "committees" in bill_data and "url" in bill_data["committees"]:
-            committees_endpoint = bill_data["committees"]["url"].replace(self.base_url + "/", "")
+            committees_endpoint = bill_data["committees"]["url"].replace(
+                self.base_url + "/", ""
+            )
             committees_response = self._make_request(committees_endpoint)
             committees = committees_response.get("committees", [])
 
         # Fetch related bills
         related_bills = []
         if "relatedBills" in bill_data and "url" in bill_data["relatedBills"]:
-            related_endpoint = bill_data["relatedBills"]["url"].replace(self.base_url + "/", "")
+            related_endpoint = bill_data["relatedBills"]["url"].replace(
+                self.base_url + "/", ""
+            )
             related_response = self._make_request(related_endpoint)
             related_bills = related_response.get("relatedBills", [])
 
         # Fetch subjects
         subjects = []
         if "subjects" in bill_data and "url" in bill_data["subjects"]:
-            subjects_endpoint = bill_data["subjects"]["url"].replace(self.base_url + "/", "")
+            subjects_endpoint = bill_data["subjects"]["url"].replace(
+                self.base_url + "/", ""
+            )
             subjects_response = self._make_request(subjects_endpoint)
-            subjects = subjects_response.get("subjects", {}).get("legislativeSubjects", [])
+            subjects = subjects_response.get("subjects", {}).get(
+                "legislativeSubjects", []
+            )
 
         # CBO cost estimate
         cbo_url = None
@@ -471,14 +499,18 @@ class CongressAPIClient:
                 cbo_url = estimates[0].get("url", "")
 
         # Combine all data
-        formatted_bill.update({
-            "actions": actions,
-            "committees": [c.get("name", "") for c in committees],
-            "related_bills": [self._format_bill_number(rb.get("type", ""), rb.get("number", ""))
-                             for rb in related_bills],
-            "subjects": [s.get("name", "") for s in subjects],
-            "cbo_cost_estimate": cbo_url,
-        })
+        formatted_bill.update(
+            {
+                "actions": actions,
+                "committees": [c.get("name", "") for c in committees],
+                "related_bills": [
+                    self._format_bill_number(rb.get("type", ""), rb.get("number", ""))
+                    for rb in related_bills
+                ],
+                "subjects": [s.get("name", "") for s in subjects],
+                "cbo_cost_estimate": cbo_url,
+            }
+        )
 
         return formatted_bill
 
@@ -530,7 +562,10 @@ class CongressAPIClient:
 # Convenience Functions
 # ============================================================================
 
-def fetch_recent_bills(limit: int = 10, congress: int = 118, bill_type: str = "hr") -> List[Dict]:
+
+def fetch_recent_bills(
+    limit: int = 10, congress: int = 118, bill_type: str = "hr"
+) -> List[Dict]:
     """
     Convenience function to fetch recent bills.
 
@@ -548,7 +583,9 @@ def fetch_recent_bills(limit: int = 10, congress: int = 118, bill_type: str = "h
         ...     print(f"{bill['bill_number']}: {bill['title']}")
     """
     client = CongressAPIClient()
-    return client.fetch_recent_bills(limit=limit, congress=congress, bill_type=bill_type)
+    return client.fetch_recent_bills(
+        limit=limit, congress=congress, bill_type=bill_type
+    )
 
 
 def get_bill_text(bill_number: str, congress: int = 118) -> str:
@@ -603,7 +640,7 @@ if __name__ == "__main__":
     # Test the API client
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     try:
@@ -616,21 +653,23 @@ if __name__ == "__main__":
         bills = fetch_recent_bills(limit=3, congress=118, bill_type="hr")
         for bill in bills:
             print(f"\n  {bill['bill_number']}: {bill['title'][:80]}...")
-            print(f"  Sponsor: {bill['sponsor'].get('name', 'Unknown')} ({bill['sponsor'].get('party', '')})")
+            print(
+                f"  Sponsor: {bill['sponsor'].get('name', 'Unknown')} ({bill['sponsor'].get('party', '')})"
+            )
             print(f"  Status: {bill['status'][:80]}...")
             print(f"  URL: {bill['congress_gov_url']}")
 
         # Test 2: Get bill details
         if bills:
             print(f"\n2. Getting details for {bills[0]['bill_number']}...")
-            details = get_bill_details(bills[0]['bill_number'], congress=118)
+            details = get_bill_details(bills[0]["bill_number"], congress=118)
             print(f"  Committees: {', '.join(details['committees'][:3])}")
             print(f"  Subjects: {', '.join(details['subjects'][:5])}")
             print(f"  Actions count: {len(details['actions'])}")
 
         # Test 3: Get representative (using a sponsor's bioguide_id)
-        if bills and bills[0]['sponsor'].get('bioguide_id'):
-            bioguide_id = bills[0]['sponsor']['bioguide_id']
+        if bills and bills[0]["sponsor"].get("bioguide_id"):
+            bioguide_id = bills[0]["sponsor"]["bioguide_id"]
             print(f"\n3. Getting representative info for {bioguide_id}...")
             rep = get_representative(bioguide_id)
             print(f"  Name: {rep['name']}")

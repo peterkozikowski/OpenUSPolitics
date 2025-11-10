@@ -32,8 +32,10 @@ MAX_CONTEXT_TOKENS = 4000
 # Custom Exceptions
 # ============================================================================
 
+
 class RAGEngineError(Exception):
     """Custom exception for RAG engine errors."""
+
     pass
 
 
@@ -44,6 +46,7 @@ RAGError = RAGEngineError
 # ============================================================================
 # Helper Functions
 # ============================================================================
+
 
 def setup_bm25_index(chunks: List[Dict]) -> Tuple[BM25Okapi, List[Dict]]:
     """
@@ -125,6 +128,7 @@ def normalize_scores(scores: np.ndarray) -> np.ndarray:
 # RAG Engine
 # ============================================================================
 
+
 class RAGEngine:
     """
     Hybrid RAG engine combining vector similarity and keyword (BM25) search.
@@ -143,7 +147,7 @@ class RAGEngine:
         collection: chromadb.Collection,
         embedding_model: str = DEFAULT_EMBEDDING_MODEL,
         use_reranker: bool = False,
-        reranker_model: str = DEFAULT_RERANKER_MODEL
+        reranker_model: str = DEFAULT_RERANKER_MODEL,
     ):
         """
         Initialize RAG engine with ChromaDB collection.
@@ -192,11 +196,13 @@ class RAGEngine:
 
         chunks = []
         for i in range(len(results["ids"])):
-            chunks.append({
-                "id": results["ids"][i],
-                "text": results["documents"][i],
-                "metadata": results["metadatas"][i] if results["metadatas"] else {}
-            })
+            chunks.append(
+                {
+                    "id": results["ids"][i],
+                    "text": results["documents"][i],
+                    "metadata": results["metadatas"][i] if results["metadatas"] else {},
+                }
+            )
 
         return chunks
 
@@ -205,7 +211,7 @@ class RAGEngine:
         query: str,
         top_k: int = 5,
         alpha: float = 0.5,
-        bill_number: Optional[str] = None
+        bill_number: Optional[str] = None,
     ) -> List[Dict]:
         """
         Perform hybrid search combining vector similarity and BM25 keyword matching.
@@ -234,10 +240,14 @@ class RAGEngine:
         logger.info(f"Hybrid search: '{query}' (alpha={alpha}, top_k={top_k})")
 
         # 1. Vector Search
-        vector_results = self._vector_search(query, top_k=top_k*2, bill_number=bill_number)
+        vector_results = self._vector_search(
+            query, top_k=top_k * 2, bill_number=bill_number
+        )
 
         # 2. BM25 Keyword Search
-        bm25_results = self._bm25_search(query, top_k=top_k*2, bill_number=bill_number)
+        bm25_results = self._bm25_search(
+            query, top_k=top_k * 2, bill_number=bill_number
+        )
 
         # 3. Fusion: Combine scores
         combined_results = self._fuse_results(vector_results, bm25_results, alpha=alpha)
@@ -256,23 +266,20 @@ class RAGEngine:
         return final_results
 
     def _vector_search(
-        self,
-        query: str,
-        top_k: int,
-        bill_number: Optional[str] = None
+        self, query: str, top_k: int, bill_number: Optional[str] = None
     ) -> List[Dict]:
         """Perform vector similarity search."""
         # Embed query
-        query_embedding = self.embedder.encode([query], normalize_embeddings=True)[0].tolist()
+        query_embedding = self.embedder.encode([query], normalize_embeddings=True)[
+            0
+        ].tolist()
 
         # Build filter
         where_filter = {"bill_number": bill_number} if bill_number else None
 
         # Query ChromaDB
         results = self.collection.query(
-            query_embeddings=[query_embedding],
-            n_results=top_k,
-            where=where_filter
+            query_embeddings=[query_embedding], n_results=top_k, where=where_filter
         )
 
         # Format results
@@ -283,21 +290,20 @@ class RAGEngine:
             distance = results["distances"][0][i]
             similarity = 1 / (1 + distance)  # Convert distance to similarity score
 
-            chunks.append({
-                "id": results["ids"][0][i],
-                "text": results["documents"][0][i],
-                "metadata": results["metadatas"][0][i],
-                "vector_score": similarity,
-                "distance": distance
-            })
+            chunks.append(
+                {
+                    "id": results["ids"][0][i],
+                    "text": results["documents"][0][i],
+                    "metadata": results["metadatas"][0][i],
+                    "vector_score": similarity,
+                    "distance": distance,
+                }
+            )
 
         return chunks
 
     def _bm25_search(
-        self,
-        query: str,
-        top_k: int,
-        bill_number: Optional[str] = None
+        self, query: str, top_k: int, bill_number: Optional[str] = None
     ) -> List[Dict]:
         """Perform BM25 keyword search."""
         # Ensure BM25 index exists
@@ -312,10 +318,13 @@ class RAGEngine:
         # Filter by bill_number if specified
         if bill_number:
             filtered_indices = [
-                i for i, chunk in enumerate(self.bm25_chunks)
+                i
+                for i, chunk in enumerate(self.bm25_chunks)
                 if chunk.get("metadata", {}).get("bill_number") == bill_number
             ]
-            scores = np.array([scores[i] if i in filtered_indices else 0 for i in range(len(scores))])
+            scores = np.array(
+                [scores[i] if i in filtered_indices else 0 for i in range(len(scores))]
+            )
 
         # Get top_k indices
         top_indices = np.argsort(scores)[::-1][:top_k]
@@ -325,20 +334,19 @@ class RAGEngine:
         for idx in top_indices:
             if scores[idx] > 0:  # Only include non-zero scores
                 chunk = self.bm25_chunks[idx]
-                chunks.append({
-                    "id": chunk["id"],
-                    "text": chunk["text"],
-                    "metadata": chunk.get("metadata", {}),
-                    "bm25_score": float(scores[idx])
-                })
+                chunks.append(
+                    {
+                        "id": chunk["id"],
+                        "text": chunk["text"],
+                        "metadata": chunk.get("metadata", {}),
+                        "bm25_score": float(scores[idx]),
+                    }
+                )
 
         return chunks
 
     def _fuse_results(
-        self,
-        vector_results: List[Dict],
-        bm25_results: List[Dict],
-        alpha: float
+        self, vector_results: List[Dict], bm25_results: List[Dict], alpha: float
     ) -> List[Dict]:
         """
         Fuse vector and BM25 results with weighted scoring.
@@ -372,7 +380,7 @@ class RAGEngine:
             chunk_id = result["id"]
             combined[chunk_id] = {
                 **result,
-                "final_score": alpha * result.get("vector_score_norm", 0)
+                "final_score": alpha * result.get("vector_score_norm", 0),
             }
 
         # Add/update with BM25 results
@@ -380,7 +388,9 @@ class RAGEngine:
             chunk_id = result["id"]
             if chunk_id in combined:
                 # Update score
-                combined[chunk_id]["final_score"] += (1 - alpha) * result.get("bm25_score_norm", 0)
+                combined[chunk_id]["final_score"] += (1 - alpha) * result.get(
+                    "bm25_score_norm", 0
+                )
                 combined[chunk_id]["bm25_score"] = result.get("bm25_score", 0)
                 combined[chunk_id]["bm25_score_norm"] = result.get("bm25_score_norm", 0)
             else:
@@ -388,7 +398,7 @@ class RAGEngine:
                     **result,
                     "vector_score": 0,
                     "vector_score_norm": 0,
-                    "final_score": (1 - alpha) * result.get("bm25_score_norm", 0)
+                    "final_score": (1 - alpha) * result.get("bm25_score_norm", 0),
                 }
 
         return list(combined.values())
@@ -396,7 +406,9 @@ class RAGEngine:
     def _deduplicate_results(self, results: List[Dict], top_k: int) -> List[Dict]:
         """Deduplicate and sort results by score."""
         # Sort by final score
-        sorted_results = sorted(results, key=lambda x: x.get("final_score", 0), reverse=True)
+        sorted_results = sorted(
+            results, key=lambda x: x.get("final_score", 0), reverse=True
+        )
 
         # Take top_k
         return sorted_results[:top_k]
@@ -428,7 +440,7 @@ class RAGEngine:
         bill_number: str,
         query: str,
         max_tokens: int = MAX_CONTEXT_TOKENS,
-        alpha: float = 0.5
+        alpha: float = 0.5,
     ) -> str:
         """
         Retrieve relevant context for a specific query with token limit.
@@ -455,7 +467,7 @@ class RAGEngine:
             query=query,
             top_k=20,  # Get more, then filter by tokens
             alpha=alpha,
-            bill_number=bill_number
+            bill_number=bill_number,
         )
 
         # Build context within token limit
@@ -485,7 +497,9 @@ class RAGEngine:
 
         context = "\n".join(context_parts)
 
-        logger.info(f"Retrieved context: {total_tokens} tokens, {len(context_parts)} chunks")
+        logger.info(
+            f"Retrieved context: {total_tokens} tokens, {len(context_parts)} chunks"
+        )
         return context
 
     def get_full_bill_context(self, bill_number: str, max_tokens: int = 8000) -> str:
@@ -506,18 +520,18 @@ class RAGEngine:
         logger.info(f"Retrieving full bill context for {bill_number}")
 
         # Get all chunks for this bill
-        results = self.collection.get(
-            where={"bill_number": bill_number}
-        )
+        results = self.collection.get(where={"bill_number": bill_number})
 
         # Format and sort by start position
         chunks = []
         for i in range(len(results["ids"])):
-            chunks.append({
-                "id": results["ids"][i],
-                "text": results["documents"][i],
-                "metadata": results["metadatas"][i] if results["metadatas"] else {}
-            })
+            chunks.append(
+                {
+                    "id": results["ids"][i],
+                    "text": results["documents"][i],
+                    "metadata": results["metadatas"][i] if results["metadatas"] else {},
+                }
+            )
 
         # Sort by start_char to get document order
         chunks_sorted = sorted(chunks, key=lambda x: x["metadata"].get("start_char", 0))
@@ -538,18 +552,19 @@ class RAGEngine:
             tokenizer = tiktoken.get_encoding("cl100k_base")
             tokens = tokenizer.encode(full_context)
             if len(tokens) > max_tokens:
-                logger.warning(f"Truncating context from {len(tokens)} to {max_tokens} tokens")
+                logger.warning(
+                    f"Truncating context from {len(tokens)} to {max_tokens} tokens"
+                )
                 truncated_tokens = tokens[:max_tokens]
                 full_context = tokenizer.decode(truncated_tokens)
 
-        logger.info(f"Retrieved {len(chunks_sorted)} chunks in order ({len(full_context)} chars)")
+        logger.info(
+            f"Retrieved {len(chunks_sorted)} chunks in order ({len(full_context)} chars)"
+        )
         return full_context
 
     def find_specific_provisions(
-        self,
-        bill_number: str,
-        keywords: List[str],
-        match_all: bool = False
+        self, bill_number: str, keywords: List[str], match_all: bool = False
     ) -> List[Dict]:
         """
         Find chunks containing specific terms.
@@ -569,7 +584,9 @@ class RAGEngine:
             ...     match_all=False
             ... )
         """
-        logger.info(f"Finding provisions with keywords: {keywords} (match_all={match_all})")
+        logger.info(
+            f"Finding provisions with keywords: {keywords} (match_all={match_all})"
+        )
 
         # Get all chunks for this bill
         all_chunks = self.get_full_bill_context(bill_number)
@@ -609,7 +626,7 @@ class RAGEngine:
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     print("=" * 80)
@@ -632,15 +649,15 @@ if __name__ == "__main__":
 
         for i, result in enumerate(results, 1):
             print(f"\n  Result {i} (Score: {result['final_score']:.4f}):")
-            print(f"    Vector: {result.get('vector_score_norm', 0):.4f}, BM25: {result.get('bm25_score_norm', 0):.4f}")
+            print(
+                f"    Vector: {result.get('vector_score_norm', 0):.4f}, BM25: {result.get('bm25_score_norm', 0):.4f}"
+            )
             print(f"    {result['text'][:100]}...")
 
         # Test 2: Context retrieval
         print("\n\n📝 Test 2: Context Retrieval")
         context = engine.retrieve_context(
-            bill_number="H.R. TEST",
-            query="healthcare providers",
-            max_tokens=500
+            bill_number="H.R. TEST", query="healthcare providers", max_tokens=500
         )
         print(f"Context ({count_tokens(context)} tokens):")
         print(context[:300] + "...")
@@ -648,8 +665,7 @@ if __name__ == "__main__":
         # Test 3: Specific provisions
         print("\n\n🔍 Test 3: Specific Provisions")
         provisions = engine.find_specific_provisions(
-            bill_number="H.R. TEST",
-            keywords=["education", "Secretary"]
+            bill_number="H.R. TEST", keywords=["education", "Secretary"]
         )
         print(f"Found {len(provisions)} provisions")
         for prov in provisions[:2]:
@@ -663,4 +679,5 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"\n❌ Error: {e}")
         import traceback
+
         traceback.print_exc()

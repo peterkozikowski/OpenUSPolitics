@@ -15,7 +15,12 @@ from datetime import datetime
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry as UrlLibRetry
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+)
 from cachetools import TTLCache
 from tqdm import tqdm
 
@@ -26,29 +31,35 @@ logger = logging.getLogger(__name__)
 # Custom Exceptions
 # ============================================================================
 
+
 class FederalRegisterAPIError(Exception):
     """Base exception for Federal Register API errors."""
+
     pass
 
 
 class ExecutiveOrderNotFoundError(FederalRegisterAPIError):
     """Raised when an executive order cannot be found."""
+
     pass
 
 
 class APIRateLimitError(FederalRegisterAPIError):
     """Raised when API rate limit is exceeded."""
+
     pass
 
 
 class APIConnectionError(FederalRegisterAPIError):
     """Raised when there's a connection error to the API."""
+
     pass
 
 
 # ============================================================================
 # Federal Register API Client
 # ============================================================================
+
 
 class FederalRegisterClient:
     """
@@ -82,9 +93,11 @@ class FederalRegisterClient:
             total=3,
             backoff_factor=1,
             status_forcelist=[429, 500, 502, 503, 504],
-            allowed_methods=["GET"]
+            allowed_methods=["GET"],
         )
-        adapter = HTTPAdapter(max_retries=retry_strategy, pool_connections=10, pool_maxsize=20)
+        adapter = HTTPAdapter(
+            max_retries=retry_strategy, pool_connections=10, pool_maxsize=20
+        )
         self.session.mount("https://", adapter)
         self.session.mount("http://", adapter)
 
@@ -182,7 +195,7 @@ class FederalRegisterClient:
         limit: int = 20,
         president: Optional[str] = None,
         start_date: Optional[str] = None,
-        end_date: Optional[str] = None
+        end_date: Optional[str] = None,
     ) -> List[Dict]:
         """
         Fetch recent executive orders from Federal Register.
@@ -248,7 +261,9 @@ class FederalRegisterClient:
 
         # Format executive orders
         formatted_orders = []
-        for raw_order in tqdm(raw_orders, desc="Processing executive orders", disable=len(raw_orders) < 10):
+        for raw_order in tqdm(
+            raw_orders, desc="Processing executive orders", disable=len(raw_orders) < 10
+        ):
             order_data = self._format_executive_order(raw_order)
             if order_data:  # Skip if no EO number (some administrative documents)
                 formatted_orders.append(order_data)
@@ -264,10 +279,18 @@ class FederalRegisterClient:
 
         # Extract president from the data
         president = raw_order.get("president", {})
-        president_name = president.get("name", "Unknown") if isinstance(president, dict) else "Unknown"
+        president_name = (
+            president.get("name", "Unknown")
+            if isinstance(president, dict)
+            else "Unknown"
+        )
 
         # Get topics
-        topics = [topic.get("name") for topic in raw_order.get("topics", []) if topic.get("name")]
+        topics = [
+            topic.get("name")
+            for topic in raw_order.get("topics", [])
+            if topic.get("name")
+        ]
 
         return {
             "executive_order_number": str(eo_number),
@@ -308,11 +331,15 @@ class FederalRegisterClient:
 
         raw_order = response
         if not raw_order:
-            raise ExecutiveOrderNotFoundError(f"Executive order not found: {document_number}")
+            raise ExecutiveOrderNotFoundError(
+                f"Executive order not found: {document_number}"
+            )
 
         formatted = self._format_executive_order(raw_order)
         if not formatted:
-            raise ExecutiveOrderNotFoundError(f"Not a valid executive order: {document_number}")
+            raise ExecutiveOrderNotFoundError(
+                f"Not a valid executive order: {document_number}"
+            )
 
         return formatted
 
@@ -341,7 +368,9 @@ class FederalRegisterClient:
             body_html_url = details.get("html_url")
 
         if not body_html_url:
-            raise ExecutiveOrderNotFoundError(f"No text URL found for {document_number}")
+            raise ExecutiveOrderNotFoundError(
+                f"No text URL found for {document_number}"
+            )
 
         # Fetch the HTML content
         response = requests.get(body_html_url, timeout=30)
@@ -354,7 +383,10 @@ class FederalRegisterClient:
 # Convenience Functions
 # ============================================================================
 
-def fetch_recent_executive_orders(limit: int = 20, president: Optional[str] = None) -> List[Dict]:
+
+def fetch_recent_executive_orders(
+    limit: int = 20, president: Optional[str] = None
+) -> List[Dict]:
     """
     Convenience function to fetch recent executive orders.
 
@@ -410,7 +442,7 @@ if __name__ == "__main__":
     # Test the API client
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     try:
@@ -429,8 +461,10 @@ if __name__ == "__main__":
 
         # Test 2: Get executive order details
         if orders:
-            print(f"\n2. Getting details for EO {orders[0]['executive_order_number']}...")
-            details = get_executive_order_details(orders[0]['document_number'])
+            print(
+                f"\n2. Getting details for EO {orders[0]['executive_order_number']}..."
+            )
+            details = get_executive_order_details(orders[0]["document_number"])
             print(f"  Document Number: {details['document_number']}")
             print(f"  URL: {details['html_url']}")
 

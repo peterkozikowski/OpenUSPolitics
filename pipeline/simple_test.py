@@ -3,7 +3,8 @@
 
 import logging
 import sys
-sys.path.insert(0, '.')
+
+sys.path.insert(0, ".")
 
 from config import Config
 from fetchers.congress_api import CongressAPIClient
@@ -13,6 +14,7 @@ from analyzers.claude_client import ClaudeAnalyzer
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 
 def test_congress_api():
     """Test fetching bills from Congress API."""
@@ -28,6 +30,7 @@ def test_congress_api():
 
     return bills
 
+
 def test_claude_api():
     """Test Claude API connection."""
     logger.info("\nTesting Claude API...")
@@ -42,6 +45,7 @@ def test_claude_api():
     logger.info(f"   Model: {analyzer.model}")
 
     return analyzer
+
 
 if __name__ == "__main__":
     print("=" * 80)

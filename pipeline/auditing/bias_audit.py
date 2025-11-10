@@ -21,24 +21,51 @@ class BiasAuditor:
     # Lists of potentially biased terms (can be expanded)
     PARTISAN_KEYWORDS = [
         # Left-leaning terms
-        "socialist", "radical left", "progressive agenda", "liberal bias",
+        "socialist",
+        "radical left",
+        "progressive agenda",
+        "liberal bias",
         # Right-leaning terms
-        "conservative values", "right-wing", "traditional values", "patriotic duty",
+        "conservative values",
+        "right-wing",
+        "traditional values",
+        "patriotic duty",
         # General partisan terms
-        "extremist", "radical", "activist judges", "special interests",
+        "extremist",
+        "radical",
+        "activist judges",
+        "special interests",
         # Charged language
-        "disaster", "catastrophe", "brilliant", "genius", "idiotic", "stupid",
+        "disaster",
+        "catastrophe",
+        "brilliant",
+        "genius",
+        "idiotic",
+        "stupid",
     ]
 
     OPINION_INDICATORS = [
-        "clearly", "obviously", "undoubtedly", "certainly should",
-        "must", "everyone knows", "the fact is", "the truth is",
-        "it's clear that", "without question",
+        "clearly",
+        "obviously",
+        "undoubtedly",
+        "certainly should",
+        "must",
+        "everyone knows",
+        "the fact is",
+        "the truth is",
+        "it's clear that",
+        "without question",
     ]
 
     SPECULATION_INDICATORS = [
-        "might lead to", "could result in", "may cause", "likely to",
-        "probably will", "potentially", "possibly", "presumably",
+        "might lead to",
+        "could result in",
+        "may cause",
+        "likely to",
+        "probably will",
+        "potentially",
+        "possibly",
+        "presumably",
     ]
 
     def __init__(self):
@@ -113,17 +140,21 @@ class BiasAuditor:
         for keyword in self.PARTISAN_KEYWORDS:
             if keyword.lower() in text_lower:
                 # Find context
-                pattern = re.compile(rf".{{0,50}}{re.escape(keyword)}.{{0,50}}", re.IGNORECASE)
+                pattern = re.compile(
+                    rf".{{0,50}}{re.escape(keyword)}.{{0,50}}", re.IGNORECASE
+                )
                 matches = pattern.findall(text)
 
                 for match in matches:
-                    issues.append({
-                        "type": "partisan_language",
-                        "severity": "high",
-                        "keyword": keyword,
-                        "context": match.strip(),
-                        "suggestion": f"Remove or rephrase partisan term '{keyword}'",
-                    })
+                    issues.append(
+                        {
+                            "type": "partisan_language",
+                            "severity": "high",
+                            "keyword": keyword,
+                            "context": match.strip(),
+                            "suggestion": f"Remove or rephrase partisan term '{keyword}'",
+                        }
+                    )
 
         return issues
 
@@ -134,17 +165,21 @@ class BiasAuditor:
 
         for indicator in self.OPINION_INDICATORS:
             if indicator.lower() in text_lower:
-                pattern = re.compile(rf".{{0,50}}{re.escape(indicator)}.{{0,50}}", re.IGNORECASE)
+                pattern = re.compile(
+                    rf".{{0,50}}{re.escape(indicator)}.{{0,50}}", re.IGNORECASE
+                )
                 matches = pattern.findall(text)
 
                 for match in matches:
-                    issues.append({
-                        "type": "opinion_language",
-                        "severity": "medium",
-                        "indicator": indicator,
-                        "context": match.strip(),
-                        "suggestion": f"Replace opinion indicator '{indicator}' with factual statement",
-                    })
+                    issues.append(
+                        {
+                            "type": "opinion_language",
+                            "severity": "medium",
+                            "indicator": indicator,
+                            "context": match.strip(),
+                            "suggestion": f"Replace opinion indicator '{indicator}' with factual statement",
+                        }
+                    )
 
         return issues
 
@@ -160,12 +195,14 @@ class BiasAuditor:
 
         # Only flag if excessive speculation
         if speculation_count > 3:
-            issues.append({
-                "type": "excessive_speculation",
-                "severity": "low",
-                "count": speculation_count,
-                "suggestion": "Reduce speculative language and focus on factual content",
-            })
+            issues.append(
+                {
+                    "type": "excessive_speculation",
+                    "severity": "low",
+                    "count": speculation_count,
+                    "suggestion": "Reduce speculative language and focus on factual content",
+                }
+            )
 
         return issues
 
@@ -176,22 +213,26 @@ class BiasAuditor:
         # Check for excessive exclamation marks
         exclamation_count = text.count("!")
         if exclamation_count > 2:
-            issues.append({
-                "type": "emotional_punctuation",
-                "severity": "medium",
-                "count": exclamation_count,
-                "suggestion": "Remove excessive exclamation marks",
-            })
+            issues.append(
+                {
+                    "type": "emotional_punctuation",
+                    "severity": "medium",
+                    "count": exclamation_count,
+                    "suggestion": "Remove excessive exclamation marks",
+                }
+            )
 
         # Check for all caps (shouting)
-        all_caps_words = re.findall(r'\b[A-Z]{4,}\b', text)
+        all_caps_words = re.findall(r"\b[A-Z]{4,}\b", text)
         if len(all_caps_words) > 3:
-            issues.append({
-                "type": "excessive_emphasis",
-                "severity": "medium",
-                "words": all_caps_words[:3],
-                "suggestion": "Avoid excessive use of all-caps words",
-            })
+            issues.append(
+                {
+                    "type": "excessive_emphasis",
+                    "severity": "medium",
+                    "words": all_caps_words[:3],
+                    "suggestion": "Avoid excessive use of all-caps words",
+                }
+            )
 
         return issues
 
@@ -210,15 +251,19 @@ class BiasAuditor:
 
         # Flag if highly imbalanced (ratio > 3:1)
         if positive_count > 0 or negative_count > 0:
-            ratio = max(positive_count, negative_count) / max(min(positive_count, negative_count), 1)
+            ratio = max(positive_count, negative_count) / max(
+                min(positive_count, negative_count), 1
+            )
             if ratio > 3:
-                issues.append({
-                    "type": "imbalanced_framing",
-                    "severity": "low",
-                    "positive_count": positive_count,
-                    "negative_count": negative_count,
-                    "suggestion": "Ensure balanced presentation of bill impacts",
-                })
+                issues.append(
+                    {
+                        "type": "imbalanced_framing",
+                        "severity": "low",
+                        "positive_count": positive_count,
+                        "negative_count": negative_count,
+                        "suggestion": "Ensure balanced presentation of bill impacts",
+                    }
+                )
 
         return issues
 
@@ -251,7 +296,9 @@ class BiasAuditor:
         # Cap at 100
         return min(score, 100)
 
-    def _generate_summary(self, score: int, issues: List[Dict], warnings: List[Dict]) -> str:
+    def _generate_summary(
+        self, score: int, issues: List[Dict], warnings: List[Dict]
+    ) -> str:
         """Generate human-readable summary of audit results."""
         if score < 10:
             return "Excellent: No significant bias detected."
@@ -295,5 +342,7 @@ if __name__ == "__main__":
     print(f"Passed: {result['passed']}")
     print(f"Summary: {result['summary']}")
     print(f"\nIssues found ({len(result['issues'])}):")
-    for issue in result['issues'][:3]:
-        print(f"  - {issue['type']}: {issue.get('keyword', issue.get('indicator', 'N/A'))}")
+    for issue in result["issues"][:3]:
+        print(
+            f"  - {issue['type']}: {issue.get('keyword', issue.get('indicator', 'N/A'))}"
+        )

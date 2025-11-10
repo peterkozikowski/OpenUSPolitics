@@ -30,8 +30,10 @@ DEFAULT_DB_PATH = "data/vector_db"
 # Custom Exceptions
 # ============================================================================
 
+
 class EmbedderError(Exception):
     """Custom exception for embedder errors."""
+
     pass
 
 
@@ -39,11 +41,12 @@ class EmbedderError(Exception):
 # Embedding Generation
 # ============================================================================
 
+
 def generate_embeddings(
     chunks: List[Dict],
     model_name: str = DEFAULT_MODEL,
     batch_size: int = DEFAULT_BATCH_SIZE,
-    normalize: bool = True
+    normalize: bool = True,
 ) -> List[Dict]:
     """
     Generate vector embeddings for each chunk using sentence-transformers.
@@ -72,7 +75,9 @@ def generate_embeddings(
     try:
         # Load model
         model = SentenceTransformer(model_name)
-        logger.info(f"Loaded model: {model_name} (dimension: {model.get_sentence_embedding_dimension()})")
+        logger.info(
+            f"Loaded model: {model_name} (dimension: {model.get_sentence_embedding_dimension()})"
+        )
 
         # Extract texts
         texts = [chunk["text"] for chunk in chunks]
@@ -81,19 +86,23 @@ def generate_embeddings(
         all_embeddings = []
 
         for i in tqdm(range(0, len(texts), batch_size), desc="Embedding batches"):
-            batch_texts = texts[i:i + batch_size]
+            batch_texts = texts[i : i + batch_size]
             batch_embeddings = model.encode(
                 batch_texts,
                 batch_size=batch_size,
                 show_progress_bar=False,
-                normalize_embeddings=normalize
+                normalize_embeddings=normalize,
             )
             all_embeddings.extend(batch_embeddings)
 
         # Add embeddings to chunks
         for i, chunk in enumerate(chunks):
             # Convert numpy array to list for JSON serialization
-            embedding = all_embeddings[i].tolist() if hasattr(all_embeddings[i], 'tolist') else list(all_embeddings[i])
+            embedding = (
+                all_embeddings[i].tolist()
+                if hasattr(all_embeddings[i], "tolist")
+                else list(all_embeddings[i])
+            )
             chunk["embedding"] = embedding
             chunk["embedding_model"] = model_name
             chunk["embedding_dimension"] = len(embedding)
@@ -110,11 +119,12 @@ def generate_embeddings(
 # Vector Store Setup
 # ============================================================================
 
+
 def setup_vector_store(
     chunks: List[Dict],
     collection_name: str = "bill_chunks",
     db_path: str = DEFAULT_DB_PATH,
-    distance_metric: str = "cosine"
+    distance_metric: str = "cosine",
 ) -> chromadb.Collection:
     """
     Store chunks with embeddings in ChromaDB vector database.
@@ -138,7 +148,9 @@ def setup_vector_store(
 
     # Ensure all chunks have embeddings
     if not all("embedding" in chunk for chunk in chunks):
-        raise EmbedderError("Not all chunks have embeddings. Run generate_embeddings() first.")
+        raise EmbedderError(
+            "Not all chunks have embeddings. Run generate_embeddings() first."
+        )
 
     logger.info(f"Setting up vector store at {db_path}")
 
@@ -149,10 +161,7 @@ def setup_vector_store(
         # Initialize ChromaDB client with persistent storage
         client = chromadb.PersistentClient(
             path=db_path,
-            settings=Settings(
-                anonymized_telemetry=False,
-                allow_reset=True
-            )
+            settings=Settings(anonymized_telemetry=False, allow_reset=True),
         )
 
         # Get or create collection
@@ -167,8 +176,8 @@ def setup_vector_store(
             name=collection_name,
             metadata={
                 "description": "Bill text chunks with embeddings",
-                "hnsw:space": distance_metric  # cosine, l2, or ip (inner product)
-            }
+                "hnsw:space": distance_metric,  # cosine, l2, or ip (inner product)
+            },
         )
 
         logger.info(f"Created collection: {collection_name}")
@@ -197,17 +206,21 @@ def setup_vector_store(
         batch_size = 5000  # ChromaDB's default max batch size
         total_batches = (len(chunks) + batch_size - 1) // batch_size
 
-        for i in tqdm(range(0, len(chunks), batch_size), desc="Storing chunks", total=total_batches):
-            batch_ids = ids[i:i + batch_size]
-            batch_docs = documents[i:i + batch_size]
-            batch_embeddings = embeddings[i:i + batch_size]
-            batch_metadatas = metadatas[i:i + batch_size]
+        for i in tqdm(
+            range(0, len(chunks), batch_size),
+            desc="Storing chunks",
+            total=total_batches,
+        ):
+            batch_ids = ids[i : i + batch_size]
+            batch_docs = documents[i : i + batch_size]
+            batch_embeddings = embeddings[i : i + batch_size]
+            batch_metadatas = metadatas[i : i + batch_size]
 
             collection.add(
                 ids=batch_ids,
                 documents=batch_docs,
                 embeddings=batch_embeddings,
-                metadatas=batch_metadatas
+                metadatas=batch_metadatas,
             )
 
         logger.info(f"Successfully stored {collection.count()} chunks in vector store")
@@ -222,12 +235,13 @@ def setup_vector_store(
 # Vector Store Query
 # ============================================================================
 
+
 def query_vector_store(
     query_text: str,
     collection: chromadb.Collection,
     n_results: int = 5,
     model_name: str = DEFAULT_MODEL,
-    filter_metadata: Optional[Dict] = None
+    filter_metadata: Optional[Dict] = None,
 ) -> Dict:
     """
     Query the vector store for similar chunks.
@@ -256,13 +270,15 @@ def query_vector_store(
     try:
         # Generate query embedding
         model = SentenceTransformer(model_name)
-        query_embedding = model.encode([query_text], normalize_embeddings=True)[0].tolist()
+        query_embedding = model.encode([query_text], normalize_embeddings=True)[
+            0
+        ].tolist()
 
         # Query collection
         results = collection.query(
             query_embeddings=[query_embedding],
             n_results=n_results,
-            where=filter_metadata
+            where=filter_metadata,
         )
 
         logger.info(f"Found {len(results['ids'][0])} results")
@@ -283,9 +299,9 @@ def query_vector_store(
 # Utility Functions
 # ============================================================================
 
+
 def load_vector_store(
-    collection_name: str = "bill_chunks",
-    db_path: str = DEFAULT_DB_PATH
+    collection_name: str = "bill_chunks", db_path: str = DEFAULT_DB_PATH
 ) -> chromadb.Collection:
     """
     Load an existing vector store.
@@ -303,11 +319,15 @@ def load_vector_store(
     try:
         client = chromadb.PersistentClient(path=db_path)
         collection = client.get_collection(name=collection_name)
-        logger.info(f"Loaded collection '{collection_name}' with {collection.count()} documents")
+        logger.info(
+            f"Loaded collection '{collection_name}' with {collection.count()} documents"
+        )
         return collection
     except Exception as e:
         logger.error(f"Failed to load collection: {e}")
-        raise EmbedderError(f"Failed to load collection '{collection_name}': {e}") from e
+        raise EmbedderError(
+            f"Failed to load collection '{collection_name}': {e}"
+        ) from e
 
 
 def get_collection_stats(collection: chromadb.Collection) -> Dict:
@@ -333,11 +353,7 @@ def get_collection_stats(collection: chromadb.Collection) -> Dict:
             "embedding_dimension": metadata.get("embedding_dimension", 0),
         }
 
-    return {
-        "name": collection.name,
-        "total_chunks": count,
-        **model_info
-    }
+    return {"name": collection.name, "total_chunks": count, **model_info}
 
 
 # ============================================================================
@@ -347,7 +363,7 @@ def get_collection_stats(collection: chromadb.Collection) -> Dict:
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     # Test data (simulating chunked bill)
@@ -392,20 +408,20 @@ if __name__ == "__main__":
         # Step 1: Generate embeddings
         print("\n📊 Step 1: Generating embeddings...")
         chunks_with_embeddings = generate_embeddings(
-            test_chunks,
-            model_name=DEFAULT_MODEL,
-            batch_size=32
+            test_chunks, model_name=DEFAULT_MODEL, batch_size=32
         )
 
         print(f"✅ Generated embeddings for {len(chunks_with_embeddings)} chunks")
-        print(f"   Embedding dimension: {chunks_with_embeddings[0]['embedding_dimension']}")
+        print(
+            f"   Embedding dimension: {chunks_with_embeddings[0]['embedding_dimension']}"
+        )
 
         # Step 2: Setup vector store
         print("\n💾 Step 2: Setting up vector store...")
         collection = setup_vector_store(
             chunks_with_embeddings,
             collection_name="test_bills",
-            db_path="data/test_vector_db"
+            db_path="data/test_vector_db",
         )
 
         print(f"✅ Stored {collection.count()} chunks in vector store")
@@ -416,24 +432,21 @@ if __name__ == "__main__":
         queries = [
             "healthcare and medical providers",
             "education and schools",
-            "short title of the act"
+            "short title of the act",
         ]
 
         for query in queries:
             print(f"\n  Query: '{query}'")
             results = query_vector_store(
-                query,
-                collection,
-                n_results=2,
-                model_name=DEFAULT_MODEL
+                query, collection, n_results=2, model_name=DEFAULT_MODEL
             )
 
-            for i, (doc, dist, meta) in enumerate(zip(
-                results['documents'],
-                results['distances'],
-                results['metadatas']
-            ), 1):
-                print(f"    {i}. [Distance: {dist:.4f}] Section {meta['section']}: {doc[:80]}...")
+            for i, (doc, dist, meta) in enumerate(
+                zip(results["documents"], results["distances"], results["metadatas"]), 1
+            ):
+                print(
+                    f"    {i}. [Distance: {dist:.4f}] Section {meta['section']}: {doc[:80]}..."
+                )
 
         # Step 4: Collection stats
         print("\n📈 Step 4: Collection statistics...")

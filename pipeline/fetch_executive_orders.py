@@ -36,11 +36,15 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 # Logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler(PIPELINE_DIR / "logs" / f"eo_pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"),
-        logging.StreamHandler(sys.stdout)
-    ]
+        logging.FileHandler(
+            PIPELINE_DIR
+            / "logs"
+            / f"eo_pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+        ),
+        logging.StreamHandler(sys.stdout),
+    ],
 )
 logger = logging.getLogger(__name__)
 
@@ -48,6 +52,7 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 # Helper Functions
 # ============================================================================
+
 
 def sanitize_eo_number(eo_number: str) -> str:
     """
@@ -76,7 +81,7 @@ def save_executive_order(order: Dict) -> None:
     # Add metadata
     order["last_updated"] = datetime.now().isoformat()
 
-    with open(filepath, 'w', encoding='utf-8') as f:
+    with open(filepath, "w", encoding="utf-8") as f:
         json.dump(order, f, indent=2, ensure_ascii=False)
 
     logger.info(f"Saved executive order: {eo_number} to {filename}")
@@ -92,7 +97,7 @@ def update_metadata(orders: List[Dict]) -> None:
     metadata = {
         "executive_orders": {},
         "total_orders": len(orders),
-        "last_updated": datetime.now().isoformat()
+        "last_updated": datetime.now().isoformat(),
     }
 
     for order in orders:
@@ -108,10 +113,10 @@ def update_metadata(orders: List[Dict]) -> None:
             "title": order.get("title", ""),
             "president": order.get("president", ""),
             "signing_date": order.get("signing_date", ""),
-            "last_updated": order.get("last_updated", datetime.now().isoformat())
+            "last_updated": order.get("last_updated", datetime.now().isoformat()),
         }
 
-    with open(METADATA_FILE, 'w', encoding='utf-8') as f:
+    with open(METADATA_FILE, "w", encoding="utf-8") as f:
         json.dump(metadata, f, indent=2, ensure_ascii=False)
 
     logger.info(f"Updated metadata file with {len(orders)} executive orders")
@@ -128,7 +133,7 @@ def load_existing_orders() -> Dict[str, Dict]:
         return {}
 
     try:
-        with open(METADATA_FILE, 'r', encoding='utf-8') as f:
+        with open(METADATA_FILE, "r", encoding="utf-8") as f:
             metadata = json.load(f)
             return metadata.get("executive_orders", {})
     except Exception as e:
@@ -168,7 +173,9 @@ def filter_significant_orders(orders: List[Dict]) -> List[Dict]:
         elif len(title) > 100:
             significant.append(order)
 
-    logger.info(f"Filtered {len(orders)} orders down to {len(significant)} significant orders")
+    logger.info(
+        f"Filtered {len(orders)} orders down to {len(significant)} significant orders"
+    )
     return significant
 
 
@@ -176,12 +183,13 @@ def filter_significant_orders(orders: List[Dict]) -> List[Dict]:
 # Main Pipeline
 # ============================================================================
 
+
 def fetch_executive_orders(
     limit: int = 50,
     president: str = None,
     start_date: str = None,
     end_date: str = None,
-    skip_existing: bool = True
+    skip_existing: bool = True,
 ) -> List[Dict]:
     """
     Fetch executive orders from Federal Register API.
@@ -212,10 +220,7 @@ def fetch_executive_orders(
 
     try:
         orders = client.fetch_recent_executive_orders(
-            limit=limit,
-            president=president,
-            start_date=start_date,
-            end_date=end_date
+            limit=limit, president=president, start_date=start_date, end_date=end_date
         )
 
         logger.info(f"Fetched {len(orders)} executive orders from API")
@@ -233,7 +238,9 @@ def fetch_executive_orders(
                 if eo_id not in existing:
                     new_orders.append(order)
 
-            logger.info(f"Found {len(new_orders)} new orders (skipping {len(orders) - len(new_orders)} existing)")
+            logger.info(
+                f"Found {len(new_orders)} new orders (skipping {len(orders) - len(new_orders)} existing)"
+            )
             orders = new_orders
 
         # Save each order
@@ -244,7 +251,7 @@ def fetch_executive_orders(
         all_orders = []
         for filepath in DATA_DIR.glob("EO_*.json"):
             try:
-                with open(filepath, 'r', encoding='utf-8') as f:
+                with open(filepath, "r", encoding="utf-8") as f:
                     all_orders.append(json.load(f))
             except Exception as e:
                 logger.warning(f"Could not load {filepath}: {e}")
@@ -252,7 +259,9 @@ def fetch_executive_orders(
         update_metadata(all_orders)
 
         logger.info("=" * 80)
-        logger.info(f"Pipeline completed successfully! Processed {len(orders)} executive orders")
+        logger.info(
+            f"Pipeline completed successfully! Processed {len(orders)} executive orders"
+        )
         logger.info("=" * 80)
 
         return orders
@@ -269,6 +278,7 @@ def fetch_executive_orders(
 # CLI
 # ============================================================================
 
+
 def main():
     """Main entry point for CLI."""
     parser = argparse.ArgumentParser(
@@ -279,38 +289,28 @@ def main():
         "--limit",
         type=int,
         default=50,
-        help="Maximum number of executive orders to fetch (default: 50)"
+        help="Maximum number of executive orders to fetch (default: 50)",
     )
 
     parser.add_argument(
         "--president",
         type=str,
-        help="Filter by president name (e.g., 'joe-biden', 'donald-trump')"
+        help="Filter by president name (e.g., 'joe-biden', 'donald-trump')",
     )
 
     parser.add_argument(
-        "--start-date",
-        type=str,
-        help="Start date in YYYY-MM-DD format"
+        "--start-date", type=str, help="Start date in YYYY-MM-DD format"
     )
 
-    parser.add_argument(
-        "--end-date",
-        type=str,
-        help="End date in YYYY-MM-DD format"
-    )
+    parser.add_argument("--end-date", type=str, help="End date in YYYY-MM-DD format")
 
     parser.add_argument(
         "--no-skip-existing",
         action="store_true",
-        help="Re-fetch existing executive orders"
+        help="Re-fetch existing executive orders",
     )
 
-    parser.add_argument(
-        "--verbose",
-        action="store_true",
-        help="Enable verbose logging"
-    )
+    parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
 
     args = parser.parse_args()
 
@@ -323,7 +323,7 @@ def main():
             president=args.president,
             start_date=args.start_date,
             end_date=args.end_date,
-            skip_existing=not args.no_skip_existing
+            skip_existing=not args.no_skip_existing,
         )
     except Exception as e:
         logger.error(f"Pipeline failed: {e}")

@@ -14,10 +14,13 @@ logger = logging.getLogger(__name__)
 
 class GitStoreError(Exception):
     """Custom exception for git storage errors."""
+
     pass
 
 
-def save_analysis(bill_number: str, data: Dict, auto_commit: bool = Config.GIT_AUTO_COMMIT) -> Path:
+def save_analysis(
+    bill_number: str, data: Dict, auto_commit: bool = Config.GIT_AUTO_COMMIT
+) -> Path:
     """
     Save bill analysis to JSON file with optional git commit.
 
@@ -46,7 +49,11 @@ def save_analysis(bill_number: str, data: Dict, auto_commit: bool = Config.GIT_A
         data["_metadata"] = {
             "bill_number": bill_number,
             "saved_at": datetime.utcnow().isoformat(),
-            "version": data.get("_metadata", {}).get("version", 1) + 1 if filepath.exists() else 1,
+            "version": (
+                data.get("_metadata", {}).get("version", 1) + 1
+                if filepath.exists()
+                else 1
+            ),
         }
 
         # Save to JSON
@@ -56,10 +63,13 @@ def save_analysis(bill_number: str, data: Dict, auto_commit: bool = Config.GIT_A
         logger.info(f"Saved analysis to {filepath}")
 
         # Update metadata index
-        update_metadata(bill_number, {
-            "file": str(filepath.relative_to(Config.DATA_DIR)),
-            "last_updated": datetime.utcnow().isoformat(),
-        })
+        update_metadata(
+            bill_number,
+            {
+                "file": str(filepath.relative_to(Config.DATA_DIR)),
+                "last_updated": datetime.utcnow().isoformat(),
+            },
+        )
 
         # Commit to git if enabled
         if auto_commit:
@@ -240,11 +250,7 @@ def get_metadata() -> Dict:
     try:
         if not Config.METADATA_FILE.exists():
             logger.warning("Metadata file not found, returning empty")
-            return {
-                "bills": {},
-                "total_bills": 0,
-                "last_updated": None
-            }
+            return {"bills": {}, "total_bills": 0, "last_updated": None}
 
         with open(Config.METADATA_FILE, "r") as f:
             metadata = json.load(f)
@@ -297,7 +303,9 @@ def bill_needs_update(bill_number: str, current_version: Optional[str] = None) -
         if current_version:
             stored_version = existing_data.get("bill_version")
             if stored_version != current_version:
-                logger.info(f"Bill {bill_number} version changed: {stored_version} -> {current_version}")
+                logger.info(
+                    f"Bill {bill_number} version changed: {stored_version} -> {current_version}"
+                )
                 return True
 
         # Check age of analysis (re-analyze if older than 30 days)
@@ -307,7 +315,9 @@ def bill_needs_update(bill_number: str, current_version: Optional[str] = None) -
             saved_at = datetime.fromisoformat(saved_at_str)
             age_days = (datetime.utcnow() - saved_at).days
             if age_days > 30:
-                logger.info(f"Bill {bill_number} analysis is {age_days} days old, needs refresh")
+                logger.info(
+                    f"Bill {bill_number} analysis is {age_days} days old, needs refresh"
+                )
                 return True
 
         logger.debug(f"Bill {bill_number} analysis is current")
@@ -318,7 +328,9 @@ def bill_needs_update(bill_number: str, current_version: Optional[str] = None) -
         return True  # When in doubt, update
 
 
-def delete_analysis(bill_number: str, auto_commit: bool = Config.GIT_AUTO_COMMIT) -> None:
+def delete_analysis(
+    bill_number: str, auto_commit: bool = Config.GIT_AUTO_COMMIT
+) -> None:
     """
     Delete bill analysis and update metadata.
 

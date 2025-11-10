@@ -192,7 +192,12 @@ class TestRateLimiting:
     def test_rate_limiting_enforced(self, mock_time, mock_sleep):
         """Test that rate limiting enforces wait time between requests."""
         # Simulate time progression
-        mock_time.side_effect = [0, 0.1, 0.1, 0.5]  # Start, first request, second request
+        mock_time.side_effect = [
+            0,
+            0.1,
+            0.1,
+            0.5,
+        ]  # Start, first request, second request
 
         client = CongressAPIClient(api_key="test_key")
         client.rate_limit = 1  # 1 request per second
@@ -226,18 +231,20 @@ class TestFetchRecentBills:
                     "type": "hr",
                     "congress": 118,
                     "title": "Test Bill Act",
-                    "sponsors": [{
-                        "fullName": "John Doe",
-                        "party": "D",
-                        "state": "CA",
-                        "bioguideId": "D000001"
-                    }],
+                    "sponsors": [
+                        {
+                            "fullName": "John Doe",
+                            "party": "D",
+                            "state": "CA",
+                            "bioguideId": "D000001",
+                        }
+                    ],
                     "cosponsors": [{"name": "Jane Smith"}],
                     "latestAction": {"text": "Referred to committee"},
                     "introducedDate": "2024-01-01",
                     "updateDate": "2024-01-15",
                     "policyArea": {"name": "Healthcare"},
-                    "textVersions": {"url": "https://example.com/text"}
+                    "textVersions": {"url": "https://example.com/text"},
                 }
             ]
         }
@@ -260,18 +267,20 @@ class TestFetchRecentBills:
     def test_fetch_recent_bills_no_sponsor(self, mock_request):
         """Test fetching bills with no sponsor."""
         mock_request.return_value = {
-            "bills": [{
-                "number": "5678",
-                "type": "s",
-                "congress": 118,
-                "title": "Senate Bill",
-                "sponsors": [],
-                "cosponsors": [],
-                "latestAction": {"text": "Passed Senate"},
-                "introducedDate": "2024-02-01",
-                "updateDate": "2024-02-15",
-                "policyArea": {}
-            }]
+            "bills": [
+                {
+                    "number": "5678",
+                    "type": "s",
+                    "congress": 118,
+                    "title": "Senate Bill",
+                    "sponsors": [],
+                    "cosponsors": [],
+                    "latestAction": {"text": "Passed Senate"},
+                    "introducedDate": "2024-02-01",
+                    "updateDate": "2024-02-15",
+                    "policyArea": {},
+                }
+            ]
         }
 
         client = CongressAPIClient(api_key="test_key")
@@ -291,11 +300,16 @@ class TestGetBillText:
         """Test getting bill text successfully."""
         # Mock API response for text versions
         mock_request.return_value = {
-            "textVersions": [{
-                "formats": [
-                    {"type": "Formatted Text", "url": "https://example.com/bill.html"}
-                ]
-            }]
+            "textVersions": [
+                {
+                    "formats": [
+                        {
+                            "type": "Formatted Text",
+                            "url": "https://example.com/bill.html",
+                        }
+                    ]
+                }
+            ]
         }
 
         # Mock actual text download
@@ -326,12 +340,17 @@ class TestGetBillText:
     def test_get_bill_text_prefer_html(self, mock_get, mock_request):
         """Test that HTML format is preferred over PDF."""
         mock_request.return_value = {
-            "textVersions": [{
-                "formats": [
-                    {"type": "PDF", "url": "https://example.com/bill.pdf"},
-                    {"type": "Formatted Text", "url": "https://example.com/bill.html"}
-                ]
-            }]
+            "textVersions": [
+                {
+                    "formats": [
+                        {"type": "PDF", "url": "https://example.com/bill.pdf"},
+                        {
+                            "type": "Formatted Text",
+                            "url": "https://example.com/bill.html",
+                        },
+                    ]
+                }
+            ]
         }
 
         mock_response = Mock()
@@ -352,6 +371,7 @@ class TestGetBillDetails:
     @patch.object(CongressAPIClient, "_make_request")
     def test_get_bill_details_success(self, mock_request):
         """Test getting comprehensive bill details."""
+
         # Mock responses for different endpoints
         def make_request_side_effect(endpoint, params=None):
             if endpoint == "bill/118/hr/1234":
@@ -361,27 +381,49 @@ class TestGetBillDetails:
                         "type": "hr",
                         "congress": 118,
                         "title": "Test Bill",
-                        "sponsors": [{"fullName": "John Doe", "party": "D", "state": "CA", "bioguideId": "D001"}],
+                        "sponsors": [
+                            {
+                                "fullName": "John Doe",
+                                "party": "D",
+                                "state": "CA",
+                                "bioguideId": "D001",
+                            }
+                        ],
                         "cosponsors": [],
                         "latestAction": {"text": "Referred"},
                         "introducedDate": "2024-01-01",
                         "updateDate": "2024-01-15",
                         "policyArea": {"name": "Healthcare"},
-                        "actions": {"url": "https://api.congress.gov/v3/bill/118/hr/1234/actions"},
-                        "committees": {"url": "https://api.congress.gov/v3/bill/118/hr/1234/committees"},
-                        "relatedBills": {"url": "https://api.congress.gov/v3/bill/118/hr/1234/relatedBills"},
-                        "subjects": {"url": "https://api.congress.gov/v3/bill/118/hr/1234/subjects"},
-                        "cboCostEstimates": [{"url": "https://cbo.gov/estimate"}]
+                        "actions": {
+                            "url": "https://api.congress.gov/v3/bill/118/hr/1234/actions"
+                        },
+                        "committees": {
+                            "url": "https://api.congress.gov/v3/bill/118/hr/1234/committees"
+                        },
+                        "relatedBills": {
+                            "url": "https://api.congress.gov/v3/bill/118/hr/1234/relatedBills"
+                        },
+                        "subjects": {
+                            "url": "https://api.congress.gov/v3/bill/118/hr/1234/subjects"
+                        },
+                        "cboCostEstimates": [{"url": "https://cbo.gov/estimate"}],
                     }
                 }
             elif "actions" in endpoint:
-                return {"actions": [{"text": "Introduced"}, {"text": "Referred to committee"}]}
+                return {
+                    "actions": [
+                        {"text": "Introduced"},
+                        {"text": "Referred to committee"},
+                    ]
+                }
             elif "committees" in endpoint:
                 return {"committees": [{"name": "Ways and Means"}]}
             elif "relatedBills" in endpoint:
                 return {"relatedBills": [{"type": "s", "number": "456"}]}
             elif "subjects" in endpoint:
-                return {"subjects": {"legislativeSubjects": [{"name": "Health insurance"}]}}
+                return {
+                    "subjects": {"legislativeSubjects": [{"name": "Health insurance"}]}
+                }
             return {}
 
         mock_request.side_effect = make_request_side_effect
@@ -421,9 +463,7 @@ class TestGetRepresentative:
                 "state": "CA",
                 "district": "11",
                 "depiction": {"imageUrl": "https://example.com/photo.jpg"},
-                "terms": [
-                    {"office": "2371 Rayburn House Office Building"}
-                ]
+                "terms": [{"office": "2371 Rayburn House Office Building"}],
             }
         }
 
