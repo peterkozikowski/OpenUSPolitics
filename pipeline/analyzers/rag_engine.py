@@ -502,20 +502,22 @@ class RAGEngine:
         )
         return context
 
-    def get_full_bill_context(self, bill_number: str, max_tokens: int = 8000) -> str:
+    def get_full_bill_context(
+        self, bill_number: str, max_tokens: int = 8000
+    ) -> List[Dict]:
         """
-        Get all chunks for a bill as concatenated text.
+        Get all chunks for a bill sorted by position.
 
         Args:
             bill_number: Bill identifier
             max_tokens: Maximum tokens to include (applies truncation if needed)
 
         Returns:
-            Full bill text as string
+            List of chunk dictionaries with id, text, and metadata
 
         Example:
-            >>> context = engine.get_full_bill_context("H.R. 1234")
-            >>> print(context[:100])
+            >>> chunks = engine.get_full_bill_context("H.R. 1234")
+            >>> print(len(chunks))
         """
         logger.info(f"Retrieving full bill context for {bill_number}")
 
@@ -536,32 +538,8 @@ class RAGEngine:
         # Sort by start_char to get document order
         chunks_sorted = sorted(chunks, key=lambda x: x["metadata"].get("start_char", 0))
 
-        # Concatenate chunks with section headers
-        context_parts = []
-        for chunk in chunks_sorted:
-            section = chunk["metadata"].get("section", "")
-            section_title = chunk["metadata"].get("section_title", "")
-            if section and section_title:
-                context_parts.append(f"[Section {section}: {section_title}]")
-            context_parts.append(chunk["text"])
-
-        full_context = "\n\n".join(context_parts)
-
-        # Apply max_tokens limit if needed
-        if max_tokens:
-            tokenizer = tiktoken.get_encoding("cl100k_base")
-            tokens = tokenizer.encode(full_context)
-            if len(tokens) > max_tokens:
-                logger.warning(
-                    f"Truncating context from {len(tokens)} to {max_tokens} tokens"
-                )
-                truncated_tokens = tokens[:max_tokens]
-                full_context = tokenizer.decode(truncated_tokens)
-
-        logger.info(
-            f"Retrieved {len(chunks_sorted)} chunks in order ({len(full_context)} chars)"
-        )
-        return full_context
+        logger.info(f"Retrieved {len(chunks_sorted)} chunks in order")
+        return chunks_sorted
 
     def find_specific_provisions(
         self, bill_number: str, keywords: List[str], match_all: bool = False

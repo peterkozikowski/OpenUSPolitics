@@ -344,27 +344,24 @@ class CongressAPIClient:
         formatted_type = type_map.get(bill_type.lower(), bill_type.upper())
         return f"{formatted_type} {number}"
 
-    def get_bill_text(self, bill_number: str, congress: int = 118) -> Dict:
+    def get_bill_text(self, bill_number: str, congress: int = 118) -> str:
         """
-        Get bill text metadata including URL and version info.
+        Get bill text and download the actual content.
 
         Args:
             bill_number: e.g., "H.R. 1234" or "S. 456"
             congress: Congress number
 
         Returns:
-            Dictionary with:
-                - url: URL to bill text
-                - version: Text version identifier
-                - type: Format type (HTML, PDF, etc.)
+            Bill text as string
 
         Raises:
             BillNotFoundError: If bill text is not available
 
         Example:
             >>> client = CongressAPIClient()
-            >>> text_data = client.get_bill_text("H.R. 1234", congress=118)
-            >>> print(text_data['url'])
+            >>> text = client.get_bill_text("H.R. 1234", congress=118)
+            >>> print(text[:100])
         """
         bill_type, number = self._parse_bill_number(bill_number)
 
@@ -403,12 +400,11 @@ class CongressAPIClient:
             if not text_url:
                 raise BillNotFoundError(f"No text URL found for {bill_number}")
 
-            # Return metadata
-            return {
-                "url": text_url,
-                "version": latest_version.get("type", "Unknown"),
-                "type": format_type or "Unknown",
-            }
+            # Download the actual text
+            logger.info(f"Downloading bill text from {text_url}")
+            text_response = self.session.get(text_url)
+            text_response.raise_for_status()
+            return text_response.text
 
         except BillNotFoundError:
             raise

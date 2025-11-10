@@ -496,8 +496,9 @@ class TestGetRepresentative:
 class TestConvenienceFunctions:
     """Tests for convenience wrapper functions."""
 
+    @patch.object(CongressAPIClient, "__init__", return_value=None)
     @patch.object(CongressAPIClient, "fetch_recent_bills")
-    def test_fetch_recent_bills_function(self, mock_method):
+    def test_fetch_recent_bills_function(self, mock_method, mock_init):
         """Test convenience function for fetching bills."""
         mock_method.return_value = [{"bill_number": "H.R. 1"}]
 
@@ -506,8 +507,9 @@ class TestConvenienceFunctions:
         assert len(bills) == 1
         mock_method.assert_called_once_with(limit=5, congress=118, bill_type="hr")
 
+    @patch.object(CongressAPIClient, "__init__", return_value=None)
     @patch.object(CongressAPIClient, "get_bill_text")
-    def test_get_bill_text_function(self, mock_method):
+    def test_get_bill_text_function(self, mock_method, mock_init):
         """Test convenience function for getting bill text."""
         mock_method.return_value = "Bill text"
 
@@ -516,8 +518,9 @@ class TestConvenienceFunctions:
         assert text == "Bill text"
         mock_method.assert_called_once_with(bill_number="H.R. 1234", congress=118)
 
+    @patch.object(CongressAPIClient, "__init__", return_value=None)
     @patch.object(CongressAPIClient, "get_bill_details")
-    def test_get_bill_details_function(self, mock_method):
+    def test_get_bill_details_function(self, mock_method, mock_init):
         """Test convenience function for getting bill details."""
         mock_method.return_value = {"bill_number": "H.R. 1"}
 
@@ -526,8 +529,9 @@ class TestConvenienceFunctions:
         assert details["bill_number"] == "H.R. 1"
         mock_method.assert_called_once_with(bill_number="H.R. 1234", congress=118)
 
+    @patch.object(CongressAPIClient, "__init__", return_value=None)
     @patch.object(CongressAPIClient, "get_representative")
-    def test_get_representative_function(self, mock_method):
+    def test_get_representative_function(self, mock_method, mock_init):
         """Test convenience function for getting representative."""
         mock_method.return_value = {"name": "John Doe"}
 
