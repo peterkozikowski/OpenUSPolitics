@@ -10,7 +10,11 @@
     "pages:build": "npx @cloudflare/next-on-pages",
     "pages:deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static",
     "pages:watch": "npx @cloudflare/next-on-pages --watch",
-    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat"
+    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
+    "test:full": "npm run lint && npx tsc --noEmit && npm run build && cd pipeline && ./test.sh",
+    "test:frontend": "npx tsc --noEmit && npm run build",
+    "test:backend": "cd pipeline && ./test.sh",
+    "pre-commit": "npx tsc --noEmit && npm run lint"
   },
   "dependencies": {
     "next": "15.5.2",
