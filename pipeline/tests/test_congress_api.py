@@ -300,13 +300,13 @@ class TestGetBillText:
     """Tests for get_bill_text method."""
 
     @patch.object(CongressAPIClient, "_make_request")
-    @patch("fetchers.congress_api.requests.Session.get")
-    def test_get_bill_text_success(self, mock_get, mock_request):
-        """Test getting bill text successfully."""
+    def test_get_bill_text_success(self, mock_request):
+        """Test getting bill text metadata successfully."""
         # Mock API response for text versions
         mock_request.return_value = {
             "textVersions": [
                 {
+                    "type": "Enrolled Bill",
                     "formats": [
                         {
                             "type": "Formatted Text",
@@ -317,18 +317,15 @@ class TestGetBillText:
             ]
         }
 
-        # Mock actual text download
-        mock_response = Mock()
-        mock_response.text = "<html>Bill text here</html>"
-        mock_response.raise_for_status = Mock()
-        mock_get.return_value = mock_response
-
         client = CongressAPIClient(api_key="test_key")
-        text = client.get_bill_text("H.R. 1234", congress=118)
+        result = client.get_bill_text("H.R. 1234", congress=118)
 
-        assert text == "<html>Bill text here</html>"
+        assert result == {
+            "url": "https://example.com/bill.html",
+            "version": "Enrolled Bill",
+            "type": "Formatted Text",
+        }
         mock_request.assert_called_once()
-        mock_get.assert_called_once()
 
     @patch.object(CongressAPIClient, "_make_request")
     def test_get_bill_text_no_text_available(self, mock_request):
@@ -341,12 +338,12 @@ class TestGetBillText:
             client.get_bill_text("H.R. 1234", congress=118)
 
     @patch.object(CongressAPIClient, "_make_request")
-    @patch("fetchers.congress_api.requests.Session.get")
-    def test_get_bill_text_prefer_html(self, mock_get, mock_request):
+    def test_get_bill_text_prefer_html(self, mock_request):
         """Test that HTML format is preferred over PDF."""
         mock_request.return_value = {
             "textVersions": [
                 {
+                    "type": "Enrolled Bill",
                     "formats": [
                         {"type": "PDF", "url": "https://example.com/bill.pdf"},
                         {
@@ -358,16 +355,12 @@ class TestGetBillText:
             ]
         }
 
-        mock_response = Mock()
-        mock_response.text = "<html>Bill text</html>"
-        mock_response.raise_for_status = Mock()
-        mock_get.return_value = mock_response
-
         client = CongressAPIClient(api_key="test_key")
-        client.get_bill_text("H.R. 1234", congress=118)
+        result = client.get_bill_text("H.R. 1234", congress=118)
 
-        # Should request HTML, not PDF
-        assert "bill.html" in str(mock_get.call_args)
+        # Should return HTML URL, not PDF
+        assert result["url"] == "https://example.com/bill.html"
+        assert result["type"] == "Formatted Text"
 
 
 class TestGetBillDetails:
