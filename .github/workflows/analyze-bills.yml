@@ -59,7 +59,7 @@ jobs:
         run: |
           cd pipeline
           cat > .env << EOF
-          CONGRESS_API_KEY=${{ secrets.CONGRESS_GOV_API_KEY }}
+          CONGRESS_GOV_API_KEY=${{ secrets.CONGRESS_GOV_API_KEY }}
           ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
           BILLS_FETCH_LIMIT=${{ github.event.inputs.bill_count || '10' }}
           DATA_DIR=./data
