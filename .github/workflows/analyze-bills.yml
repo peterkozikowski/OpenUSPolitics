@@ -169,8 +169,9 @@ jobs:
         with:
           name: pipeline-logs-${{ github.run_number }}
           path: |
-            pipeline/data/provenance.json
-            pipeline/data/metadata.json
+            pipeline/logs/*.log
+            pipeline/logs/*.json
+            pipeline/data/bills/metadata.json
           retention-days: 30
 
       # Step 11: Notify on failure
