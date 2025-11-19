@@ -47,13 +47,12 @@ jobs:
           cache: 'pip'
           cache-dependency-path: 'pipeline/requirements.txt'
 
-      # Step 3: Install dependencies (only what's needed for API calls)
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           cd pipeline
           pip install --upgrade pip
-          # Only install minimal dependencies for fetching
-          pip install requests python-dotenv
+          pip install -r requirements.txt
 
       # Step 4: Configure environment
       - name: Configure environment
@@ -61,6 +60,7 @@ jobs:
           cd pipeline
           cat > .env << EOF
           CONGRESS_GOV_API_KEY=${{ secrets.CONGRESS_GOV_API_KEY }}
+          ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
           BILLS_FETCH_LIMIT=${{ github.event.inputs.bill_count || '50' }}
           LOG_LEVEL=INFO
           EOF
