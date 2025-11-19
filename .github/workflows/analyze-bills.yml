@@ -1,22 +1,24 @@
-name: Daily Bill Analysis Pipeline
+name: AI Bill Analysis (Manual - Enrichment)
 
 on:
-  # Run daily at 2 AM UTC
-  schedule:
-    - cron: '0 2 * * *'
-
-  # Allow manual triggering from Actions tab
+  # Manual triggering only (no daily schedule)
+  # Use this to add AI analysis to bills fetched by the fetch-bills workflow
   workflow_dispatch:
     inputs:
       bill_count:
-        description: 'Number of bills to analyze'
+        description: 'Number of bills to analyze with AI (expensive!)'
         required: false
-        default: '10'
+        default: '5'
         type: string
+      force_update:
+        description: 'Re-analyze bills that already have analysis'
+        required: false
+        default: false
+        type: boolean
 
-# Only run one analysis at a time
+# Only run one analysis at a time (expensive operation)
 concurrency:
-  group: bill-analysis-pipeline
+  group: bill-ai-analysis
   cancel-in-progress: false
 
 jobs:
@@ -139,27 +141,42 @@ jobs:
           BILL_COUNT=$(ls data/bills/*.json 2>/dev/null | wc -l || echo "0")
 
           cat >> $GITHUB_STEP_SUMMARY << EOF
-          # 📊 Bill Analysis Pipeline Report
+          # 📊 AI Bill Analysis Report (Enrichment)
 
           ## Summary
           - **Date**: $(date -u +"%Y-%m-%d %H:%M UTC")
-          - **Bills Requested**: ${{ github.event.inputs.bill_count || '10' }}
+          - **Bills Analyzed with AI**: ${{ github.event.inputs.bill_count || '5' }}
           - **Total Bills in Database**: $BILL_COUNT
           - **Status**: ${{ job.status }}
           - **Changes Committed**: ${{ steps.check_changes.outputs.changes || 'N/A' }}
+          - **Force Re-analysis**: ${{ github.event.inputs.force_update || 'false' }}
 
-          ## Pipeline Steps
-          - ✓ Fetch bills from Congress.gov API
-          - ✓ Parse and chunk bill text
-          - ✓ Generate embeddings
-          - ✓ Analyze with Claude AI
-          - ✓ Audit for bias
-          - ✓ Save to repository
+          ## What This Does
+          This workflow adds expensive AI analysis to bills that were fetched by the
+          fetch-bills workflow. It enriches bill metadata with:
+
+          - 📝 Plain English summaries
+          - 🔑 Key provisions breakdown
+          - 💰 Fiscal impact analysis
+          - 👥 Practical impact for citizens
+          - 🎯 Topic categorization
+
+          ## AI Pipeline Steps
+          - ✓ Fetch bill text from Congress.gov
+          - ✓ Parse and chunk bill text (PDF/HTML)
+          - ✓ Generate semantic embeddings
+          - ✓ Analyze with Claude AI (expensive!)
+          - ✓ Audit for bias and accuracy
+          - ✓ Save enriched data
+
+          ## Cost Note
+          ⚠️ This workflow uses Claude API tokens. Each bill costs ~\$0.02-0.05.
+          Use the fetch-bills workflow for free metadata updates.
 
           ## Next Steps
-          - Data is now available in \`pipeline/data/bills/\`
+          - Enriched bill data in \`pipeline/data/bills/\`
           - Cloudflare Pages will rebuild automatically
-          - New analyses will be visible on openuspolitics.org
+          - Full analysis visible on openuspolitics.org
           EOF
 
       # Step 10: Upload logs as artifacts (for debugging)

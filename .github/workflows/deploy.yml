@@ -16,6 +16,10 @@ on:
       - 'tsconfig.json'
       - 'pipeline/data/**'
 
+  # Trigger when bill fetch workflow requests deploy
+  repository_dispatch:
+    types: [deploy-site]
+
   # Allow manual triggering from Actions tab
   workflow_dispatch:
 
