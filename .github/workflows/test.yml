@@ -77,13 +77,13 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
-      # Step 4: Run pytest (basic tests only)
+      # Step 4: Run pytest (unit tests only, skip integration tests)
       - name: Run tests with pytest
         run: |
           cd pipeline
-          pytest -v
+          pytest -v --ignore=simple_test.py
         env:
-          # Use dummy API keys for tests
+          # Use dummy API keys for unit tests
           CONGRESS_GOV_API_KEY: test_key_12345
           ANTHROPIC_API_KEY: test_key_67890
 

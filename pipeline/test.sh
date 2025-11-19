@@ -44,11 +44,14 @@ black --check --diff . --exclude='/(venv|__pycache__|\.pytest_cache)/'
 echo "✅ Black formatting passed"
 echo ""
 
-# Step 3: Run pytest
-echo "🧪 Running pytest..."
+# Step 3: Run pytest (unit tests only)
+echo "🧪 Running pytest (unit tests)..."
 echo "---"
-pytest -v --cov=. --cov-report=term --cov-report=html
+pytest -v --cov=. --cov-report=term --cov-report=html --ignore=simple_test.py
 echo "✅ Pytest passed"
+echo ""
+echo "ℹ️  Note: simple_test.py (integration tests) requires real API keys"
+echo "   To run integration tests: python3 simple_test.py"
 echo ""
 
 # Step 4: Generate coverage summary
