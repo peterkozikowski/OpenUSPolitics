@@ -82,6 +82,35 @@ logger = logging.getLogger(__name__)
 
 
 # ============================================================================
+# Utility Functions
+# ============================================================================
+
+
+def is_post_office_bill(title: str) -> bool:
+    """
+    Check if a bill is a trivial post office naming bill.
+
+    These bills are filtered out to save analysis costs and keep
+    the database focused on substantive legislation.
+
+    Args:
+        title: The bill title
+
+    Returns:
+        True if the bill is a post office naming bill
+
+    Examples:
+        >>> is_post_office_bill("To designate the United States Postal Service facility...")
+        True
+        >>> is_post_office_bill("Infrastructure Investment and Jobs Act")
+        False
+    """
+    title_lower = title.lower()
+    return ('united states postal service' in title_lower or
+            ('post office' in title_lower and 'designate' in title_lower))
+
+
+# ============================================================================
 # Pipeline Statistics
 # ============================================================================
 
@@ -269,7 +298,14 @@ def analyze_single_bill(
             logger.error(f"Could not fetch details for {bill_number}")
             return None
 
-        logger.info(f"  Title: {bill_details.get('title', 'N/A')[:100]}...")
+        title = bill_details.get('title', '')
+        logger.info(f"  Title: {title[:100]}...")
+
+        # Skip post office naming bills
+        if is_post_office_bill(title):
+            logger.info(f"  → Skipping post office naming bill: {bill_number}")
+            logger.info(f"     (Post office bills are filtered to save analysis costs)")
+            return None
 
         # Step 2: Get bill text
         logger.info("Step 2/7: Fetching bill text...")
@@ -487,6 +523,21 @@ def main(
                     logger.info(f"  → Skipping {bill_number} (already up to date)")
                     stats.add_skip(bill_number, "up to date")
                     continue
+
+                # Quick check: fetch bill title to filter post office bills early
+                congress_client = CongressAPIClient()
+                try:
+                    bill_details = congress_client.get_bill_details(bill_number)
+                    if bill_details:
+                        title = bill_details.get('title', '')
+                        if is_post_office_bill(title):
+                            logger.info(f"  → Skipping post office naming bill")
+                            logger.info(f"     Title: {title[:80]}...")
+                            stats.add_skip(bill_number, "post office naming bill")
+                            continue
+                except Exception as e:
+                    logger.warning(f"  Could not pre-check bill title: {e}")
+                    # Continue anyway and let analyze_single_bill handle it
 
                 # Analyze bill
                 result = analyze_single_bill(
